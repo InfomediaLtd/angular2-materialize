@@ -21,10 +21,11 @@ import "angular2-materialize";
 
 In your component, use it for dynamic behavior. For example, for collapsible panels:
 ```js
-import {Materialize} from "angualr2-materialize";
+import {MaterializeDirective} from "angualr2-materialize";
 
 @Component({
     selector: "my-component",
+    directives: [MaterializeDirective],
     template: `
         <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
           <li>
@@ -55,7 +56,7 @@ Apply an empty [Materialize](https://github.com/InfomediaLtd/angular2-materializ
 </form>
 ```
 
-The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize.ts) attribute directive (**materialize**) accepts any MaterializeCSS initialization call to apply to the element. The list of supported functions are provided by MaterializeCSS. Examples: collapsible, leanModal, tooltip, dropdown, tabs.
+The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize.ts) attribute directive (**materialize**) accepts any MaterializeCSS initialization call to apply to the element. The list of supported functions are provided by MaterializeCSS. Examples: collapsible, leanModal, tooltip, dropdown, tabs, material_select, sideNav, etc.
 
 For example, to apply tooltip:
 ```html

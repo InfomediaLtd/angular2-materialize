@@ -8,6 +8,8 @@ import {Directive, ElementRef, Input, AfterViewInit} from 'angular2/core';
   // "tabs" |
   // "tooltip" |
   // "characterCounter" |
+  // "material_select" |
+  // "sideNav" |
   // "leanModal";
 
 declare var $:any;
@@ -46,7 +48,12 @@ export class MaterializeDirective implements AfterViewInit {
             jQueryElement[this._functionName]();
           }
         } else {
-          throw new Error("Couldn't find materialize function ''" + this._functionName + "' on element.");
+          // fallback to running this function on the global Materialize object
+          if (Materialize[this._functionName]) {
+            Materialize[this._functionName]();
+          } else {
+            throw new Error("Couldn't find materialize function ''" + this._functionName + "' on element or the global Materialize object.");
+          }
         }
       }
     }

@@ -1,9 +1,9 @@
-import {Materialize} from "../../src/index";
+import {MaterializeDirective} from "../../src/index";
 import {Component} from "angular2/core"
 
 @Component({
     selector: "dialogs",
-    directives: [Materialize],
+    directives: [MaterializeDirective],
     template: `
       <!-- Modal Trigger -->
       <a materialize="leanModal" [materializeParams]="[{dismissible: false}]" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>

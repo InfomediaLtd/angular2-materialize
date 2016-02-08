@@ -1,9 +1,9 @@
-import {Materialize} from "../../src/index";
+import {MaterializeDirective} from "../../src/index";
 import {Component} from "angular2/core"
 
 @Component({
     selector: "dropdown",
-    directives: [Materialize],
+    directives: [MaterializeDirective],
     template: `
      <!-- Dropdown Trigger -->
      <a materialize="dropdown" class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>

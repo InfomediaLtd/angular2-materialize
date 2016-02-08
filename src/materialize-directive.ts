@@ -11,16 +11,18 @@ import {Directive, ElementRef, Input, AfterViewInit} from 'angular2/core';
   // "leanModal";
 
 declare var $:any;
+declare var Materialize:any;
 
 @Directive({
     selector: '[materialize]'
 })
-export class Materialize implements AfterViewInit {
+export class MaterializeDirective implements AfterViewInit {
 
     private _params:[any] = null;
     private _functionName:string = null;
 
-    constructor(private _el: ElementRef) { }
+    constructor(private _el: ElementRef) {
+    }
 
     @Input() set materializeParams(params:any){
       this._params = params;
@@ -30,6 +32,7 @@ export class Materialize implements AfterViewInit {
     }
 
     ngAfterViewInit() {
+      this.performElementUpdates();
       if (this._functionName) {
         const jQueryElement = $(this._el.nativeElement);
         if (jQueryElement[this._functionName]) {
@@ -45,9 +48,11 @@ export class Materialize implements AfterViewInit {
         } else {
           throw new Error("Couldn't find materialize function ''" + this._functionName + "' on element.");
         }
-      } else {
-        throw new Error("No materialize function specified.")
       }
+    }
+
+    performElementUpdates() {
+      Materialize.updateTextFields();
     }
 
 }

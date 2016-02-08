@@ -43,6 +43,18 @@ import {Materialize} from "angualr2-materialize";
 
 ```
 
+Apply an empty [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize.ts) attribute directive for top level components, like forms:
+```html
+<form materialize class="col s12">
+  <div class="row">
+    <div class="input-field col s6">
+      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+      <label for="first_name">First Name</label>
+    </div>
+  </div>
+</form>
+```
+
 The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize.ts) attribute directive (**materialize**) accepts any MaterializeCSS initialization call to apply to the element. The list of supported functions are provided by MaterializeCSS. Examples: collapsible, leanModal, tooltip, dropdown, tabs.
 
 For example, to apply tooltip:

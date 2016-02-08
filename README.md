@@ -10,7 +10,7 @@ Angular 2 support for Materialize CSS framework [https://github.com/Dogfalo/mate
 
 This library adds support for the Materialize CSS framework in Angular 2. It is needed to add the dynamic behavior of Materialize CSS that is using JavaScript rather than plain CSS.
 
-To use the library you need to import it once per project and then use its Materialize directive for binding it to any component that needs a dynamic behavior, like collapsible panels, tooltips, etc.
+To use the library you need to import it once per project and then use its MaterializeDirective directive for binding it to any component that needs a dynamic behavior, like collapsible panels, tooltips, etc.
 
 #### Using angular2-materialize
 
@@ -44,7 +44,7 @@ import {MaterializeDirective} from "angualr2-materialize";
 
 ```
 
-Apply an empty [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize.ts) attribute directive for top level components, like forms:
+Apply an empty [MaterializeDirective](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize-directive.ts) attribute directive for top level components, like forms:
 ```html
 <form materialize class="col s12">
   <div class="row">
@@ -56,7 +56,7 @@ Apply an empty [Materialize](https://github.com/InfomediaLtd/angular2-materializ
 </form>
 ```
 
-The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize.ts) attribute directive (**materialize**) accepts any MaterializeCSS initialization call to apply to the element. The list of supported functions are provided by MaterializeCSS. Examples: collapsible, leanModal, tooltip, dropdown, tabs, material_select, sideNav, etc.
+The [MaterializeDirective](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize-directive.ts) attribute directive (**materialize**) accepts any MaterializeCSS initialization call to apply to the element. The list of supported functions are provided by MaterializeCSS. Examples: collapsible, leanModal, tooltip, dropdown, tabs, material_select, sideNav, etc.
 
 For example, to apply tooltip:
 ```html

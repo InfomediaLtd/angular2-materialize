@@ -41,11 +41,9 @@
     "reflect-metadata": "0.1.2",
     "rimraf": "^2.4.4",
     "run-sequence": "^1.1.5",
-    "rxjs": "^5.0.0-beta.0",
     "semantic-release": "^4.3.5",
     "tsc": "^1.20150623.0",
-    "typescript": "^1.7.5",
-    "zone.js": "^0.5.11"
+    "typescript": "^1.7.5"
   },
   "config": {
     "commitizen": {

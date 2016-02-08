@@ -1,0 +1,29 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - master
+notifications:
+  email: false
+node_js:
+  - '4'
+before_install:
+  - npm i -g npm@^2.0.0
+before_script:
+  - npm prune
+script:
+  - jspm registry export github
+  - jspm config registries.github.remote https://github.jspm.io
+  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+  - jspm config registries.github.maxRepoSize 100
+  - jspm config registries.github.handler jspm-github
+  - jspm install
+  - npm run dist
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"

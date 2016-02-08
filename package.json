@@ -38,6 +38,7 @@
     "gulp": "^3.9.0",
     "gulp-rimraf": "^0.2.0",
     "gulp-typescript": "^2.10.0",
+    "jspm": "^0.16.27",
     "reflect-metadata": "0.1.2",
     "rimraf": "^2.4.4",
     "run-sequence": "^1.1.5",

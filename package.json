@@ -43,6 +43,7 @@
     "run-sequence": "^1.1.5",
     "semantic-release": "^4.3.5",
     "tsc": "^1.20150623.0",
+    "tsd": "^0.6.5",
     "typescript": "^1.7.5"
   },
   "config": {

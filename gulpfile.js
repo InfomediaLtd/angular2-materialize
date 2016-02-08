@@ -40,7 +40,7 @@ gulp.task('default', function (callback) {
         'copySources',
         'tsc',
         'copy',
-        // 'cleanup',
+        'cleanup',
         function (error) {
             if (error) {
                 console.log(error.message);

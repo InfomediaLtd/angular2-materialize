@@ -79,7 +79,44 @@ The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/mast
 </div>
 ```
 
-#### Installing angular2-materialize with JSPM
+#### Installing and configuring angular2-materialize with webpack
+
+Install MaterializeCSS and angular2-materialize from npm
+```sh
+npm install materialize-css --save
+npm install angular2-materialize --save
+```
+
+Add the Google MD fonts to your index.html:
+```html
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Add the following aliases and loader to your webpack configuration:
+```js
+module.exports = {
+  //...
+  resolve: {
+    alias: {
+    materializecss: 'materialize-css/dist/css/materialize.css',
+    materialize: 'materialize-css/dist/js/materialize.js',
+    //...
+  },
+  module: {
+    loaders: [
+      {
+        test: /materialize-css\/dist\/js\/materialize\.js/,
+        loader: 'imports?materializecss'
+      },
+      //...
+    ]
+  }
+  //...
+};
+```
+Notice that the imports loader is required for this setup.
+
+#### Installing and configuring angular2-materialize with jspm
 
 Install MaterializeCSS, by providing overrides for its dependencies:
 ```sh

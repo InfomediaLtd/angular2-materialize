@@ -7,7 +7,7 @@ import {Component} from "angular2/core"
         <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
         <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
         <br/>
-        <div class="fixed-action-btn horizontal click-to-toggle" style="top: 100px; right: 24px;">
+        <div class="fixed-action-btn horizontal click-to-toggle" style="top: 24px; right: 24px;">
           <a class="btn-floating btn-large red">
             <i class="large mdi-navigation-menu"></i>
           </a>

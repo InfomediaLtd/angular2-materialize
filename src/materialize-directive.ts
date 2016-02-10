@@ -1,4 +1,5 @@
 import {Directive, ElementRef, Input, AfterViewInit} from 'angular2/core';
+import {$,Materialize} from './materialize-providers';
 
 // This will only be supported in TS 1.8
 // export type MaterializeOptions =
@@ -11,9 +12,6 @@ import {Directive, ElementRef, Input, AfterViewInit} from 'angular2/core';
   // "material_select" |
   // "sideNav" |
   // "leanModal";
-
-declare var $:any;
-declare var Materialize:any;
 
 @Directive({
     selector: '[materialize]'

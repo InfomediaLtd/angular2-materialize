@@ -5,9 +5,9 @@ import {Dialogs} from "./components/dialogs";
 import {Dropdown} from "./components/dropdown";
 import {Collapsible} from "./components/collapsible";
 import {Buttons} from "./components/buttons";
-import {Component} from "angular2/core"
-import {RouteConfig, ROUTER_DIRECTIVES, Location} from "angular2/router"
-import "../src/index"
+import {Component} from "angular2/core";
+import {RouteConfig, ROUTER_DIRECTIVES, Location} from "angular2/router";
+import "../src/index";
 
 @Component({
     selector: "my-app",
@@ -50,6 +50,4 @@ import "../src/index"
   {path: "/forms", component: Forms, name: "Forms"},
   {path: "/tabs", component: Tabs, name: "Tabs"}
 ])
-export class App {
-
-}
+export class App { }

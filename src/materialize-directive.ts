@@ -1,5 +1,7 @@
 import {Directive, ElementRef, Input, AfterViewInit} from 'angular2/core';
-import {$,Materialize} from './materialize-providers';
+
+declare var $:any;
+declare var Materialize:any;
 
 // This will only be supported in TS 1.8
 // export type MaterializeOptions =

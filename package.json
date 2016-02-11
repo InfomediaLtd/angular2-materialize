@@ -7,7 +7,14 @@
     "commit": "git-cz",
     "clean": "rimraf dist",
     "dist": "gulp",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "deploy-app": "npm-run-all deploy-app:*",
+      "deploy-app:clean": "rm -rf dist/app",
+      "deploy-app:bundle": "jspm bundle-sfx app dist/app/index.js",
+      "deploy-app:copy-index": "cat index.html | tr '\n' ' ' | sed 's/<script.*<\\/script>//g' > dist/app/index.html",
+      "deploy-app:append-script": "echo \"<script src='index.js'><\/script>\" >> dist/app/index.html",
+      "deploy-app:copy-resources": "rsync -Ravz jspm_packages/github/Dogfalo/materialize@*/font/ dist/app",
+      "deploy-app:deploy": "surge -p dist/app -d angular2-materialize.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -38,7 +45,8 @@
     "gulp": "^3.9.0",
     "gulp-rimraf": "^0.2.0",
     "gulp-typescript": "^2.10.0",
-    "jspm": "^0.16.27",
+    "jspm": "0.16.19",
+    "npm-run-all": "^1.5.1",
     "reflect-metadata": "0.1.2",
     "rimraf": "^2.4.4",
     "run-sequence": "^1.1.5",
@@ -65,7 +73,8 @@
       "zone.js": "npm:zone.js@^0.5.11"
     },
     "devDependencies": {
-      "typescript": "npm:typescript@^1.6.2"
+      "clean-css": "npm:clean-css@^3.4.9",
+      "typescript": "npm:typescript@^1.7.5"
     },
     "overrides": {
       "github:Dogfalo/materialize@0.97.5": {

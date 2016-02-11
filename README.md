@@ -12,6 +12,8 @@ Angular 2 support for Materialize CSS framework [https://github.com/Dogfalo/mate
 
 This library adds support for the Materialize CSS framework in Angular 2. It is needed to add the dynamic behavior of Materialize CSS that is using JavaScript rather than plain CSS.
 
+View minimal demo here: [http://angular2-materialize.surge.sh](http://angular2-materialize.surge.sh/)
+
 To use the library you need to import it once per project and then use its MaterializeDirective directive for binding it to any component that needs a dynamic behavior, like collapsible panels, tooltips, etc.
 
 #### Using angular2-materialize
@@ -117,6 +119,28 @@ module.exports = {
 };
 ```
 Notice that the imports loader is required for this setup.
+
+###### Loading CSS as styles
+
+If you are loading CSS with raw-loader, the above setup will not be able to load the MaterializeCSS styles properly.
+
+To work around this, without changing the way CSS is handled across the app, add the following loader to match the materialize.css specifically and load it with the style loader:
+```js
+{ test: /materialize\.css$/,   loader: 'style-loader!css-loader' },
+```
+Then, update the css loader to apply only to CSS that is not "materialize":
+```js
+// Support for CSS as raw text (do not match 'materialize')
+{ test: /^((?!materialize).)*\.css$/,   loader: 'raw-loader' },
+```
+
+###### Loading additional resources
+
+Another thing you would need to confirm is being able to load web fonts properly:
+```js
+{ test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' },
+```
+Notice that the url loader is required for this to work.
 
 #### Installing and configuring angular2-materialize with jspm
 

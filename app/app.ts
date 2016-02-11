@@ -18,26 +18,9 @@ import "../src/index";
         <sideNav></sideNav>
 
         <main>
-          <br/><br/>
+          <h3>Angular2 Materialize Examples</h3>
+          <br/>
           <router-outlet></router-outlet>
-          <!--<h5>Buttons</h5>
-          <buttons></buttons>
-          <br/>
-          <h5>Collapsible</h5>
-          <collapsible></collapsible>
-          <br/>
-          <h5>Dropdown</h5>
-          <dropdown></dropdown>
-          <br/>
-          <h5>Dialogs</h5>
-          <dialogs></dialogs>
-          <br/>
-          <h5>Tabs</h5>
-          <tabs></tabs>
-          <br/>
-          <h5>Forms</h5>
-          <forms></forms>
-          <br/>-->
         </main>
 
     `

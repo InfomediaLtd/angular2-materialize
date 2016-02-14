@@ -28,6 +28,7 @@ export class MaterializeDirective implements AfterViewInit {
 
     @Input() set materializeParams(params:any){
       this._params = params;
+      this.performElementUpdates();
     }
     @Input() set materialize(functionName:string){
       this._functionName = functionName;
@@ -35,6 +36,13 @@ export class MaterializeDirective implements AfterViewInit {
 
     ngAfterViewInit() {
       this.performElementUpdates();
+    }
+
+    performElementUpdates() {
+      // it should have been created by now, but confirm anyway
+      if (Materialize && Materialize.updateTextFields) {
+        Materialize.updateTextFields();
+      }
       if (this._functionName) {
         const jQueryElement = $(this._el.nativeElement);
         if (jQueryElement[this._functionName]) {
@@ -55,13 +63,6 @@ export class MaterializeDirective implements AfterViewInit {
             throw new Error("Couldn't find materialize function ''" + this._functionName + "' on element or the global Materialize object.");
           }
         }
-      }
-    }
-
-    performElementUpdates() {
-      // it should have been created by now, but confirm anyway
-      if (Materialize && Materialize.updateTextFields) {
-        Materialize.updateTextFields();
       }
     }
 

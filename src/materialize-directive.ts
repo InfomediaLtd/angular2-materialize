@@ -59,7 +59,7 @@ export class MaterializeDirective implements AfterViewInit {
     }
 
     performElementUpdates() {
-      // it should have been created by now
+      // it should have been created by now, but confirm anyway
       if (Materialize && Materialize.updateTextFields) {
         Materialize.updateTextFields();
       }

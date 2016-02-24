@@ -25,6 +25,8 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
 
     private previousValue = null;
 
+    private changeListenerShouldBeAdded = true;
+
     constructor(private _el: ElementRef) {
     }
 
@@ -36,25 +38,35 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
       this._functionName = functionName;
     }
 
-    ngAfterViewInit() {
+    private ngAfterViewInit() {
       this.performElementUpdates();
     }
 
-    ngDoCheck() {
-      if (this._functionName && this._functionName === "material_select") {
-        if (this._el.nativeElement.value!=this.previousValue) {
-          this.previousValue = this._el.nativeElement.value;
-          this.performElementUpdates();
-        }
+    private ngDoCheck() {
+      const nativeElement = this._el.nativeElement;
+      if (this.isSelect() && nativeElement.value!=this.previousValue) {
+        // handle select changes of the model
+        this.previousValue = nativeElement.value;
+        this.performLocalElementUpdates();
       }
       return false;
     }
 
-    performElementUpdates() {
+    private performElementUpdates() {
       // it should have been created by now, but confirm anyway
       if (Materialize && Materialize.updateTextFields) {
         Materialize.updateTextFields();
       }
+      // handle select changes from the HTML
+      if (this.isSelect() && this.changeListenerShouldBeAdded) {
+        const nativeElement = this._el.nativeElement;
+        const jQueryElement = $(nativeElement);
+        jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
+        this.changeListenerShouldBeAdded = false;
+      }
+      this.performLocalElementUpdates();
+    }
+    private performLocalElementUpdates() {
       if (this._functionName) {
         const jQueryElement = $(this._el.nativeElement);
         if (jQueryElement[this._functionName]) {
@@ -75,13 +87,11 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
             throw new Error("Couldn't find materialize function ''" + this._functionName + "' on element or the global Materialize object.");
           }
         }
-        // handle select
-        if (this._functionName === "material_select") {
-          jQueryElement.change((e) => {
-            this._el.nativeElement.dispatchEvent(new Event("input"));
-          });
-        }
       }
+    }
+
+    private isSelect() {
+      return (this._functionName && this._functionName === "material_select");
     }
 
 }

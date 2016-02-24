@@ -38,11 +38,11 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
       this._functionName = functionName;
     }
 
-    ngAfterViewInit() {
+    public ngAfterViewInit() {
       this.performElementUpdates();
     }
 
-    ngDoCheck() {
+    public ngDoCheck() {
       const nativeElement = this._el.nativeElement;
       if (this.isSelect() && nativeElement.value!=this.previousValue) {
         // handle select changes of the model

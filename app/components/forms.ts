@@ -8,7 +8,7 @@ import {Component} from "angular2/core"
         <form materialize class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+              <input [(ngModel)]="firstName" placeholder="Placeholder" id="first_name" type="text" class="validate">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
@@ -56,18 +56,27 @@ import {Component} from "angular2/core"
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
-              <select materialize="material_select">
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select>
-                <label>Materialize Select</label>
+            <div class="input-field col s6">
+              <select [(ngModel)]="selectedOption" materialize="material_select">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+              <label>Materialize Select</label>
+            </div>
+            <div class="input-field col s6">
+              <select [(ngModel)]="selectedOption" materialize="material_select">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+              <label>Materialize Select</label>
             </div>
           </div>
           <div class="row">
-            <div class="switch">
+            <div class="col s6 switch">
               <label>
                 Off
                 <input type="checkbox">
@@ -77,6 +86,17 @@ import {Component} from "angular2/core"
             </div>
           </div>
         </form>
+        <br/><hr/><hr/><br/>
+        <div class="row">
+          <div class="col s6">First Name: {{firstName}}</div>
+        </div>
+        <div class="row">
+          <div class="col s6">Selected Option: {{selectedOption}}</div>
+        </div>
     `
 })
-export class Forms {}
+export class Forms {
+  private firstName = "";
+  private selectedOption = "";
+
+}

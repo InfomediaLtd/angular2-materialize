@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, AfterViewInit} from 'angular2/core';
+import {Directive, ElementRef, Input, DoCheck, AfterViewInit} from 'angular2/core';
 
 declare var $:any;
 declare var Materialize:any;
@@ -18,10 +18,12 @@ declare var Materialize:any;
 @Directive({
     selector: '[materialize]'
 })
-export class MaterializeDirective implements AfterViewInit {
+export class MaterializeDirective implements AfterViewInit,DoCheck {
 
     private _params:[any] = null;
     private _functionName:string = null;
+
+    private previousValue = null;
 
     constructor(private _el: ElementRef) {
     }
@@ -36,6 +38,16 @@ export class MaterializeDirective implements AfterViewInit {
 
     ngAfterViewInit() {
       this.performElementUpdates();
+    }
+
+    ngDoCheck() {
+      if (this._functionName && this._functionName === "material_select") {
+        if (this._el.nativeElement.value!=this.previousValue) {
+          this.previousValue = this._el.nativeElement.value;
+          this.performElementUpdates();
+        }
+      }
+      return false;
     }
 
     performElementUpdates() {
@@ -62,6 +74,12 @@ export class MaterializeDirective implements AfterViewInit {
           } else {
             throw new Error("Couldn't find materialize function ''" + this._functionName + "' on element or the global Materialize object.");
           }
+        }
+        // handle select
+        if (this._functionName === "material_select") {
+          jQueryElement.change((e) => {
+            this._el.nativeElement.dispatchEvent(new Event("input"));
+          });
         }
       }
     }

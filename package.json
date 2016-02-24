@@ -9,12 +9,12 @@
     "dist": "gulp",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "deploy-app": "npm-run-all deploy-app:*",
-      "deploy-app:clean": "rm -rf dist/app",
-      "deploy-app:bundle": "jspm bundle-sfx app dist/app/index.js",
-      "deploy-app:copy-index": "cat index.html | tr '\n' ' ' | sed 's/<script.*<\\/script>//g' > dist/app/index.html",
-      "deploy-app:append-script": "echo \"<script src='index.js'><\/script>\" >> dist/app/index.html",
-      "deploy-app:copy-resources": "rsync -Ravz jspm_packages/github/Dogfalo/materialize@*/font/ dist/app",
-      "deploy-app:deploy": "surge -p dist/app -d angular2-materialize.surge.sh"
+    "deploy-app:clean": "rm -rf dist/app",
+    "deploy-app:bundle": "jspm bundle-sfx app dist/app/index.js",
+    "deploy-app:copy-index": "cat index.html | tr '\n' ' ' | sed 's/<script.*<\\/script>//g' > dist/app/index.html",
+    "deploy-app:append-script": "echo \"<script src='index.js'></script>\" >> dist/app/index.html",
+    "deploy-app:copy-resources": "rsync -Ravz jspm_packages/github/Dogfalo/materialize@*/font/ dist/app",
+    "deploy-app:deploy": "surge -p dist/app -d angular2-materialize.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
   "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
   "dependencies": {},
   "devDependencies": {
-    "angular2": "^2.0.0-beta.3",
+    "angular2": "^2.0.0-beta.6",
     "commitizen": "^2.4.6",
     "cz-conventional-changelog": "^1.1.5",
     "es6-shim": "^0.33.3",
@@ -66,11 +66,12 @@
   "jspmNodeConversion": false,
   "jspm": {
     "dependencies": {
-      "angular2": "npm:angular2@^2.0.0-beta.3",
+      "angular2": "npm:angular2@^2.0.0-beta.6",
+      "jquery": "npm:jquery@^2.2.1",
       "materialize": "github:Dogfalo/materialize@^0.97.5",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3",
-      "rxjs": "npm:rxjs@^5.0.0-beta.0",
-      "zone.js": "npm:zone.js@^0.5.11"
+      "rxjs": "npm:rxjs@^5.0.0-beta.2",
+      "zone.js": "npm:zone.js@^0.5.14"
     },
     "devDependencies": {
       "clean-css": "npm:clean-css@^3.4.9",

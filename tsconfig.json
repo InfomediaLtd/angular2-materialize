@@ -9,12 +9,8 @@
     "noImplicitAny": false,
     "outDir": "build"
   },
-  "exclude": [
-    "jspm_packages",
-    "node_modules",
-    "dist",
-    "test",
-    "typings/main.d.ts",
-    "typings/main"
+  "files": [
+    "app/main.ts",
+    "node_modules/typescript/lib/lib.es6.d.ts"
   ]
 }

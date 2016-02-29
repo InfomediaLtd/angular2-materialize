@@ -9,12 +9,12 @@
     "dist": "gulp",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "deploy-app": "npm-run-all deploy-app:*",
-    "deploy-app:clean": "rm -rf dist/app",
-    "deploy-app:bundle": "jspm bundle-sfx app dist/app/index.js",
-    "deploy-app:copy-index": "cat index.html | tr '\n' ' ' | sed 's/<script.*<\\/script>//g' > dist/app/index.html",
-    "deploy-app:append-script": "echo \"<script src='index.js'></script>\" >> dist/app/index.html",
-    "deploy-app:copy-resources": "rsync -Ravz jspm_packages/github/Dogfalo/materialize@*/font/ dist/app",
-    "deploy-app:deploy": "surge -p dist/app -d angular2-materialize.surge.sh"
+      "deploy-app:clean": "rm -rf dist/app",
+      "deploy-app:bundle": "jspm bundle-sfx app dist/app/index.js",
+      "deploy-app:copy-index": "cat index.html | tr '\n' ' ' | sed 's/<script.*<\\/script>//g' > dist/app/index.html",
+      "deploy-app:append-script": "echo \"<script src='index.js'></script>\" >> dist/app/index.html",
+      "deploy-app:copy-resources": "rsync -Ravz jspm_packages/github/Dogfalo/materialize@*/font/ dist/app",
+      "deploy-app:deploy": "surge -p dist/app -d angular2-materialize.surge.sh"
   },
   "repository": {
     "type": "git",

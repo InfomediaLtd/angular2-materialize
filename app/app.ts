@@ -31,6 +31,6 @@ import "../src/index";
   {path: "/dialogs", component: Dialogs, name: "Dialogs"},
   {path: "/dropdowns", component: Dropdown, name: "Dropdown"},
   {path: "/forms", component: Forms, name: "Forms"},
-  {path: "/tabs", component: Tabs, name: "Tabs"}
+  {path: "/tabs/...", component: Tabs, name: "Tabs"}
 ])
 export class App { }

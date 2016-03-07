@@ -102,8 +102,10 @@ module.exports = {
   //...
   resolve: {
     alias: {
-    materializecss: 'materialize-css/dist/css/materialize.css',
-    materialize: 'materialize-css/dist/js/materialize.js',
+      materializecss: 'materialize-css/dist/css/materialize.css',
+      materialize: 'materialize-css/dist/js/materialize.js',
+      //...
+    },
     //...
   },
   module: {

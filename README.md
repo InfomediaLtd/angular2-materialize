@@ -105,7 +105,7 @@ module.exports = {
       materializecss: 'materialize-css/dist/css/materialize.css',
       materialize: 'materialize-css/dist/js/materialize.js',
       //...
-    },
+    }
     //...
   },
   module: {
@@ -130,7 +130,7 @@ To work around this, without changing the way CSS is handled across the app, add
 ```js
 { test: /materialize\.css$/,   loader: 'style-loader!css-loader' },
 ```
-Then, update the css loader to apply only to CSS that is not "materialize":
+Then, update the css loader to apply only to CSS that is not "materialize". If your CSS loader already ignores all modules in node_mofules then this is not required.
 ```js
 // Support for CSS as raw text (do not match 'materialize')
 { test: /^((?!materialize).)*\.css$/,   loader: 'raw-loader' },
@@ -143,6 +143,8 @@ Another thing you would need to confirm is being able to load web fonts properly
 { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' },
 ```
 Notice that the url loader is required for this to work.
+
+The following example project is a fork of the angular2-webpack-starter with the addition of angular2-materialize: [InfomediaLtd/angular2-webpack-starter](https://github.com/InfomediaLtd/angular2-webpack-starter)
 
 #### Installing and configuring angular2-materialize with jspm
 

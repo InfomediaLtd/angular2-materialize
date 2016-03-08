@@ -91,13 +91,20 @@ npm install materialize-css --save
 npm install angular2-materialize --save
 ```
 
+MaterializeCSS required jQuery and HammerJS:
+```sh
+npm install jquery --save
+npm install hammerjs --save
+```
+
 Add the Google MD fonts to your index.html:
 ```html
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
-Add the following aliases and loader to your webpack configuration:
+Add the following aliases, loader and plugin to your webpack configuration:
 ```js
+var webpack = require("webpack");
 module.exports = {
   //...
   resolve: {
@@ -116,7 +123,14 @@ module.exports = {
       },
       //...
     ]
-  }
+  },
+  plugins: [
+      new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          Hammer: "hammerjs/hammer"
+      })
+  ]
   //...
 };
 ```

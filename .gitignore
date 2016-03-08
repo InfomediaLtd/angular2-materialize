@@ -1,5 +1,6 @@
 build
 dist
+webpack-dist
 jspm_packages
 node_modules
 typings

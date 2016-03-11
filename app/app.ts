@@ -5,13 +5,14 @@ import {Dialogs} from "./components/dialogs";
 import {Dropdown} from "./components/dropdown";
 import {Collapsible} from "./components/collapsible";
 import {Buttons} from "./components/buttons";
+import {ActionsMain} from "./components/actions/main";
 import {Component} from "angular2/core";
 import {RouteConfig, ROUTER_DIRECTIVES, Location} from "angular2/router";
 import "../src/index";
 
 @Component({
     selector: "my-app",
-    directives: [ROUTER_DIRECTIVES, Buttons, Collapsible, Dropdown, Dialogs, Tabs, Forms, SideNav],
+    directives: [ROUTER_DIRECTIVES, Buttons, Collapsible, Dropdown, Dialogs, Tabs, Forms, SideNav, ActionsMain],
     styles: [`header, main, footer { padding-left: 260px; }`],
     template: `
 
@@ -31,6 +32,7 @@ import "../src/index";
   {path: "/dialogs", component: Dialogs, name: "Dialogs"},
   {path: "/dropdowns", component: Dropdown, name: "Dropdown"},
   {path: "/forms", component: Forms, name: "Forms"},
-  {path: "/tabs/...", component: Tabs, name: "Tabs"}
+  {path: "/tabs/...", component: Tabs, name: "Tabs"},
+  {path: "/actions", component: ActionsMain, name: "Actions"}
 ])
 export class App { }

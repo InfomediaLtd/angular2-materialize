@@ -29,7 +29,6 @@ export class SideNav {
   private routeNames = ["Buttons", "Collapsible", "Dialogs", "Dropdown", "Forms", "Tabs", "DatePicker", "ModelBindings"];
 
   constructor(private _location:Location, private _router:Router) {
-    console.log(_router);
   }
 
   public isActive(routeName) {

@@ -5,6 +5,7 @@ import {Dialogs} from "./components/dialogs";
 import {Dropdown} from "./components/dropdown";
 import {Collapsible} from "./components/collapsible";
 import {Buttons} from "./components/buttons";
+import {DatePicker} from "./components/datepicker";
 import {ActionsMain} from "./components/actions/main";
 import {Component} from "angular2/core";
 import {RouteConfig, ROUTER_DIRECTIVES, Location} from "angular2/router";
@@ -33,6 +34,7 @@ import "../src/index";
   {path: "/dropdowns", component: Dropdown, name: "Dropdown"},
   {path: "/forms", component: Forms, name: "Forms"},
   {path: "/tabs/...", component: Tabs, name: "Tabs"},
-  {path: "/actions", component: ActionsMain, name: "Actions"}
+  {path: "/datepicker", component: DatePicker, name: "DatePicker"},  
+  {path: "/actions", component: ActionsMain, name: "Actions"},
 ])
 export class App { }

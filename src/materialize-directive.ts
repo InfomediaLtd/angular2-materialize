@@ -51,7 +51,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
       }
       return false;
     }
-
+    
     private performElementUpdates() {
       // it should have been created by now, but confirm anyway
       if (Materialize && Materialize.updateTextFields) {
@@ -64,6 +64,52 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
         jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
         this.changeListenerShouldBeAdded = false;
       }
+      
+      if (this.isDatePicker() && this.changeListenerShouldBeAdded) {
+        const nativeElement = this._el.nativeElement;
+        const jQueryElement = $(nativeElement);
+        const enablebtns = this.enableDPButtons;
+
+        jQueryElement[this._functionName](...this._params);
+        
+        const datePickerPopUp = jQueryElement.siblings().first();
+        
+        jQueryElement.on('click', function(){
+            datePickerPopUp.addClass('picker--focused picker--opened');
+
+            enablebtns();
+            
+
+            //close on side click
+            $('.picker__holder').click(function(event){
+                if(event.target.className === 'picker__holder'){
+                    datePickerPopUp.removeClass('picker--focused picker--opened');
+                }
+            });
+            
+            jQueryElement.change(() => {
+                setTimeout(function() {
+                    enablebtns()     
+                }, 10);
+            });
+            
+            $('.picker__select--year').on('change', function(){
+                setTimeout(function() {
+                    enablebtns();
+                }, 10);
+            });
+            
+            $('.picker__select--month').on('change', function(){
+                setTimeout(function() {
+                    enablebtns();
+                }, 10);
+            });
+            
+        });
+        
+        this.changeListenerShouldBeAdded = false;
+      }
+      
       this.performLocalElementUpdates();
     }
     private performLocalElementUpdates() {
@@ -94,4 +140,14 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
       return (this._functionName && this._functionName === "material_select");
     }
 
+    private isDatePicker() {
+      return (this._functionName && this._functionName === "pickadate");
+    }
+    private enableDPButtons(){
+        $('.picker__clear').removeAttr("disabled");
+        $('.picker__today').removeAttr("disabled");
+        $('.picker__close').removeAttr("disabled");
+        $('.picker__select--year').removeAttr("disabled");
+        $('.picker__select--month').removeAttr("disabled");
+    }
 }

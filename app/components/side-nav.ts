@@ -26,7 +26,7 @@ import {Router, RouterLink, Location} from "angular2/router"
 })
 export class SideNav {
 
-  private routeNames = ["Buttons", "Collapsible", "Dialogs", "Dropdown", "Forms", "Tabs"];
+  private routeNames = ["Buttons", "Collapsible", "Dialogs", "Dropdown", "Forms", "Tabs", "DatePicker", "Actions"];
 
   constructor(private _location:Location, private _router:Router) {
   }

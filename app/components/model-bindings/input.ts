@@ -1,6 +1,6 @@
 import {Component, EventEmitter} from "angular2/core";
 import {MaterializeDirective} from "../../../src/index";
-
+import * as Materialize from "../../../src/index";
 
 @Component({
     selector: "materialInput",
@@ -8,12 +8,12 @@ import {MaterializeDirective} from "../../../src/index";
     inputs: ['model: model'],
     outputs: ['modelChange'],
     template: `
-    <div class="row">
-        <div class="input-field col s6">
-          <input [ngModel]="model" (ngModelChange)="change($event)" id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-    </div>
+      <div class="row">
+          <div class="input-field col s6">
+            <input [ngModel]="model" (ngModelChange)="change($event)" id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+      </div>
 `
 })
 export class MaterialInput {
@@ -21,7 +21,7 @@ export class MaterialInput {
     modelChange = new EventEmitter();
 
    change(newValue) {
-      console.log('child input: ', newValue)
+      Materialize.toast(`child input: ${newValue}`, 500);
       this.model = newValue;
       this.modelChange.emit(newValue);
     }

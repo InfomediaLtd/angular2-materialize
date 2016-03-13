@@ -6,14 +6,14 @@ import {Dropdown} from "./components/dropdown";
 import {Collapsible} from "./components/collapsible";
 import {Buttons} from "./components/buttons";
 import {DatePicker} from "./components/datepicker";
-import {ActionsMain} from "./components/actions/main";
+import {ModelBindings} from "./components/model-bindings/model-bindings";
 import {Component} from "angular2/core";
 import {RouteConfig, ROUTER_DIRECTIVES, Location} from "angular2/router";
 import "../src/index";
 
 @Component({
     selector: "my-app",
-    directives: [ROUTER_DIRECTIVES, Buttons, Collapsible, Dropdown, Dialogs, Tabs, Forms, SideNav, ActionsMain],
+    directives: [ROUTER_DIRECTIVES, Buttons, Collapsible, Dropdown, Dialogs, Tabs, Forms, SideNav, ModelBindings],
     styles: [`header, main, footer { padding-left: 260px; }`],
     template: `
 
@@ -34,7 +34,7 @@ import "../src/index";
   {path: "/dropdowns", component: Dropdown, name: "Dropdown"},
   {path: "/forms", component: Forms, name: "Forms"},
   {path: "/tabs/...", component: Tabs, name: "Tabs"},
-  {path: "/datepicker", component: DatePicker, name: "DatePicker"},  
-  {path: "/actions", component: ActionsMain, name: "Actions"},
+  {path: "/datepicker", component: DatePicker, name: "DatePicker"},
+  {path: "/modelbindings", component: ModelBindings, name: "ModelBindings"},
 ])
 export class App { }

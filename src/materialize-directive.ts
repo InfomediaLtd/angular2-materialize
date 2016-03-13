@@ -51,7 +51,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
       }
       return false;
     }
-    
+
     private performElementUpdates() {
       // it should have been created by now, but confirm anyway
       if (Materialize && Materialize.updateTextFields) {
@@ -64,49 +64,49 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
         jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
         this.changeListenerShouldBeAdded = false;
       }
-      
+
       if (this.isDatePicker()) {
         const nativeElement = this._el.nativeElement;
         const jQueryElement = $(nativeElement);
         const enablebtns = this.enableDPButtons;
 
         jQueryElement[this._functionName](...this._params);
-        
-        const datePickerPopUp = jQueryElement.siblings().first();
-        
+
+        const datePickerPopUp = jQueryElement.siblings(".picker").first();
+
         jQueryElement.on('click', function(){
             datePickerPopUp.addClass('picker--focused picker--opened');
 
             enablebtns();
-            
+
             //close on side click
             $('.picker__holder').click(function(event){
                 if(event.target.className === 'picker__holder'){
                     datePickerPopUp.removeClass('picker--focused picker--opened');
                 }
             });
-            
+
             jQueryElement.change(() => {
                 setTimeout(function() {
-                    enablebtns()     
+                    enablebtns()
                 }, 10);
             });
-            
+
             $('.picker__select--year').on('change', function(){
                 setTimeout(function() {
                     enablebtns();
                 }, 10);
             });
-            
+
             $('.picker__select--month').on('change', function(){
                 setTimeout(function() {
                     enablebtns();
                 }, 10);
             });
-            
+
         });
       }
-      
+
       this.performLocalElementUpdates();
     }
     private performLocalElementUpdates() {

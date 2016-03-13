@@ -5,7 +5,17 @@ import {Component} from "angular2/core"
     selector: "datePicker",
     directives: [MaterializeDirective],
     template: `
-    <input materialize="pickadate" [materializeParams]="[{selectMonths: true, selectYears: 15}]" type="text" />
+      <form materialize class="col s12">
+        <div class="row">
+          <div class="col s6">
+            <label for="birthdate">Birthdate</label>
+            <input id="birthdate"
+                   materialize="pickadate"
+                   [materializeParams]="[{selectMonths: true, selectYears: 15}]"
+                   type="text" />
+          </div>
+        </div>
+      </form>
     `
 })
 export class DatePicker {}

@@ -65,7 +65,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
         this.changeListenerShouldBeAdded = false;
       }
       
-      if (this.isDatePicker() && this.changeListenerShouldBeAdded) {
+      if (this.isDatePicker()) {
         const nativeElement = this._el.nativeElement;
         const jQueryElement = $(nativeElement);
         const enablebtns = this.enableDPButtons;
@@ -79,7 +79,6 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
 
             enablebtns();
             
-
             //close on side click
             $('.picker__holder').click(function(event){
                 if(event.target.className === 'picker__holder'){
@@ -106,8 +105,6 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
             });
             
         });
-        
-        this.changeListenerShouldBeAdded = false;
       }
       
       this.performLocalElementUpdates();

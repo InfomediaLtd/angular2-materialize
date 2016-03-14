@@ -25,7 +25,7 @@ import "angular2-materialize";
 
 In your component, use it for dynamic behavior. For example, for collapsible panels:
 ```js
-import {MaterializeDirective} from "angualr2-materialize";
+import {MaterializeDirective} from "angular2-materialize";
 
 @Component({
     selector: "my-component",

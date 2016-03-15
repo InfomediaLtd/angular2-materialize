@@ -71,6 +71,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
         const enablebtns = this.enableDPButtons;
 
         jQueryElement[this._functionName](...this._params);
+        jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
 
         const datePickerPopUp = jQueryElement.siblings(".picker").first();
 

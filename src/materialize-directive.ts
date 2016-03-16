@@ -3,7 +3,6 @@ import {Directive, ElementRef, Input, DoCheck, AfterViewInit} from 'angular2/cor
 declare var $:any;
 declare var Materialize:any;
 
-// This will only be supported in TS 1.8
 // export type MaterializeOptions =
   // "collapsible" |
   // "dropdown" |

@@ -164,7 +164,7 @@ The following example project is a fork of the angular2-webpack-starter with the
 
 Install MaterializeCSS, by providing overrides for its dependencies:
 ```sh
-jspm install materialize=github:Dogfalo/materialize -o "{'main': 'js/materialize','shim': {'js/materialize': {'deps': ['jquery','../css/materialize.css!'],'exports': '$'}},'dependencies': {'jquery': 'github:components/jquery','css': 'github:systemjs/plugin-css'}}"
+jspm install materialize=npm:materialize-css -o "{'shim': {'dist/js/materialize': {'deps': ['jquery','../css/materialize.css!'], 'exports': '$'}}}"
 ```
 
 Install angular2-materialize
@@ -184,7 +184,7 @@ System.config({
   packages: {
     ...
     "materialize": {
-      "main": "js/materialize"
+      "main": "dist/js/materialize"
     }
   },
 ```

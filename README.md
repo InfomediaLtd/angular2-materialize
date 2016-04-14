@@ -189,3 +189,33 @@ System.config({
     }
   },
 ```
+
+#### An example setup with SystemJS (no Webpack nor JSPM)
+
+```html
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+<link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css" media="screen,projection" />
+<!-- Import jQuery before materialize.js -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+System.config({
+    defaultJSExtensions: true,
+    packages: {
+        "materialize-css": {
+            "main": "dist/js/materialize"
+        },
+        "materialize": {
+            "main": "dist/materialize-directive",
+            "defaultExtension": "js"
+        }
+    },
+    map: {
+        "materialize-css": "node-modules/materialize-css",
+        "materialize": "node_modules/angular2-materialize",
+        "angular2-materialize": "node_modules/angular2-materialize"
+    }
+});
+```

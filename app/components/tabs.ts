@@ -19,7 +19,7 @@ class TabsTest4 {}
         <div class="row">
           <div class="col s12">
             <ul materialize="tabs" [materializeParams]="tabSelectionParams" class="tabs">
-              <li [class]="'tab col s3' + (tab.disabled?' disabled':'')" *ngFor="#tab of tabs">
+              <li class="tab col s3" [class.disabled]="tab.disabled" *ngFor="#tab of tabs">
                 <a [href]="'#'+tab.route" (click)="$event.preventDefault();routeTo(tab.route)">{{tab.name}}</a>
               </li>
             </ul>

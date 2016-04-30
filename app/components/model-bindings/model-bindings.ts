@@ -30,7 +30,7 @@ import * as Materialize from "../../../src/index";
              <h4>Datepicker model binding</h4>
                 <div class="row">
                     <div class="input-field col s6">
-                            <input type="text" [(ngModel)]="datepicker" materialize="pickadate" />
+                            <input type="text" [(ngModel)]="datepicker" materialize="pickadate" [materializeParams]="[{format:'dd/mm/yyyy'}]" />
                     </div>
                 </div>
             <p>{{ datepicker }}</p>
@@ -45,8 +45,8 @@ export class ModelBindings {
     inputVal : string;
     datepicker: string;
     constructor() {
-        
-        this.datepicker = '12/12/12';
+
+        this.datepicker = '01/02/2016';
 
         // input
         this.inputVal="Materialize is awesome!";

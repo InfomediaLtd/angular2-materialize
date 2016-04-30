@@ -1,6 +1,7 @@
 import {SideNav} from "./components/side-nav";
 import {Forms} from "./components/forms";
 import {Tabs} from "./components/tabs";
+import {TabsRouting} from "./components/tabs-routing";
 import {Dialogs} from "./components/dialogs";
 import {Dropdown} from "./components/dropdown";
 import {Collapsible} from "./components/collapsible";
@@ -13,7 +14,7 @@ import "../src/index";
 
 @Component({
     selector: "my-app",
-    directives: [ROUTER_DIRECTIVES, Buttons, Collapsible, Dropdown, Dialogs, Tabs, Forms, SideNav, ModelBindings],
+    directives: [ROUTER_DIRECTIVES, Buttons, Collapsible, Dropdown, Dialogs, Tabs, TabsRouting, Forms, SideNav, ModelBindings],
     styles: [`header, main, footer { padding-left: 260px; }`],
     template: `
 
@@ -33,7 +34,8 @@ import "../src/index";
   {path: "/dialogs", component: Dialogs, name: "Dialogs"},
   {path: "/dropdowns", component: Dropdown, name: "Dropdown"},
   {path: "/forms", component: Forms, name: "Forms"},
-  {path: "/tabs/...", component: Tabs, name: "Tabs"},
+  {path: "/tabs/", component: Tabs, name: "Tabs"},
+  {path: "/tabs-routing/...", component: TabsRouting, name: "TabsRouting"},
   {path: "/datepicker", component: DatePicker, name: "DatePicker"},
   {path: "/modelbindings", component: ModelBindings, name: "ModelBindings"},
 ])

@@ -13,7 +13,7 @@
     "deploy-app:bundle": "jspm bundle-sfx app dist/app/index.js",
     "deploy-app:copy-index": "cat index.html | tr '\n' ' ' | sed 's/<script.*<\\/script>//g' > dist/app/index.html",
     "deploy-app:append-script": "echo \"<script src='index.js'></script>\" >> dist/app/index.html",
-    "deploy-app:copy-resources": "rsync -Ravz jspm_packages/npm/materialize-css@*/dist/font/ dist/app",
+    "deploy-app:copy-resources": "rsync -Ravz jspm_packages/npm/materialize-css@*/dist/fonts/ dist/app",
     "deploy-app:deploy": "surge -p dist/app -d angular2-materialize.surge.sh"
   },
   "repository": {
@@ -52,7 +52,7 @@
     "hammerjs": "^2.0.6",
     "imports-loader": "^0.6.5",
     "jquery": "^2.2.1",
-    "jspm": "0.16.19",
+    "jspm": "0.16.34",
     "materialize-css": "^0.97.5",
     "npm-run-all": "^1.5.1",
     "reflect-metadata": "0.1.2",
@@ -64,7 +64,7 @@
     "ts-loader": "^0.8.1",
     "tsc": "^1.20150623.0",
     "tsd": "^0.6.5",
-    "typescript": "^1.7.5",
+    "typescript": "^1.8.10",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "zone.js": "^0.6.4"
@@ -89,7 +89,7 @@
       "materialize": "npm:materialize-css@^0.97.5",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3",
       "rxjs": "npm:rxjs@^5.0.0-beta.6",
-      "typescript": "npm:typescript@^1.7.5",
+      "typescript": "npm:typescript@^1.8.10",
       "zone.js": "npm:zone.js@^0.6.4"
     },
     "overrides": {

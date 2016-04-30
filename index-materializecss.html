@@ -5,7 +5,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   </head>
   <body>
+
+    <div class="form-group">
+      <select multiple>
+          <option value="0">choose one</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+      </select>
+      <label>select Category </label>
+    </div>
+
     <script>
+      $(document).ready(function() {
+        $('select').material_select();
+        window.setTimeout(() => {
+          $('select').append('<option value="4">Four</option>')
+          $('select').append('<option value="5">Five</option>')
+          $('select').append('<option value="6">Six</option>')
+          // $('select').material_select();
+        },1000);
+      });
     </script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 import {MaterializeDirective} from "../../src/index";
 import {Component} from "angular2/core"
-import {Router, RouterLink, Location} from "angular2/router"
+import {Router, RouterLink} from "angular2/router"
+import {Location} from 'angular2/platform/common';
 
 @Component({
     selector: "sideNav",
@@ -18,7 +19,7 @@ import {Router, RouterLink, Location} from "angular2/router"
     template: `
       <nav>
         <ul id="slide-out" class="side-nav fixed">
-          <li *ngFor="#routeName of routeNames" [class]="isActive(routeName)?'active':''"><a [routerLink]="[routeName]">{{routeName}}</a></li>
+          <li *ngFor="let routeName of routeNames" [class]="isActive(routeName)?'active':''"><a [routerLink]="[routeName]">{{routeName}}</a></li>
         </ul>
         <a materialize="sideNav" [materializeParams]="[{edge:'left'}]" href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
       </nav>

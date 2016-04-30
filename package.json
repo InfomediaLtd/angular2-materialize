@@ -58,7 +58,7 @@
     "reflect-metadata": "0.1.2",
     "rimraf": "^2.4.4",
     "run-sequence": "^1.1.5",
-    "rxjs": "^5.0.0-beta.2",
+    "rxjs": "5.0.0-beta.6",
     "semantic-release": "^4.3.5",
     "style-loader": "^0.13.0",
     "ts-loader": "^0.8.1",
@@ -79,18 +79,18 @@
   },
   "jspmNodeConversion": false,
   "jspm": {
-    "dependencies": {
-    },
+    "dependencies": {},
     "devDependencies": {
-      "angular2": "npm:angular2@^2.0.0-beta.6",
+      "angular2": "npm:angular2@^2.0.0-beta.17",
+      "clean-css": "npm:clean-css@^3.4.9",
+      "crypto": "github:jspm/nodelibs-crypto@^0.1.0",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "jquery": "npm:jquery@^2.2.1",
       "materialize": "npm:materialize-css@^0.97.5",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3",
-      "rxjs": "npm:rxjs@^5.0.0-beta.2",
-      "zone.js": "npm:zone.js@^0.6.4",
-      "clean-css": "npm:clean-css@^3.4.9",
-      "typescript": "npm:typescript@^1.7.5"
+      "rxjs": "npm:rxjs@^5.0.0-beta.6",
+      "typescript": "npm:typescript@^1.7.5",
+      "zone.js": "npm:zone.js@^0.6.4"
     },
     "overrides": {
       "npm:materialize-css@0.97.5": {
@@ -102,7 +102,8 @@
             ],
             "exports": "$"
           }
-        }
+        },
+        "jspmNodeConversion": false
       }
     }
   }

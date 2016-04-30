@@ -13,7 +13,7 @@ import {Option} from './option';
           <div class="input-field col s6">
                 <select [ngModel]="model" (ngModelChange)="change($event)" id="selectExample" materialize="material_select">
                   <option value="" disabled selected>Select option ..</option>
-                  <option *ngFor="#option of options" [value]="option.value">{{option.name}}</option>
+                  <option *ngFor="let option of options" [value]="option.value">{{option.name}}</option>
               </select>
           </div>
       </div>

@@ -9,7 +9,8 @@ import {Buttons} from "./components/buttons";
 import {DatePicker} from "./components/datepicker";
 import {ModelBindings} from "./components/model-bindings/model-bindings";
 import {Component} from "angular2/core";
-import {RouteConfig, ROUTER_DIRECTIVES, Location} from "angular2/router";
+import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
+import {Location} from 'angular2/platform/common';
 import "../src/index";
 
 @Component({

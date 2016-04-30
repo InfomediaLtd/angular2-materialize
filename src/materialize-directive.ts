@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, DoCheck, AfterViewInit} from 'angular2/core';
+import {Directive, ElementRef, Input, DoCheck, OnChanges, AfterViewInit} from 'angular2/core';
 
 declare var $:any;
 declare var Materialize:any;
@@ -17,7 +17,7 @@ declare var Materialize:any;
 @Directive({
     selector: '[materialize]'
 })
-export class MaterializeDirective implements AfterViewInit,DoCheck {
+export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
 
     private _params:[any] = null;
     private _functionName:string = null;
@@ -39,6 +39,19 @@ export class MaterializeDirective implements AfterViewInit,DoCheck {
 
     public ngAfterViewInit() {
       this.performElementUpdates();
+    }
+
+    public ngOnChanges(changes) {
+      if (this.isSelect()) {
+        console.log("on changes!!!");
+        for (let propName in changes) {
+          let prop = changes[propName];
+          let cur  = JSON.stringify(prop.currentValue);
+          let prev = JSON.stringify(prop.previousValue);
+          console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+        }
+      }
+      this.performLocalElementUpdates();
     }
 
     public ngDoCheck() {

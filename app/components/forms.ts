@@ -1,5 +1,5 @@
 import {MaterializeDirective} from "../../src/index";
-import {Component,Input,NgZone,OnChanges,OnInit,DoCheck} from "angular2/core"
+import {Component,OnInit} from "angular2/core"
 
 @Component({
     selector: "forms",
@@ -57,21 +57,20 @@ import {Component,Input,NgZone,OnChanges,OnInit,DoCheck} from "angular2/core"
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <select [(ngModel)]="selectedOption" materialize="material_select">
+              <select [(ngModel)]="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>
               <label>Materialize Select</label>
             </div>
             <div class="input-field col s6">
-              <select [(ngModel)]="selectedOptions" multiple materialize="material_select">
+              <select [(ngModel)]="selectedOptions" multiple materialize="material_select" [materializeSelectOptions]="selectOptions">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>
               <label>Materialize Multi Select</label>
             </div>
           </div>
-          <!--<div *ngFor="let option of selectOptions">{{option.name}}</div>-->
           <div class="row">
             <div class="col s6 switch">
               <label>
@@ -92,7 +91,7 @@ import {Component,Input,NgZone,OnChanges,OnInit,DoCheck} from "angular2/core"
         </div>
     `
 })
-export class Forms implements OnChanges,OnInit {
+export class Forms implements OnInit {
   private firstName = "";
   private selectedOption = "";
   private selectedOptions = "";
@@ -100,23 +99,13 @@ export class Forms implements OnChanges,OnInit {
   private selectOptions = [];
 
   public ngOnInit() {
-      //window.setTimeout(()=>{
+      window.setTimeout(()=>{
         this.selectOptions = [
           {value:1,name:"Option 1"},
           {value:2,name:"Option 2"},
           {value:3,name:"Option 3"}
         ]
-      //},1);
-  }
-
-  public ngOnChanges(changes) {
-    //console.log("here");
-    // for (let propName in changes) {
-    //   let prop = changes[propName];
-    //   let cur  = JSON.stringify(prop.currentValue);
-    //   let prev = JSON.stringify(prop.previousValue);
-    //   console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
-    // }
+      },100);
   }
 
 }

@@ -83,6 +83,13 @@ The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/mast
 </div>
 ```
 
+For dynamic select elements apply the **materializeSelectOptions** directive to trigger element updates when the options list changes:
+```html
+<select materialize="material_select" [materializeSelectOptions]="selectOptions">
+  <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
+</select>
+```
+
 #### Installing and configuring angular2-materialize with webpack
 
 Install MaterializeCSS and angular2-materialize from npm

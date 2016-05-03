@@ -26,8 +26,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
 
     private changeListenerShouldBeAdded = true;
 
-    constructor(private _el: ElementRef) {
-    }
+    constructor(private _el: ElementRef) { }
 
     @Input() set materializeParams(params:any){
       this._params = params;
@@ -37,21 +36,17 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
       this._functionName = functionName;
     }
 
+    // this is here to trigger change detection for select elements
+    @Input() set materializeSelectOptions(options:any) { }
+
     public ngAfterViewInit() {
       this.performElementUpdates();
     }
 
-    public ngOnChanges(changes) {
+    public ngOnChanges() {
       if (this.isSelect()) {
-        console.log("on changes!!!");
-        for (let propName in changes) {
-          let prop = changes[propName];
-          let cur  = JSON.stringify(prop.currentValue);
-          let prev = JSON.stringify(prop.previousValue);
-          console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
-        }
+        setTimeout(() => this.ngDoCheck(), 10);
       }
-      this.performLocalElementUpdates();
     }
 
     public ngDoCheck() {

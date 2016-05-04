@@ -1,4 +1,11 @@
-import {Directive, ElementRef, Input, DoCheck, OnChanges, AfterViewInit} from 'angular2/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  DoCheck,
+  OnChanges,
+  AfterViewInit
+} from 'angular2/core';
 
 declare var $:any;
 declare var Materialize:any;
@@ -64,11 +71,18 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
       if (Materialize && Materialize.updateTextFields) {
         Materialize.updateTextFields();
       }
+
       // handle select changes from the HTML
       if (this.isSelect() && this.changeListenerShouldBeAdded) {
         const nativeElement = this._el.nativeElement;
         const jQueryElement = $(nativeElement);
-        jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
+        jQueryElement.on("change", e => {
+          if (!e.originalEvent || !e.originalEvent.internalToMaterialize) {
+            const event:any = new Event("change");
+            event.internalToMaterialize = true;
+            nativeElement.dispatchEvent(event);
+          }
+        });
         this.changeListenerShouldBeAdded = false;
       }
 

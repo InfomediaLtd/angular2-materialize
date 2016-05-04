@@ -64,7 +64,7 @@ import {Component,OnInit} from "angular2/core"
               <label>Materialize Select</label>
             </div>
             <div class="input-field col s6">
-              <select [(ngModel)]="selectedOptions" multiple materialize="material_select" [materializeSelectOptions]="selectOptions">
+              <select multiple materialize="material_select" [materializeSelectOptions]="selectOptions">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>
@@ -94,7 +94,6 @@ import {Component,OnInit} from "angular2/core"
 export class Forms implements OnInit {
   private firstName = "";
   private selectedOption = "";
-  private selectedOptions = "";
 
   private selectOptions = [];
 

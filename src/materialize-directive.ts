@@ -45,7 +45,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
 
     public ngOnChanges() {
       if (this.isSelect()) {
-        setTimeout(() => this.ngDoCheck(), 10);
+        setTimeout(() => this.performLocalElementUpdates(), 10);
       }
     }
 

@@ -78,7 +78,8 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
         const jQueryElement = $(nativeElement);
         jQueryElement.on("change", e => {
           if (!e.originalEvent || !e.originalEvent.internalToMaterialize) {
-            const event:any = new Event("change");
+            const event:any = document.createEvent("CustomEvent");
+            event.initCustomEvent("change",false,false,undefined);
             event.internalToMaterialize = true;
             nativeElement.dispatchEvent(event);
           }

@@ -25,12 +25,11 @@ import {Observable} from "rxjs/Observable";
         <div class="row">
           <h4>Select model binding</h4>
           <materialSelect [options]="selectOptions" (modelChange)="onSelectValChange($event)"></materialSelect>
-          <p>{{ 'Value: ' + selectedVal }}</p>
         </div>
         <div class="row">
           <h4>Select model binding with initial value</h4>
           <materialSelect [options]="selectOptions" [initialValue]="selectedVal" (modelChange)="onSelectValChange($event)"></materialSelect>
-          <p>{{ 'Value: ' + selectedVal }}</p>
+          <p>{{ 'Initial value: ' + selectedVal }}</p>
         </div>
         <div class="row">
              <h4>Datepicker model binding</h4>

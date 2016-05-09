@@ -1,8 +1,8 @@
 import {MaterializeDirective} from "../../src/index";
-import {Component,OnDestroy} from "angular2/core"
+import {Component,OnDestroy} from "@angular/core"
 import {Subscription} from "rxjs/subscription";
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
-import {Location} from 'angular2/platform/common';
+import {Router, RouteConfig, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
+import {Location} from '@angular/common';
 
 @Component({selector: "tabs-test1",template: `<div id="test1" class="col s12">Test 1</div>`})
 class TabsTest1 {}

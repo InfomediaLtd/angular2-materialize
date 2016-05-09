@@ -5,7 +5,7 @@ import {
   DoCheck,
   OnChanges,
   AfterViewInit
-} from 'angular2/core';
+} from '@angular/core';
 
 declare var $:any;
 declare var Materialize:any;

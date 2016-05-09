@@ -1,5 +1,5 @@
 import {MaterializeDirective} from "../../src/index";
-import {Component} from "angular2/core"
+import {Component} from "@angular/core"
 
 @Component({
     selector: "dialogs",

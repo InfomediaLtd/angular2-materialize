@@ -1,7 +1,7 @@
 import {MaterializeDirective} from "../../src/index";
-import {Component} from "angular2/core"
-import {Router, RouterLink} from "angular2/router"
-import {Location} from 'angular2/platform/common';
+import {Component} from "@angular/core"
+import {Router, RouterLink} from "@angular/router-deprecated"
+import {Location} from '@angular/common';
 
 @Component({
     selector: "sideNav",

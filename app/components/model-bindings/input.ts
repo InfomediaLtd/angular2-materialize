@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from "angular2/core";
+import {Component, EventEmitter} from "@angular/core";
 import {MaterializeDirective} from "../../../src/index";
 import * as Materialize from "../../../src/index";
 

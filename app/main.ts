@@ -1,11 +1,11 @@
 import "zone.js";
 import "reflect-metadata";
 
-import {bootstrap} from "angular2/platform/browser";
-import {provide} from "angular2/core";
+import {bootstrap} from "@angular/platform-browser-dynamic";
+import {provide} from "@angular/core";
 import {App} from "./app";
 
-import {ROUTER_PROVIDERS} from 'angular2/router';
-import {LocationStrategy, HashLocationStrategy} from 'angular2/platform/common';
+import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 bootstrap(App, [ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})]);

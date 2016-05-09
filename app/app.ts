@@ -8,9 +8,9 @@ import {Collapsible} from "./components/collapsible";
 import {Buttons} from "./components/buttons";
 import {DatePicker} from "./components/datepicker";
 import {ModelBindings} from "./components/model-bindings/model-bindings";
-import {Component} from "angular2/core";
-import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
-import {Location} from 'angular2/platform/common';
+import {Component} from "@angular/core";
+import {RouteConfig, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
+import {Location} from '@angular/common';
 import "../src/index";
 
 @Component({

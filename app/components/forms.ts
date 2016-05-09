@@ -1,5 +1,5 @@
 import {MaterializeDirective} from "../../src/index";
-import {Component,OnInit} from "angular2/core"
+import {Component,OnInit} from "@angular/core"
 
 @Component({
     selector: "forms",

@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {Option} from "./option";
 import {MaterialInput} from "./input";
 import {MaterialSelect} from "./select";

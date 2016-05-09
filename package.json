@@ -37,7 +37,11 @@
   "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
   "dependencies": {},
   "devDependencies": {
-    "angular2": "^2.0.0-rc.1",
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/compiler": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1",
+    "@angular/platform-browser": "^2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
     "commitizen": "^2.4.6",
     "css-loader": "^0.23.1",
     "cz-conventional-changelog": "^1.1.5",

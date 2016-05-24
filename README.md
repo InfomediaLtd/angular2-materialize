@@ -227,7 +227,7 @@ System.config({
 });
 ```
 
-##### Installing & configuring angular2-materialize in projects created with angular-cli
+#### Installing & configuring angular2-materialize in projects created with angular-cli
 
 Install MaterializeCSS and angular2-materialize from npm
 ```

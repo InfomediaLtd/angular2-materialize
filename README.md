@@ -226,3 +226,75 @@ System.config({
     }
 });
 ```
+
+###### Installing & configuring angular2-materialize in projects created with angular-cli
+
+Install MaterializeCSS and angular2-materialize from npm
+```
+npm install materialize-css --save
+npm install angular2-materialize --save
+```
+
+Jquery is required
+```
+npm install jquery --save
+```
+
+add vendor in angular-cli-build.js
+```
+module.exports = function(defaults) {
+  return new Angular2App(defaults, {
+    vendorNpmFiles: [
+      //other vendors
+      'jquery/dist/*',
+      'angular2-materialize/dist/*',
+      'materialize-css/dist/**/*''
+    ]
+  });
+};
+```
+
+Add mapping and packages in system-config.ts
+```
+/** Map relative paths to URLs. */
+const map: any = {
+   "materialize": "vendor/materialize-css",
+   "angular2-materialize": "vendor/angular2-materialize",
+   "jquery": "vendor/jquery"
+};
+
+/** User packages configuration. */
+const packages: any = {
+  'materialize': {
+    "format": "global",
+    "main": "dist/js/materialize",
+    "defaultExtension": "js"
+  },
+  'angular2-materialize': {
+    "main": "dist/index",
+    "defaultExtension": "js"
+  }
+};
+```
+
+Import angular-cli in main.ts
+```
+import "angular2-materialize";
+```
+
+Add these lines to header of index.html
+```
+<link type="text/css" rel="stylesheet" href="vendor/materialize-css/dist/css/materialize.css"/>
+<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Import angular2-materialize and add directive
+```
+import {MaterializeDirective} from "angular2-materialize";
+
+@Component({
+  //component config
+  directives: [MaterializeDirective]
+})
+```

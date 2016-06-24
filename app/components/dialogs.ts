@@ -21,10 +21,14 @@ import {Component} from "@angular/core"
 
       <!-- data-position can be : bottom, top, left, or right -->
       <!-- data-delay controls delay before tooltip shows (in milliseconds)-->
-      <a materialize="tooltip" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Hover me!</a>
+      <a materialize="tooltip" (click)="printSomething()" class="btn tooltipped" data-position="bottom" data-delay="10" data-tooltip="I am tooltip">Hover me!</a>
 
       <!-- toast -->
       <a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast!</a>
     `
 })
-export class Dialogs {}
+export class Dialogs {
+  printSomething() {
+    console.log("tooltip button clicked!");
+  }
+}

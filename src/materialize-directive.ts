@@ -56,6 +56,10 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
       }
     }
 
+    public ngOnDestroy() {
+      this.performElementRemotion();
+    }
+
     public ngDoCheck() {
       const nativeElement = this._el.nativeElement;
       if (this.isSelect() && nativeElement.value!=this.previousValue) {
@@ -64,6 +68,15 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
         this.performLocalElementUpdates();
       }
       return false;
+    }
+
+    private performElementRemotion() {
+      if(this.isTooltip()){
+        const nativeElement = this._el.nativeElement;
+        const jQueryElement = $(nativeElement);
+        const tooltipId = jQueryElement.attr('data-tooltip-id');
+        $('#' + tooltipId).remove();
+      }
     }
 
     private performElementUpdates() {
@@ -154,6 +167,10 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
           }
         }
       }
+    }
+
+    private isTooltip(){
+      return (this._functionName && this._functionName === "tooltip");
     }
 
     private isSelect() {

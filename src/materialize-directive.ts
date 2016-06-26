@@ -4,6 +4,7 @@ import {
   Input,
   DoCheck,
   OnChanges,
+  OnDestroy,
   AfterViewInit
 } from '@angular/core';
 
@@ -24,7 +25,7 @@ declare var Materialize:any;
 @Directive({
     selector: '[materialize]'
 })
-export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
+export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnDestroy {
 
     private _params:[any] = null;
     private _functionName:string = null;
@@ -71,11 +72,13 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges {
     }
 
     private performElementRemotion() {
-      if(this.isTooltip()){
+      if (this.isTooltip()) {
         const nativeElement = this._el.nativeElement;
         const jQueryElement = $(nativeElement);
         const tooltipId = jQueryElement.attr('data-tooltip-id');
-        $('#' + tooltipId).remove();
+        if (tooltipId) {
+          $('#' + tooltipId).remove();
+        }
       }
     }
 

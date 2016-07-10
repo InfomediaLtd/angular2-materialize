@@ -100,7 +100,7 @@ npm install angular2-materialize --save
 
 MaterializeCSS required jQuery and HammerJS:
 ```sh
-npm install jquery --save
+npm install jquery@^2.2.4 --save
 npm install hammerjs --save
 ```
 
@@ -237,7 +237,7 @@ npm install angular2-materialize --save
 
 Jquery is required
 ```
-npm install jquery --save
+npm install jquery@^2.2.4 --save
 ```
 
 add vendor in angular-cli-build.js

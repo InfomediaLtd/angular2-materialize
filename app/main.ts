@@ -1,5 +1,6 @@
 import "zone.js";
 import "reflect-metadata";
+import "es6-shim";
 
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {provide} from "@angular/core";

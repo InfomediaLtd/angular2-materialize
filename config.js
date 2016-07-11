@@ -34,6 +34,7 @@ System.config({
     "clean-css": "npm:clean-css@3.4.12",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
     "css": "github:systemjs/plugin-css@0.1.21",
+    "es6-shim": "github:es-shims/es6-shim@0.35.1",
     "jquery": "npm:jquery@2.2.3",
     "materialize": "npm:materialize-css@0.97.6",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",

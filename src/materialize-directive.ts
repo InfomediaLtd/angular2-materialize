@@ -7,6 +7,7 @@ import {
   OnDestroy,
   AfterViewInit
 } from '@angular/core';
+import {CustomEvent} from "./custom-event-polyfill"
 
 declare var $:any;
 declare var Materialize:any;
@@ -109,7 +110,9 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const enablebtns = this.enableDPButtons;
 
         jQueryElement[this._functionName](...this._params);
-        jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
+        jQueryElement.on("change", e => nativeElement.dispatchEvent(new CustomEvent("input")));
+        //jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
+        // jQueryElement.on("change", e => dispatchEventOnTarget(nativeElement,"input"));
 
         const datePickerPopUp = jQueryElement.siblings(".picker").first();
 
@@ -191,3 +194,14 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         $('.picker__select--month').removeAttr("disabled");
     }
 }
+
+/*function dispatchEventOnTarget(target, eventType) {
+  let event;
+  try {
+    event = new Event(eventType);
+  } catch (e) {
+    event = document.createEvent('HTMLEvents');
+    event.initEvent(eventType, true, true);
+  }
+  target.dispatchEvent(event);
+};*/

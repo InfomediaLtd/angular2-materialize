@@ -248,7 +248,7 @@ module.exports = function(defaults) {
       //other vendors
       'jquery/dist/*',
       'angular2-materialize/dist/*',
-      'materialize-css/dist/**/*''
+      'materialize-css/dist/**/*'
     ]
   });
 };

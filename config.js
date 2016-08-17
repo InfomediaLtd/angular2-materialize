@@ -37,6 +37,7 @@ System.config({
     "es6-shim": "github:es-shims/es6-shim@0.35.1",
     "jquery": "npm:jquery@2.2.3",
     "materialize": "npm:materialize-css@0.97.6",
+    "materialize-css": "npm:materialize-css@0.97.6",
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.6",
     "typescript": "npm:typescript@1.8.10",

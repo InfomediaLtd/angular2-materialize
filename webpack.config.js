@@ -8,8 +8,7 @@ module.exports = {
     devtool: 'source-map',
     resolve: {
         alias: {
-          materializecss: 'materialize-css/dist/css/materialize.css',
-          materialize: 'materialize-css/dist/js/materialize.js',
+          "materialize-css": 'materialize-css/dist/css/materialize.css'
         },
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.css']
     },
@@ -17,7 +16,7 @@ module.exports = {
         loaders: [
             {
               test: /materialize-css\/dist\/js\/materialize\.js/,
-              loader: 'imports?materializecss'
+              loader: 'imports?materialize-css'
             },
             { test: /\.ts$/, loader: 'ts-loader' },
             { test: /\.css$/, loader: 'style-loader!css-loader' },

@@ -1,4 +1,4 @@
-import "materialize";
+import "materialize-css";
 
 // export {Materialize,MaterializeOptions} from "./materialize";
 export {MaterializeDirective} from "./materialize-directive";

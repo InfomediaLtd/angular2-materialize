@@ -19,7 +19,7 @@ System.config({
     "src": {
       "defaultExtension": "ts"
     },
-    "materialize": {
+    "materialize-css": {
       "main": "dist/js/materialize"
     }
   },

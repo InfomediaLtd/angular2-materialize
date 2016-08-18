@@ -10,6 +10,7 @@
     "outDir": "build"
   },
   "files": [
+    "src/materialize-module.ts",
     "src/materialize-directive.ts",
     "src/custom-event-polyfill.ts",
     "src/index.ts",

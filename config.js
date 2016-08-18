@@ -30,6 +30,7 @@ System.config({
     "@angular/core": "npm:@angular/core@2.0.0-rc.1",
     "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
+    "@angular/router": "npm:@angular/router@3.0.0-rc.1",
     "@angular/router-deprecated": "npm:@angular/router-deprecated@2.0.0-rc.1",
     "clean-css": "npm:clean-css@3.4.12",
     "crypto": "github:jspm/nodelibs-crypto@0.1.0",
@@ -41,7 +42,7 @@ System.config({
     "reflect-metadata": "npm:reflect-metadata@0.1.3",
     "rxjs": "npm:rxjs@5.0.0-beta.6",
     "typescript": "npm:typescript@1.8.10",
-    "zone.js": "npm:zone.js@0.6.12",
+    "zone.js": "npm:zone.js@0.6.4",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -96,14 +97,27 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:@angular/common@2.0.0-rc.5": {
+      "@angular/core": "npm:@angular/core@2.0.0-rc.5",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:@angular/compiler@2.0.0-rc.1": {
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:@angular/compiler@2.0.0-rc.5": {
+      "@angular/core": "npm:@angular/core@2.0.0-rc.5",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:@angular/core@2.0.0-rc.1": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.6",
-      "zone.js": "npm:zone.js@0.6.12"
+      "zone.js": "npm:zone.js@0.6.4"
+    },
+    "npm:@angular/core@2.0.0-rc.5": {
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "zone.js": "npm:zone.js@0.6.4"
     },
     "npm:@angular/platform-browser-dynamic@2.0.0-rc.1": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
@@ -112,16 +126,38 @@ System.config({
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:@angular/platform-browser-dynamic@2.0.0-rc.5": {
+      "@angular/common": "npm:@angular/common@2.0.0-rc.5",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.5",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.5",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.5",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:@angular/platform-browser@2.0.0-rc.1": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
       "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:@angular/platform-browser@2.0.0-rc.5": {
+      "@angular/common": "npm:@angular/common@2.0.0-rc.5",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.5",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.5",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:@angular/router-deprecated@2.0.0-rc.1": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1"
+    },
+    "npm:@angular/router@3.0.0-rc.1": {
+      "@angular/common": "npm:@angular/common@2.0.0-rc.5",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.5",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.5",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.5",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.5",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.6"
     },
     "npm:amdefine@1.0.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -412,7 +448,7 @@ System.config({
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
     },
-    "npm:zone.js@0.6.12": {
+    "npm:zone.js@0.6.4": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     }

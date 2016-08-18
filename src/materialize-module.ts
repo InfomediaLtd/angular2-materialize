@@ -8,6 +8,9 @@ import { MaterializeDirective } from "./materialize-directive";
     ],
     imports: [
         CommonModule
+    ],
+    exports: [
+    	MaterializeDirective
     ]
 })
 export class MaterializeModule {

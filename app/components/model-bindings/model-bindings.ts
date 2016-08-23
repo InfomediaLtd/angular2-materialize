@@ -35,7 +35,7 @@ import {Observable} from "rxjs/Observable";
              <h4>Datepicker model binding</h4>
                 <div class="row">
                     <div class="input-field col s6">
-                            <input type="text" [(ngModel)]="datepicker" materialize="pickadate" [materializeParams]="[{format:'dd/mm/yyyy'}]" />
+                            <input type="text" [(ngModel)]="datepicker" name="datepicker" materialize="pickadate" [materializeParams]="[{format:'dd/mm/yyyy'}]" />
                     </div>
                 </div>
             <p>{{ datepicker }}</p>

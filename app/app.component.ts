@@ -1,6 +1,8 @@
 
 import {Component} from "@angular/core";
 import {Location} from '@angular/common';
+
+import "materialize-css";
 import "../src/index";
 
 @Component({

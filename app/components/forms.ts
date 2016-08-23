@@ -8,7 +8,7 @@ import {Component,OnInit} from "@angular/core"
         <form materialize class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input [(ngModel)]="firstName" placeholder="Placeholder" id="first_name" type="text" class="validate">
+              <input [(ngModel)]="firstName" name="firstName" placeholder="Placeholder" id="first_name" type="text" class="validate">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
@@ -57,7 +57,7 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <select [(ngModel)]="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions">
+              <select [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>

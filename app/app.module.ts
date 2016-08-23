@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import {
   Dropdown,
   Dialogs,
   Tabs,
-  TabsRouting,
+  //TabsRouting,
   Forms,
   SideNav,
   DatePicker,
@@ -26,7 +27,7 @@ import { routing } from './app.routing'
     Dropdown,
     Dialogs,
     Tabs,
-    TabsRouting,
+    //TabsRouting,
     Forms,
     SideNav,
     DatePicker,
@@ -34,6 +35,7 @@ import { routing } from './app.routing'
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing
   ],
   providers: [

@@ -1,8 +1,12 @@
+export class TabsRouting {}
+
+// todo
+/*
 import {MaterializeDirective} from "../../src/index";
 import {Component,OnDestroy} from "@angular/core"
 import {Subscription} from "rxjs/subscription";
 import {Location} from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, Routes, RouterModule } from '@angular/router';
 
 @Component({selector: "tabs-test1",template: `<div id="test1" class="col s12">Test 1</div>`})
 class TabsTest1 {}
@@ -30,27 +34,18 @@ class TabsTest4 {}
         </div>
     `
 })
-/*@RouteConfig([
-  {path: "/test1", component: TabsTest1, name: "TabsTest1", useAsDefault:true},
-  {path: "/test2", component: TabsTest2, name: "TabsTest2"},
-  {path: "/test3", component: TabsTest3, name: "TabsTest3"},
-  {path: "/test4", component: TabsTest4, name: "TabsTest4"}
-])*/
 export class TabsRouting implements OnDestroy {
 
   private tabs = [
-    {name:"Test 1",href:"/tabs/test1",route:"TabsTest1"},
-    {name:"Test 2",href:"/tabs/test2",route:"TabsTest2"},
-    {name:"Test 3",href:"/tabs/test3",route:"TabsTest3", disabled:true},
-    {name:"Test 4",href:"/tabs/test4",route:"TabsTest4"}
+    {name:"Test 1",href:"/TabsRouting/TabsTest1",route:"TabsTest1"},
+    {name:"Test 2",href:"/TabsRouting/TabsTest2",route:"TabsTest2"},
+    {name:"Test 3",href:"/TabsRouting/TabsTest3",route:"TabsTest3", disabled:true},
+    {name:"Test 4",href:"/TabsRouting/TabsTest4",route:"TabsTest4"}
   ];
   private routerSubscription:Subscription;
   private tabSelectionParams = null;
 
   constructor(private router:Router, private location:Location) {
-    /*this.routerSubscription = <Subscription>router.parent.subscribe(() => {
-      this.updateSelectionParams(router);
-    });*/
   }
 
   routeTo(route) {
@@ -73,3 +68,19 @@ export class TabsRouting implements OnDestroy {
     this.routerSubscription.unsubscribe();
   }
 }
+
+const routes: Routes = [
+  {
+    path: 'TabsRouting',
+    component: TabsRouting,
+    children: [
+      { path: 'TabsTest1', component: TabsTest1 },
+      { path: 'TabsTest2', component: TabsTest2 },
+      { path: 'TabsTest3', component: TabsTest3 },
+      { path: 'TabsTest4', component: TabsTest4 }
+    ]
+  }
+];
+
+export const routing = RouterModule.forChild(routes);
+*/

@@ -5,7 +5,7 @@ import {
   Dropdown,
   Dialogs,
   Tabs,
-  TabsRouting,
+  //TabsRouting,
   Forms,
   SideNav,
   DatePicker,
@@ -16,43 +16,43 @@ import {
 const appRoutes: Routes = [
 	{
 		path: '',
-		redirectTo: 'buttons',
+		redirectTo: 'Buttons',
 		pathMatch: 'full'
 	},
 	{
-		path: 'buttons',
+		path: 'Buttons',
 		component: Buttons
 	},
 	{
-		path: 'collapsible',
+		path: 'Collapsible',
 		component: Collapsible
 	},
 	{
-		path: 'dialogs',
+		path: 'Dialogs',
 		component: Dialogs
 	},
 	{
-		path: 'dropdowns',
+		path: 'Dropdown',
 		component: Dropdown
 	},
 	{
-		path: 'forms',
+		path: 'Forms',
 		component: Forms
 	},
 	{
-		path: 'tabs',
+		path: 'Tabs',
 		component: Tabs
 	},
+	// {
+	// 	path: 'TabsRouting',
+	// 	component: TabsRouting
+	// },
 	{
-		path: 'tabs-routing/...',
-		component: TabsRouting
-	},
-	{
-		path: 'datepicker',
+		path: 'DatePicker',
 		component: DatePicker
 	},
 	{
-		path: 'modelbindings',
+		path: 'ModelBindings',
 		component: ModelBindings
 	}
 ];

@@ -8,7 +8,9 @@ import {Location} from '@angular/common';
       nav {
           height: 0px;
       }
-
+      .side-nav {
+          width: 200px;
+      }
       li.active {
         background-color: #ee6e73
       }
@@ -17,14 +19,16 @@ import {Location} from '@angular/common';
     template: `
       <nav>
         <ul id="slide-out" class="side-nav fixed">
-          <li *ngFor="let routeName of routeNames" [class]="isActive(routeName)?'active':''"><a [routerLink]="[routeName]">{{routeName}}</a></li>
+          <li *ngFor="let routeName of routeNames" routerLinkActive="active"><a [routerLink]="[routeName]">{{routeName}}</a></li>
         </ul>
+        <a materialize="sideNav" [materializeParams]="[{edge:'left'}]" href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
         <a materialize="sideNav" [materializeParams]="[{edge:'left'}]" href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
       </nav>
     `
 })
 export class SideNav {
 
-  private routeNames = ["Buttons", "Collapsible", "Dialogs", "Dropdown", "Forms", "Tabs", "TabsRouting", "DatePicker", "ModelBindings"];
+  //private routeNames = ["Buttons", "Collapsible", "Dialogs", "Dropdown", "Forms", "Tabs", "TabsRouting", "DatePicker", "ModelBindings"];
+  private routeNames = ["Buttons", "Collapsible", "Dialogs", "Dropdown", "Forms", "Tabs", "DatePicker", "ModelBindings"];
 
 }

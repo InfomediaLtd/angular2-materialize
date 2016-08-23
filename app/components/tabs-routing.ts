@@ -1,8 +1,8 @@
 import {MaterializeDirective} from "../../src/index";
 import {Component,OnDestroy} from "@angular/core"
 import {Subscription} from "rxjs/subscription";
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({selector: "tabs-test1",template: `<div id="test1" class="col s12">Test 1</div>`})
 class TabsTest1 {}
@@ -15,7 +15,7 @@ class TabsTest4 {}
 
 @Component({
     selector: "tabs-routing",
-    directives: [ROUTER_DIRECTIVES,MaterializeDirective,TabsTest1,TabsTest2,TabsTest3,TabsTest4],
+    directives: [TabsTest1,TabsTest2,TabsTest3,TabsTest4],
     template: `
         <div class="row">
           <div class="col s12">
@@ -30,12 +30,12 @@ class TabsTest4 {}
         </div>
     `
 })
-@RouteConfig([
+/*@RouteConfig([
   {path: "/test1", component: TabsTest1, name: "TabsTest1", useAsDefault:true},
   {path: "/test2", component: TabsTest2, name: "TabsTest2"},
   {path: "/test3", component: TabsTest3, name: "TabsTest3"},
   {path: "/test4", component: TabsTest4, name: "TabsTest4"}
-])
+])*/
 export class TabsRouting implements OnDestroy {
 
   private tabs = [
@@ -48,9 +48,9 @@ export class TabsRouting implements OnDestroy {
   private tabSelectionParams = null;
 
   constructor(private router:Router, private location:Location) {
-    this.routerSubscription = <Subscription>router.parent.subscribe(() => {
+    /*this.routerSubscription = <Subscription>router.parent.subscribe(() => {
       this.updateSelectionParams(router);
-    });
+    });*/
   }
 
   routeTo(route) {

@@ -1,11 +1,9 @@
 import {MaterializeDirective} from "../../src/index";
 import {Component} from "@angular/core"
-import {Router, RouterLink} from "@angular/router-deprecated"
 import {Location} from '@angular/common';
 
 @Component({
     selector: "sideNav",
-    directives: [MaterializeDirective, RouterLink],
     styles: [`
       nav {
           height: 0px;
@@ -28,12 +26,5 @@ import {Location} from '@angular/common';
 export class SideNav {
 
   private routeNames = ["Buttons", "Collapsible", "Dialogs", "Dropdown", "Forms", "Tabs", "TabsRouting", "DatePicker", "ModelBindings"];
-
-  constructor(private _location:Location, private _router:Router) {
-  }
-
-  public isActive(routeName) {
-      return this._router.isRouteActive(this._router.generate([routeName]))
-  }
 
 }

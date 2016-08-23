@@ -18,18 +18,34 @@ To use the library you need to import it once per project and then use its Mater
 
 #### Using angular2-materialize
 
-Import it once per project, for example in your main.ts:
+Import both materialize-css and angular2-materialize once per project, for example in your main.ts:
 ```js
+import "materialize-css";
 import "angular2-materialize";
+```
+
+Add the Google MD fonts to your index.html:
+```html
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Add the MaterializeDirective to your NgModule:
+```js
+import {MaterializeDirective} from "angular2-materialize";
+
+@NgModule({
+  declarations: [
+    //...
+    MaterializeDirective
+  ],
+  //...
+})
 ```
 
 In your component, use it for dynamic behavior. For example, for collapsible panels:
 ```js
-import {MaterializeDirective} from "angular2-materialize";
-
 @Component({
     selector: "my-component",
-    directives: [MaterializeDirective],
     template: `
         <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
           <li>
@@ -98,7 +114,7 @@ npm install materialize-css --save
 npm install angular2-materialize --save
 ```
 
-MaterializeCSS required jQuery and HammerJS:
+MaterializeCSS required jQuery and HammerJS. Check the exact version materialize-css is compatible with:
 ```sh
 npm install jquery@^2.2.4 --save
 npm install hammerjs --save
@@ -109,28 +125,11 @@ Add the Google MD fonts to your index.html:
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
-Add the following aliases, loader and plugin to your webpack configuration:
+You may need to add the following plugin to your webpack configuration to provide jQuery:
 ```js
 var webpack = require("webpack");
 module.exports = {
   //...
-  resolve: {
-    alias: {
-      materializecss: 'materialize-css/dist/css/materialize.css',
-      materialize: 'materialize-css/dist/js/materialize.js',
-      //...
-    }
-    //...
-  },
-  module: {
-    loaders: [
-      {
-        test: /materialize-css\/dist\/js\/materialize\.js/,
-        loader: 'imports?materializecss'
-      },
-      //...
-    ]
-  },
   plugins: [
       new webpack.ProvidePlugin({
           $: "jquery",
@@ -144,20 +143,6 @@ module.exports = {
 ```
 Notice that the imports loader is required for this setup.
 
-###### Loading CSS as styles
-
-If you are loading CSS with raw-loader, the above setup will not be able to load the MaterializeCSS styles properly.
-
-To work around this, without changing the way CSS is handled across the app, add the following loader to match the materialize.css specifically and load it with the style loader:
-```js
-{ test: /materialize\.css$/,   loader: 'style-loader!css-loader' },
-```
-Then, update the css loader to apply only to CSS that is not "materialize". If your CSS loader already ignores all modules in node_mofules then this is not required.
-```js
-// Support for CSS as raw text (do not match 'materialize')
-{ test: /^((?!materialize).)*\.css$/,   loader: 'raw-loader' },
-```
-
 ###### Loading additional resources
 
 Another thing you would need to confirm is being able to load web fonts properly:
@@ -170,13 +155,9 @@ The following example project is a fork of the angular2-webpack-starter with the
 
 #### Installing and configuring angular2-materialize with jspm
 
-Install MaterializeCSS, by providing overrides for its dependencies:
+Install MaterializeCSS and angular2-materialize:
 ```sh
-jspm install materialize=npm:materialize-css
-```
-
-Install angular2-materialize
-```sh
+jspm install npm:materialize-css
 jspm install npm:angular2-materialize
 ```
 
@@ -185,7 +166,7 @@ Add the Google MD fonts to your index.html:
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
-Add a package configuration to specify the main entry point for MaterializeCSS:
+You may need to add a package configuration to specify the main entry point for MaterializeCSS:
 ```js
 System.config({
   ...
@@ -201,27 +182,21 @@ System.config({
 
 ```html
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css" media="screen,projection" />
 <!-- Import jQuery before materialize.js -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
 System.config({
     defaultJSExtensions: true,
     packages: {
         "materialize-css": {
             "main": "dist/js/materialize"
-        },
-        "materialize": {
-            "main": "dist/materialize-directive",
-            "defaultExtension": "js"
         }
     },
     map: {
         "materialize-css": "node-modules/materialize-css",
-        "materialize": "node_modules/angular2-materialize",
         "angular2-materialize": "node_modules/angular2-materialize"
     }
 });
@@ -258,14 +233,14 @@ Add mapping and packages in system-config.ts
 ```
 /** Map relative paths to URLs. */
 const map: any = {
-   "materialize": "vendor/materialize-css",
+   "materialize-css": "vendor/materialize-css",
    "angular2-materialize": "vendor/angular2-materialize",
    "jquery": "vendor/jquery"
 };
 
 /** User packages configuration. */
 const packages: any = {
-  'materialize': {
+  'materialize-css': {
     "format": "global",
     "main": "dist/js/materialize",
     "defaultExtension": "js"
@@ -277,7 +252,7 @@ const packages: any = {
 };
 ```
 
-Import angular-cli in main.ts
+Import angular2-materialize in main.ts
 ```
 import "angular2-materialize";
 ```
@@ -289,12 +264,3 @@ Add these lines to header of index.html
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
-Import angular2-materialize and add directive
-```
-import {MaterializeDirective} from "angular2-materialize";
-
-@Component({
-  //component config
-  directives: [MaterializeDirective]
-})
-```

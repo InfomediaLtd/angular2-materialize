@@ -99,7 +99,7 @@ The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/mast
 </div>
 ```
 
-Another useful option is amitting actions on an element. You may want to do that for calling Materialize functions, like closing a modal dialog or triggering a toast. You can do that by setting the **materializeActions** attribute, which accepts an [EventEmitter](https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html) :
+Another useful option is emitting actions on an element. You may want to do that for calling Materialize functions, like closing a modal dialog or triggering a toast. You can do that by setting the **materializeActions** attribute, which accepts an [EventEmitter](https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html) :
 ```html
 <div id="modal1" class="modal" materialize [materializeActions]="actions">
   <div class="modal-content">

@@ -5,7 +5,8 @@ import {
   DoCheck,
   OnChanges,
   OnDestroy,
-  AfterViewInit
+  AfterViewInit,
+  EventEmitter
 } from '@angular/core';
 import {CustomEvent} from "./custom-event-polyfill"
 
@@ -30,18 +31,22 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     private _params:[any] = null;
     private _functionName:string = null;
-
     private previousValue = null;
 
     private changeListenerShouldBeAdded = true;
 
     constructor(private _el: ElementRef) { }
 
-    @Input() set materializeParams(params:any){
+    @Input() set materializeParams(params:any) {
       this._params = params;
       this.performElementUpdates();
     }
-    @Input() set materialize(functionName:string){
+    @Input() set materializeActions(actions:EventEmitter<string>) {
+      actions.subscribe(action => {
+        this.performLocalElementUpdates(action);
+      })
+    }
+    @Input() set materialize(functionName:string) {
       this._functionName = functionName;
     }
 
@@ -151,25 +156,34 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
       this.performLocalElementUpdates();
     }
-    private performLocalElementUpdates() {
-      if (this._functionName) {
+    
+    private performLocalElementUpdates(functionName=this._functionName) {
+      if (functionName) {
         const jQueryElement = $(this._el.nativeElement);
-        if (jQueryElement[this._functionName]) {
+        if (jQueryElement[functionName]) {
           if (this._params) {
             if (this._params instanceof Array) {
-              jQueryElement[this._functionName](...this._params);
+              jQueryElement[functionName](...this._params);
             } else {
               throw new Error("Params has to be an array.")
             }
           } else {
-            jQueryElement[this._functionName]();
+            jQueryElement[functionName]();
           }
         } else {
           // fallback to running this function on the global Materialize object
-          if (Materialize[this._functionName]) {
-            Materialize[this._functionName]();
+          if (Materialize[functionName]) {
+            if (this._params) {
+              if (this._params instanceof Array) {
+                Materialize[functionName](...this._params);
+              } else {
+                throw new Error("Params has to be an array.")
+              }
+            } else {
+              Materialize[functionName]();
+            }
           } else {
-            throw new Error("Couldn't find materialize function ''" + this._functionName + "' on element or the global Materialize object.");
+            throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
           }
         }
       }

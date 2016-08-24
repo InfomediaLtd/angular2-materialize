@@ -125,7 +125,12 @@ Add the Google MD fonts to your index.html:
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
-You may need to add the following plugin to your webpack configuration to provide jQuery:
+Import materialize-css styles:
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+```
+
+Add the following plugin to your webpack configuration to provide jQuery:
 ```js
 var webpack = require("webpack");
 module.exports = {

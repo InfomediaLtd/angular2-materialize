@@ -165,7 +165,6 @@ module.exports = {
   //...
 };
 ```
-Notice that the imports loader is required for this setup.
 
 ###### Loading additional resources
 

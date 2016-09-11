@@ -32,6 +32,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     private _params:[any] = null;
     private _functionName:string = null;
     private previousValue = null;
+    private _waitFunction: any = { };
 
     private changeListenerShouldBeAdded = true;
 
@@ -158,35 +159,47 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     }
     
     private performLocalElementUpdates(functionName=this._functionName) {
-      if (functionName) {
-        const jQueryElement = $(this._el.nativeElement);
-        if (jQueryElement[functionName]) {
-          if (this._params) {
-            if (this._params instanceof Array) {
-              jQueryElement[functionName](...this._params);
-            } else {
-              throw new Error("Params has to be an array.")
-            }
-          } else {
-            jQueryElement[functionName]();
-          }
-        } else {
-          // fallback to running this function on the global Materialize object
-          if (Materialize[functionName]) {
-            if (this._params) {
-              if (this._params instanceof Array) {
-                Materialize[functionName](...this._params);
+      let self = this;
+
+      if (self._waitFunction[functionName]) {
+        return;
+      }
+
+      self._waitFunction[functionName] = true;
+
+      $(document).ready(function () {
+        self._waitFunction[functionName] = false;
+
+        if (functionName) {
+          const jQueryElement = $(self._el.nativeElement);
+          if (jQueryElement[functionName]) {
+            if (self._params) {
+              if (self._params instanceof Array) {
+                jQueryElement[functionName](...self._params);
               } else {
                 throw new Error("Params has to be an array.")
               }
             } else {
-              Materialize[functionName]();
+              jQueryElement[functionName]();
             }
           } else {
-            throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
+            // fallback to running self function on the global Materialize object
+            if (Materialize[functionName]) {
+              if (self._params) {
+                if (self._params instanceof Array) {
+                  Materialize[functionName](...self._params);
+                } else {
+                  throw new Error("Params has to be an array.")
+                }
+              } else {
+                Materialize[functionName]();
+              }
+            } else {
+              throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
+            }
           }
         }
-      }
+      });
     }
 
     private isTooltip(){

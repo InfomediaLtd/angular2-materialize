@@ -157,39 +157,37 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
       this.performLocalElementUpdates();
     }
-    
-    private performLocalElementUpdates(functionName=this._functionName) {
-      let self = this;
 
-      if (self._waitFunction[functionName]) {
+    private performLocalElementUpdates(functionName=this._functionName) {
+      if (this._waitFunction[functionName]) {
         return;
       }
 
-      self._waitFunction[functionName] = true;
+      this._waitFunction[functionName] = true;
 
-      $(document).ready(function () {
-        self._waitFunction[functionName] = false;
+      $(document).ready(() => {
+        this._waitFunction[functionName] = false;
 
         if (functionName) {
-          const jQueryElement = $(self._el.nativeElement);
+          const jQueryElement = $(this._el.nativeElement);
           if (jQueryElement[functionName]) {
-            if (self._params) {
-              if (self._params instanceof Array) {
-                jQueryElement[functionName](...self._params);
+            if (this._params) {
+              if (this._params instanceof Array) {
+                jQueryElement[functionName](...this._params);
               } else {
-                throw new Error("Params has to be an array.")
+                throw new Error("Params has to be an array.");
               }
             } else {
               jQueryElement[functionName]();
             }
           } else {
-            // fallback to running self function on the global Materialize object
+            // fallback to running this function on the global Materialize object
             if (Materialize[functionName]) {
-              if (self._params) {
-                if (self._params instanceof Array) {
-                  Materialize[functionName](...self._params);
+              if (this._params) {
+                if (this._params instanceof Array) {
+                  Materialize[functionName](...this._params);
                 } else {
-                  throw new Error("Params has to be an array.")
+                  throw new Error("Params has to be an array.");
                 }
               } else {
                 Materialize[functionName]();

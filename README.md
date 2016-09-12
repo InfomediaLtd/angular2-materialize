@@ -286,4 +286,60 @@ Add these lines to header of index.html
 <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
+#### Installing & configuring angular2-materialize in projects created with angular-cli@webpack (1.0.0-beta.11-webpack.8)
+
+Install MaterializeCSS and angular2-materialize from npm
+```
+npm install materialize-css --save
+npm install angular2-materialize --save
+```
+
+Jquery is required
+```
+npm install jquery@^2.2.4 --save
+```
+
+add scripts in angular-cli.json
+```
+"scripts": [
+  "../node_modules/jquery/dist/jquery.js",
+  "../node_modules/materialize-css/dist/js/materialize.js"
+],
+```
+
+Import MaterializeModule in app.module.ts
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { MaterializeModule } from 'angular2-materialize';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [ AppComponent ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    MaterializeModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Add these lines to header of index.html
+```
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Import materialize.css in style.css
+```
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/materialize-css/dist/css/materialize.css";
+```
 

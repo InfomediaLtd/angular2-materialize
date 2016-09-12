@@ -32,6 +32,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     private _params:[any] = null;
     private _functionName:string = null;
     private previousValue = null;
+    private _waitFunction: any = { };
 
     private changeListenerShouldBeAdded = true;
 
@@ -156,37 +157,47 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
       this.performLocalElementUpdates();
     }
-    
+
     private performLocalElementUpdates(functionName=this._functionName) {
-      if (functionName) {
-        const jQueryElement = $(this._el.nativeElement);
-        if (jQueryElement[functionName]) {
-          if (this._params) {
-            if (this._params instanceof Array) {
-              jQueryElement[functionName](...this._params);
-            } else {
-              throw new Error("Params has to be an array.")
-            }
-          } else {
-            jQueryElement[functionName]();
-          }
-        } else {
-          // fallback to running this function on the global Materialize object
-          if (Materialize[functionName]) {
+      if (this._waitFunction[functionName]) {
+        return;
+      }
+
+      this._waitFunction[functionName] = true;
+
+      $(document).ready(() => {
+        this._waitFunction[functionName] = false;
+
+        if (functionName) {
+          const jQueryElement = $(this._el.nativeElement);
+          if (jQueryElement[functionName]) {
             if (this._params) {
               if (this._params instanceof Array) {
-                Materialize[functionName](...this._params);
+                jQueryElement[functionName](...this._params);
               } else {
-                throw new Error("Params has to be an array.")
+                throw new Error("Params has to be an array.");
               }
             } else {
-              Materialize[functionName]();
+              jQueryElement[functionName]();
             }
           } else {
-            throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
+            // fallback to running this function on the global Materialize object
+            if (Materialize[functionName]) {
+              if (this._params) {
+                if (this._params instanceof Array) {
+                  Materialize[functionName](...this._params);
+                } else {
+                  throw new Error("Params has to be an array.");
+                }
+              } else {
+                Materialize[functionName]();
+              }
+            } else {
+              throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
+            }
           }
         }
-      }
+      });
     }
 
     private isTooltip(){

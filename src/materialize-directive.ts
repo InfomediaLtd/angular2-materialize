@@ -110,6 +110,13 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         this.changeListenerShouldBeAdded = false;
       }
 
+      if (this.isAutocomplete()) {
+        const nativeElement = this._el.nativeElement;
+        const jQueryElement = $(nativeElement);
+
+        jQueryElement.on("change", e => nativeElement.dispatchEvent(new CustomEvent("input")));
+      }
+
       if (this.isDatePicker()) {
         const nativeElement = this._el.nativeElement;
         const jQueryElement = $(nativeElement);
@@ -211,6 +218,11 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     private isDatePicker() {
       return (this._functionName && this._functionName === "pickadate");
     }
+
+    private isAutocomplete() {
+      return (this._functionName && this._functionName === "autocomplete");
+    }
+
     private enableDPButtons(){
         $('.picker__clear').removeAttr("disabled");
         $('.picker__today').removeAttr("disabled");

@@ -315,7 +315,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { MaterializeModule } from 'angular2-materialize';
-
+import "materialize-css";
 import { AppComponent } from './app.component';
 
 @NgModule({

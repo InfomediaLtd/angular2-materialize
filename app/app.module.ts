@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
+import {MaterializeDirective} from "../src/index";
+import {MaterialInput,
+        Option,
+        MaterialSelect} from "./components/model-bindings/index"
 import { AppComponent } from './app.component';
 import {
   Buttons,
@@ -16,7 +19,7 @@ import {
   DatePicker,
   ModelBindings
 } from './components/index';
-import { routing } from './app.routing'
+import { routing, appRoutingProviders } from './app.routing'
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { routing } from './app.routing'
     Forms,
     SideNav,
     DatePicker,
-    ModelBindings
+    ModelBindings,
+    MaterializeDirective,
+    MaterialSelect,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,7 @@ import { routing } from './app.routing'
     routing
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })

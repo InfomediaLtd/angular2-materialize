@@ -103,7 +103,7 @@ System.config({
     "npm:@angular/core@2.0.1": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.12",
-      "zone.js": "npm:zone.js@0.6.17"
+      "zone.js": "npm:zone.js@0.6.25"
     },
     "npm:@angular/forms@2.0.1": {
       "@angular/common": "npm:@angular/common@2.0.1",
@@ -423,7 +423,7 @@ System.config({
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
     },
-    "npm:zone.js@0.6.17": {
+    "npm:zone.js@0.6.25": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     }

@@ -9,7 +9,6 @@ import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: "actionsMain",
-    directives: [MaterializeDirective, MaterialInput, MaterialSelect],
     template: `
       <form materialize class="col s12">
         <div class="row">

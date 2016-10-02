@@ -3,7 +3,6 @@ import {Component} from "@angular/core"
 
 @Component({
     selector: "dropdown",
-    directives: [MaterializeDirective],
     template: `
      <!-- Dropdown Trigger -->
      <a materialize="dropdown" class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>

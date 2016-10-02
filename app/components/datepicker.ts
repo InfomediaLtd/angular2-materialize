@@ -3,7 +3,6 @@ import {Component} from "@angular/core"
 
 @Component({
     selector: "datePicker",
-    directives: [MaterializeDirective],
     template: `
       <form materialize class="col s12">
         <div class="row">

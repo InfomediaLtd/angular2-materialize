@@ -4,7 +4,6 @@ import * as Materialize from "../../../src/index";
 
 @Component({
     selector: "materialInput",
-    directives: [MaterializeDirective],
     inputs: ['model: model'],
     outputs: ['modelChange'],
     template: `

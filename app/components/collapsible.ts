@@ -1,9 +1,8 @@
-import {MaterializeDirective} from "../../src/index";
+import {MaterializeDirective} from "./../../src/index";
 import {Component} from "@angular/core"
 
 @Component({
     selector: "collapsible",
-    directives: [MaterializeDirective],
     template: `
         <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
           <li>

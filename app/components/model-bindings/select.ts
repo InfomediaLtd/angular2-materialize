@@ -5,7 +5,6 @@ import {Option} from './option';
 
 @Component({
     selector: "materialSelect",
-    directives: [MaterializeDirective],
     template: `
       <div class="row">
           <div class="input-field col s6">

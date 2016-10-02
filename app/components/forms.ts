@@ -3,7 +3,6 @@ import {Component,OnInit} from "@angular/core"
 
 @Component({
     selector: "forms",
-    directives: [MaterializeDirective],
     template: `
         <form materialize class="col s12">
           <div class="row">

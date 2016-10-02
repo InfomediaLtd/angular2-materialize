@@ -3,7 +3,6 @@ import {Component,EventEmitter} from "@angular/core"
 
 @Component({
     selector: "dialogs",
-    directives: [MaterializeDirective],
     template: `
       <!-- Modal Trigger -->
       <a materialize="leanModal" [materializeParams]="[{dismissible: false}]" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>

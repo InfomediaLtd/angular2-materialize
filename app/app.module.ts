@@ -36,6 +36,7 @@ import { routing, appRoutingProviders } from './app.routing'
     DatePicker,
     ModelBindings,
     MaterializeDirective,
+    MaterialInput,
     MaterialSelect,
 
   ],

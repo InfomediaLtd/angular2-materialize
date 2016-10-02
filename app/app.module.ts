@@ -9,6 +9,7 @@ import {MaterialInput,
 import { AppComponent } from './app.component';
 import {
   Buttons,
+  Chips,
   Collapsible,
   Dropdown,
   Dialogs,
@@ -26,6 +27,7 @@ import { routing, appRoutingProviders } from './app.routing'
   declarations: [
     AppComponent,
     Buttons,
+    Chips,
     Collapsible,
     Dropdown,
     Dialogs,

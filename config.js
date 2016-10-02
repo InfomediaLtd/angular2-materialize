@@ -96,7 +96,7 @@ System.config({
       "@angular/core": "npm:@angular/core@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:@angular/compiler@2.0.1: {
+    "npm:@angular/compiler@2.0.1": {
       "@angular/core": "npm:@angular/core@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },

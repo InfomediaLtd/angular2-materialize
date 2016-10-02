@@ -17,6 +17,12 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="input-field col s12">
+              <input type="text" name="autoComplete" materialize="autocomplete" [materializeParams]="[{'data': {'apple': null, 'google': null}}]">
+              <label for="autoComplete">Autocomplete (a/g)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
               <input disabled value="I am not editable" id="disabled" type="text" class="validate">
               <label for="disabled">Disabled</label>
             </div>

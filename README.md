@@ -302,7 +302,7 @@ npm install jquery@^2.2.4 --save
 add scripts in angular-cli.json
 ```
 "scripts": [
-  "../node_modules/jquery/dist/jquery.js",
+  "../node_modules/jquery/dist/jquery.min.js",
   "../node_modules/materialize-css/dist/js/materialize.js"
 ],
 ```

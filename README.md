@@ -343,3 +343,4 @@ Import materialize.css in style.css
 @import "../node_modules/materialize-css/dist/css/materialize.css";
 ```
 
+The following example project, by [pragdev](https://github.com/pragdev) uses angular-cli with angualr2-materialize: https://github.com/pragdev/angular_example

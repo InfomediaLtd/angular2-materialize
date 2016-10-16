@@ -70,7 +70,8 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     public ngDoCheck() {
       const nativeElement = this._el.nativeElement;
-      if (this.isSelect() && nativeElement.value!=this.previousValue) {
+      const jQueryElement = $(nativeElement);
+      if (this.isSelect() && !jQueryElement.attr("multiple") && nativeElement.value!=this.previousValue) {
         // handle select changes of the model
         this.previousValue = nativeElement.value;
         this.performLocalElementUpdates();
@@ -102,12 +103,12 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         jQueryElement.on("change", e => {
           if (!e.originalEvent || !e.originalEvent.internalToMaterialize) {
             const event:any = document.createEvent("CustomEvent");
-            if (jQueryElement.attr("multiple")) {
-              event.initCustomEvent("input",false,false,undefined);
-            }
-            else {
+            //if (jQueryElement.attr("multiple")) {
+              //event.initCustomEvent("input",false,false,undefined);
+            //}
+            //else {
               event.initCustomEvent("change",false,false,undefined);
-            }
+            //}
             
             event.internalToMaterialize = true;
             nativeElement.dispatchEvent(event);

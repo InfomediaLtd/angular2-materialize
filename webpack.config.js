@@ -12,6 +12,9 @@ module.exports = {
         },
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.css']
     },
+    externals: {
+        jquery: 'jQuery'
+  },
     module: {
         loaders: [
             {

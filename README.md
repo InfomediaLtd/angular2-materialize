@@ -99,22 +99,22 @@ The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/mast
 </div>
 ```
 
-Another useful option is emitting actions on an element. You may want to do that for calling Materialize functions, like closing a modal dialog or triggering a toast. You can do that by setting the **materializeActions** attribute, which accepts an [EventEmitter](https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html) :
+Another useful option is emitting actions on an element. You may want to do that for calling Materialize functions, like closing a modal dialog or triggering a toast. You can do that by setting the **materializeActions** attribute, which accepts an [EventEmitter](https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html). The emitted events can either be a "string" type action (Materialize function call) or a structure with action and parameters:
 ```html
-<div id="modal1" class="modal" materialize [materializeActions]="actions">
+<div id="modal1" class="modal" materialize [materializeActions]="modalActions">
   <div class="modal-content">
     <h4>Modal Header</h4>
     <p>A bunch of text</p>
   </div>
   <div class="modal-footer">
-    <a class="waves-effect waves-green btn-flat" (click)="closeModel()">Close</a>
+    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
   </div>
 </div>
 ```
 ```js
-  actions = new EventEmitter<string>();
+  modalActions = new EventEmitter<string|MaterializeAction>();
   closeModel() {
-    this.actions.emit("closeModal");
+    this.modalActions.emit({action:"modal",params:['close']});
   }
 ```
 

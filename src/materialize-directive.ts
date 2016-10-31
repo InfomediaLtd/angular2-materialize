@@ -8,7 +8,7 @@ import {
   AfterViewInit,
   EventEmitter
 } from '@angular/core';
-import {CustomEvent} from "./custom-event-polyfill"
+import {CustomEvent} from "./custom-event-polyfill";
 
 declare var $:any;
 declare var Materialize:any;
@@ -23,6 +23,11 @@ declare var Materialize:any;
   // "material_select" |
   // "sideNav" |
   // "leanModal";
+
+export interface MaterializeAction {
+  action:string;
+  params:[any];
+}
 
 @Directive({
     selector: '[materialize]'
@@ -42,9 +47,13 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
       this._params = params;
       this.performElementUpdates();
     }
-    @Input() set materializeActions(actions:EventEmitter<string>) {
-      actions.subscribe(action => {
-        this.performLocalElementUpdates(action);
+    @Input() set materializeActions(actions:EventEmitter<string|MaterializeAction>) {            
+      actions.subscribe((action:string|MaterializeAction) => {
+        if (typeof action == "string") {
+          this.performLocalElementUpdates(action);
+        } else {
+          this.performLocalElementUpdates(action.action,action.params);          
+        }
       })
     }
     @Input() set materialize(functionName:string) {
@@ -172,7 +181,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
       this.performLocalElementUpdates();
     }
 
-    private performLocalElementUpdates(functionName=this._functionName) {
+    private performLocalElementUpdates(functionName=this._functionName, params=this._params) {
       if (this._waitFunction[functionName]) {
         return;
       }
@@ -185,9 +194,9 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         if (functionName) {
           const jQueryElement = $(this._el.nativeElement);
           if (jQueryElement[functionName]) {
-            if (this._params) {
-              if (this._params instanceof Array) {
-                jQueryElement[functionName](...this._params);
+            if (params) {
+              if (params instanceof Array) {
+                jQueryElement[functionName](...params);
               } else {
                 throw new Error("Params has to be an array.");
               }
@@ -197,9 +206,9 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
           } else {
             // fallback to running this function on the global Materialize object
             if (Materialize[functionName]) {
-              if (this._params) {
-                if (this._params instanceof Array) {
-                  Materialize[functionName](...this._params);
+              if (params) {
+                if (params instanceof Array) {
+                  Materialize[functionName](...params);
                 } else {
                   throw new Error("Params has to be an array.");
                 }

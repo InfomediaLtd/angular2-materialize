@@ -1,4 +1,4 @@
-export {MaterializeDirective} from "./materialize-directive";
+export {MaterializeDirective,MaterializeAction} from "./materialize-directive";
 export {MaterializeModule} from "./materialize-module";
 
 if (!("Materialize" in window)) {

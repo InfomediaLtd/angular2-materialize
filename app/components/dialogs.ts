@@ -1,21 +1,20 @@
-import {MaterializeDirective} from "../../src/index";
+import {MaterializeDirective,MaterializeAction} from "../../src/index";
 import {Component,EventEmitter} from "@angular/core"
 
 @Component({
     selector: "dialogs",
     template: `
       <!-- Modal Trigger -->
-      <a materialize="leanModal" [materializeParams]="[{dismissible: false}]" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+      <a class="waves-effect waves-light btn modal-trigger" (click)="openModal()">Modal</a>
 
       <!-- Modal Structure -->
-      <!--<div id="modal1" class="modal" materialize="closeModal" [materializeParams]="params">-->
-      <div id="modal1" class="modal" materialize [materializeActions]="modalActions">
+      <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
         <div class="modal-content">
           <h4>Modal Header</h4>
           <p>A bunch of text</p>
         </div>
         <div class="modal-footer">
-          <a class="waves-effect waves-green btn-flat" (click)="closeModel()">Close</a>
+          <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
           <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
       </div>
@@ -32,8 +31,8 @@ import {Component,EventEmitter} from "@angular/core"
     `
 })
 export class Dialogs {
-  modalActions = new EventEmitter<string>();
-  globalActions = new EventEmitter<string>();
+  modalActions = new EventEmitter<string|MaterializeAction>();
+  globalActions = new EventEmitter<string|MaterializeAction>();
   params = []
   printSomething() {
     console.log("tooltip button clicked!");
@@ -41,7 +40,10 @@ export class Dialogs {
   triggerToast() {
     this.globalActions.emit('toast')
   }
-  closeModel() {
-    this.modalActions.emit("closeModal");
+  openModal() {
+    this.modalActions.emit({action:"modal",params:['open']});
+  }
+  closeModal() {
+    this.modalActions.emit({action:"modal",params:['close']});
   }
 }

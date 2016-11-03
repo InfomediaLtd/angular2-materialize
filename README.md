@@ -76,7 +76,7 @@ Apply an empty [MaterializeDirective](https://github.com/InfomediaLtd/angular2-m
 </form>
 ```
 
-The [MaterializeDirective](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize-directive.ts) attribute directive (**materialize**) accepts any MaterializeCSS initialization call to apply to the element. The list of supported functions are provided by MaterializeCSS. Examples: collapsible, leanModal, tooltip, dropdown, tabs, material_select, sideNav, etc.
+The [MaterializeDirective](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize-directive.ts) attribute directive (**materialize**) accepts any MaterializeCSS initialization call to apply to the element. The list of supported functions are provided by MaterializeCSS. Examples: collapsible, modal, tooltip, dropdown, tabs, material_select, sideNav, etc.
 
 For example, to apply tooltip:
 ```html
@@ -86,17 +86,28 @@ For example, to apply tooltip:
 The [Materialize](https://github.com/InfomediaLtd/angular2-materialize/blob/master/src/materialize.ts) attribute directive also allows specifying parameters to be passed to the function, but providing a **materializeParams** attribute returning an array of params. Use it with a function call or even by inlining the params in the HTML:
 ```html
 <!-- Modal Trigger -->
-<a materialize="leanModal" [materializeParams]="[{dismissible: false}]" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+<a class="waves-effect waves-light btn modal-trigger" (click)="openModal()">Modal</a>
+
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
   <div class="modal-content">
     <h4>Modal Header</h4>
     <p>A bunch of text</p>
   </div>
   <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
   </div>
 </div>
+```
+```js
+  modalActions = new EventEmitter<string|MaterializeAction>();
+  openModal() {
+    this.modalActions.emit({action:"modal",params:['open']});
+  }
+  closeModal() {
+    this.modalActions.emit({action:"modal",params:['close']});
+  }
 ```
 
 Another useful option is emitting actions on an element. You may want to do that for calling Materialize functions, like closing a modal dialog or triggering a toast. You can do that by setting the **materializeActions** attribute, which accepts an [EventEmitter](https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html). The emitted events can either be a "string" type action (Materialize function call) or a structure with action and parameters:

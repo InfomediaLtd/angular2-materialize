@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var rimraf = require('gulp-rimraf');
 var runSequence = require('run-sequence');
 var tsc = require('gulp-typescript');
+var exec = require('child_process').exec;
 
 var paths = {
     dist: './dist',
@@ -25,6 +26,14 @@ gulp.task('tsc', function () {
     return tsResult.dts.pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('ngc', function (cb) {
+  exec('ngc -p tsconfig-ngc.json', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
 gulp.task('copy', function(){
     return gulp.src(paths.distSourcesFiles).pipe(gulp.dest(paths.dist));
 });
@@ -38,7 +47,7 @@ gulp.task('default', function (callback) {
     runSequence(
         'clean',
         'copySources',
-        'tsc',
+        'ngc',
         'copy',
         'cleanup',
         function (error) {

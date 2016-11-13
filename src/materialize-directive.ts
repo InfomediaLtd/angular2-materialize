@@ -49,7 +49,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     }
     @Input() set materializeActions(actions:EventEmitter<string|MaterializeAction>) {            
       actions.subscribe((action:string|MaterializeAction) => {
-        if (typeof action == "string") {
+        if (typeof action === "string") {
           this.performLocalElementUpdates(action);
         } else {
           this.performLocalElementUpdates(action.action,action.params);          
@@ -67,7 +67,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
       this.performElementUpdates();
     }
 
-    public ngOnChanges() {
+    public ngOnChanges(_unused?) {
       if (this.isSelect()) {
         setTimeout(() => this.performLocalElementUpdates(), 10);
       }
@@ -130,7 +130,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const nativeElement = this._el.nativeElement;
         const jQueryElement = $(nativeElement);
 
-        jQueryElement.on("change", e => nativeElement.dispatchEvent(new CustomEvent("input")));
+        jQueryElement.on("change", e => nativeElement.dispatchEvent(new (<any>CustomEvent("input"))));
       }
 
       if (this.isDatePicker()) {
@@ -139,7 +139,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const enablebtns = this.enableDPButtons;
 
         jQueryElement[this._functionName](...this._params);
-        jQueryElement.on("change", e => nativeElement.dispatchEvent(new CustomEvent("input")));
+        jQueryElement.on("change", e => nativeElement.dispatchEvent(new (<any>CustomEvent("input"))));
         //jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
         // jQueryElement.on("change", e => dispatchEventOnTarget(nativeElement,"input"));
 

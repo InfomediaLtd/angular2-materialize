@@ -130,7 +130,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const nativeElement = this._el.nativeElement;
         const jQueryElement = $(nativeElement);
 
-        jQueryElement.on("change", e => nativeElement.dispatchEvent(new (<any>CustomEvent("input"))));
+        jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
       }
 
       if (this.isDatePicker()) {
@@ -139,7 +139,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const enablebtns = this.enableDPButtons;
 
         jQueryElement[this._functionName](...this._params);
-        jQueryElement.on("change", e => nativeElement.dispatchEvent(new (<any>CustomEvent("input"))));
+        jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
         //jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
         // jQueryElement.on("change", e => dispatchEventOnTarget(nativeElement,"input"));
 

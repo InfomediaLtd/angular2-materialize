@@ -22,7 +22,8 @@ declare var Materialize:any;
   // "characterCounter" |
   // "material_select" |
   // "sideNav" |
-  // "leanModal";
+  // "leanModal" |
+  // "textarea";
 
 export interface MaterializeAction {
   action:string;
@@ -70,6 +71,9 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     public ngOnChanges(_unused?) {
       if (this.isSelect()) {
         setTimeout(() => this.performLocalElementUpdates(), 10);
+      }
+      else if (this.isTextarea()) {
+        setTimeout(() => this.performElementUpdates(), 10);
       }
     }
 
@@ -178,6 +182,10 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         });
       }
 
+      if (this.isTextarea()) {
+          this._el.nativeElement.dispatchEvent((<any>CustomEvent("autoresize", {bubbles: true, cancelable: false, detail: undefined})));
+      }
+
       this.performLocalElementUpdates();
     }
 
@@ -237,6 +245,10 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     private isAutocomplete() {
       return (this._functionName && this._functionName === "autocomplete");
+    }
+
+    private isTextarea() {
+        return (this._functionName && this._functionName === "textarea");
     }
 
     private enableDPButtons(){

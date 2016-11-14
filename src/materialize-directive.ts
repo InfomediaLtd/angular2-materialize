@@ -138,44 +138,11 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const jQueryElement = $(nativeElement);
         const enablebtns = this.enableDPButtons;
 
-        jQueryElement[this._functionName](...this._params);
-        jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
-        //jQueryElement.on("change", e => nativeElement.dispatchEvent(new Event("input")));
-        // jQueryElement.on("change", e => dispatchEventOnTarget(nativeElement,"input"));
-
-        const datePickerPopUp = jQueryElement.siblings(".picker").first();
-
-        jQueryElement.on('click', function(){
-            datePickerPopUp.addClass('picker--focused picker--opened');
-
-            enablebtns();
-
-            //close on side click
-            $('.picker__holder').click(function(event){
-                if(event.target.className === 'picker__holder'){
-                    datePickerPopUp.removeClass('picker--focused picker--opened');
-                }
-            });
-
-            jQueryElement.change(() => {
-                setTimeout(function() {
-                    enablebtns()
-                }, 10);
-            });
-
-            $('.picker__select--year').on('change', function(){
-                setTimeout(function() {
-                    enablebtns();
-                }, 10);
-            });
-
-            $('.picker__select--month').on('change', function(){
-                setTimeout(function() {
-                    enablebtns();
-                }, 10);
-            });
-
-        });
+        jQueryElement.on("change", e => nativeElement.dispatchEvent(new CustomEvent("input")));
+        const datePicker = jQueryElement[this._functionName](...this._params);
+        const picker = datePicker.pickadate('picker');
+        jQueryElement.mousedown(() =>
+              picker.set('select', jQueryElement.val(), ...this._params));
       }
 
       this.performLocalElementUpdates();

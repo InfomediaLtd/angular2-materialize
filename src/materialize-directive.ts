@@ -138,7 +138,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const jQueryElement = $(nativeElement);
         const enablebtns = this.enableDPButtons;
 
-        jQueryElement.on("change", e => nativeElement.dispatchEvent(new CustomEvent("input")));
+        jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
         const datePicker = jQueryElement[this._functionName](...this._params);
         const picker = datePicker.pickadate('picker');
         jQueryElement.mousedown(() =>

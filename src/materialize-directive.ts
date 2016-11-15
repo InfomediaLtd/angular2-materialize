@@ -22,8 +22,7 @@ declare var Materialize:any;
   // "characterCounter" |
   // "material_select" |
   // "sideNav" |
-  // "leanModal" |
-  // "textarea";
+  // "leanModal";
 
 export interface MaterializeAction {
   action:string;
@@ -248,7 +247,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     }
 
     private isTextarea() {
-        return (this._functionName && this._functionName === "textarea");
+        return this._el.nativeElement.nodeName == "TEXTAREA";
     }
 
     private enableDPButtons(){

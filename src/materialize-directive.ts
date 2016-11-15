@@ -22,7 +22,7 @@ declare var Materialize:any;
   // "characterCounter" |
   // "material_select" |
   // "sideNav" |
-  // "leanModal";
+  // "modal";
 
 export interface MaterializeAction {
   action:string;
@@ -225,14 +225,3 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         $('.picker__select--month').removeAttr("disabled");
     }
 }
-
-/*function dispatchEventOnTarget(target, eventType) {
-  let event;
-  try {
-    event = new Event(eventType);
-  } catch (e) {
-    event = document.createEvent('HTMLEvents');
-    event.initEvent(eventType, true, true);
-  }
-  target.dispatchEvent(event);
-};*/

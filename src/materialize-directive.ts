@@ -148,6 +148,14 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
               picker.set('select', jQueryElement.val(), ...this._params));
       }
 
+      if (this.isChips()) {
+        const nativeElement = this._el.nativeElement;
+        const jQueryElement = $(nativeElement);
+        jQueryElement.on("chip.add", (e,chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.add",chip))));
+        jQueryElement.on("chip.delete", (e,chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.delete",chip))));
+        jQueryElement.on("chip.select", (e,chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.select",chip))));
+      }
+
       if (this.isTextarea()) {
           this._el.nativeElement.dispatchEvent((<any>CustomEvent("autoresize", {bubbles: true, cancelable: false, detail: undefined})));
       }
@@ -207,6 +215,10 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     private isDatePicker() {
       return (this._functionName && this._functionName === "pickadate");
+    }
+
+    private isChips() {
+      return (this._functionName && this._functionName === "material_chip");
     }
 
     private isAutocomplete() {

@@ -1,6 +1,6 @@
-export function CustomEvent ( type, params = { bubbles: false, cancelable: false, detail: undefined } ) {
+export function CustomEvent ( type, detail = undefined, params = { bubbles: false, cancelable: false } ) {
     var event = document.createEvent( 'CustomEvent' );
-    event.initCustomEvent( type, params.bubbles, params.cancelable, params.detail );
+    event.initCustomEvent( type, params.bubbles, params.cancelable, detail );
     return event;
 }
 if ("Event" in window) {

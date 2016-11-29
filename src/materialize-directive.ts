@@ -71,9 +71,6 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
       if (this.isSelect()) {
         setTimeout(() => this.performLocalElementUpdates(), 10);
       }
-      else if (this.isTextarea()) {
-        setTimeout(() => this.performElementUpdates(), 10);
-      }
     }
 
     public ngOnDestroy() {
@@ -87,6 +84,11 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         // handle select changes of the model
         this.previousValue = nativeElement.value;
         this.performLocalElementUpdates();
+      } else if (this.isTextarea()) {
+        if (nativeElement.value!=this.previousValue) {
+          this.previousValue = nativeElement.value;
+          this.performElementUpdates();
+        }
       }
       return false;
     }

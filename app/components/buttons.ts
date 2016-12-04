@@ -1,4 +1,5 @@
 import {Component} from "@angular/core"
+import {Router} from "@angular/router"
 
 @Component({
     selector: "buttons",
@@ -6,6 +7,14 @@ import {Component} from "@angular/core"
         <a class="waves-effect waves-light btn">Stuff</a>
         <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
         <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
+        <br/><br/>
+        <button class="btn waves-effect waves-light" type="submit" name="action" routerLink="/Chips">Go to Chips
+          <i class="material-icons right">send</i>
+        </button>
+        <br/><br/>
+        <button class="btn waves-effect waves-light" type="submit" name="action" (click)="gotoCollapsible()">Go to Collapsible
+          <i class="material-icons right">send</i>
+        </button>
         <br/>
         <div class="fixed-action-btn horizontal click-to-toggle" style="top: 24px; right: 24px;">
           <a class="btn-floating btn-large red">
@@ -20,4 +29,9 @@ import {Component} from "@angular/core"
         </div>
     `
 })
-export class Buttons {}
+export class Buttons {
+  constructor(private router:Router) {}
+  gotoCollapsible() {
+    this.router.navigate(['/Collapsible']);
+  }
+}

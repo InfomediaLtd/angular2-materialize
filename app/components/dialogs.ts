@@ -5,19 +5,35 @@ import {Component,EventEmitter} from "@angular/core"
     selector: "dialogs",
     template: `
       <!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" (click)="openModal()">Modal</a>
+      <a class="waves-effect waves-light btn modal-trigger" (click)="openModal1()">Modal 1</a>
+      <a class="waves-effect waves-light btn modal-trigger" (click)="openModal2()">Modal 2</a>
+      <button data-target="modal2" class="btn">Modal 2 (2)</button>
 
       <!-- Modal Structure -->
-      <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+      <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1">
         <div class="modal-content">
-          <h4>Modal Header</h4>
+          <h4>Modal Header 1</h4>
           <p>A bunch of text</p>
         </div>
         <div class="modal-footer">
-          <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+          <a class="waves-effect waves-green btn-flat" (click)="closeModal1()">Close</a>
           <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
       </div>
+
+      <!-- Modal Structure -->
+      <div id="modal2" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions2">
+        <div class="modal-content">
+          <h4>Modal Header 2</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a class="waves-effect waves-green btn-flat" (click)="closeModal2()">Close</a>
+          <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+
+      <br/><br/>
 
       <!-- data-position can be : bottom, top, left, or right -->
       <!-- data-delay controls delay before tooltip shows (in milliseconds)-->
@@ -31,7 +47,8 @@ import {Component,EventEmitter} from "@angular/core"
     `
 })
 export class Dialogs {
-  modalActions = new EventEmitter<string|MaterializeAction>();
+  modalActions1 = new EventEmitter<string|MaterializeAction>();
+  modalActions2 = new EventEmitter<string|MaterializeAction>();
   globalActions = new EventEmitter<string|MaterializeAction>();
   params = []
   printSomething() {
@@ -40,10 +57,16 @@ export class Dialogs {
   triggerToast() {
     this.globalActions.emit('toast')
   }
-  openModal() {
-    this.modalActions.emit({action:"modal",params:['open']});
+  openModal1() {
+    this.modalActions1.emit({action:"modal",params:['open']});
   }
-  closeModal() {
-    this.modalActions.emit({action:"modal",params:['close']});
+  closeModal1() {
+    this.modalActions1.emit({action:"modal",params:['close']});
+  }
+  openModal2() {
+    this.modalActions2.emit({action:"modal",params:['open']});
+  }
+  closeModal2() {
+    this.modalActions2.emit({action:"modal",params:['close']});
   }
 }

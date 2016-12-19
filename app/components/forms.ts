@@ -78,13 +78,54 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="col s6 switch">
-              <label>
-                Off
-                <input type="checkbox">
-                <span class="lever"></span>
-                On
-              </label>
+              <div class="switch">
+                <label>
+                  Off
+                  <input type="checkbox">
+                  <span class="lever"></span>
+                  On
+                </label>
+              </div>
+              <br/>
+              <p>
+                <input type="checkbox" id="test5" [checked]="isTest5Checked"/>
+                <label for="test5">Red</label>
+              </p>
+              <p>
+                <input type="checkbox" id="test6" name="test6" [(ngModel)]="isTest6Checked"/>
+                <label for="test6">Yellow</label>
+              </p>
+              <p>
+                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                <label for="filled-in-box">Filled in</label>
+              </p>
+              <p>
+                <input type="checkbox" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Indeterminate Style</label>
+              </p>
             </div>
+            <div class="col s6">Value: {{isTest6Checked}}</div>
+          </div>
+          <div class="row">
+            <div class="col s6">
+              <p>
+                <input name="group1" type="radio" id="test1" [(ngModel)]="radioButtonValue" [value]="1"/>
+                <label for="test1">Red</label>
+              </p>
+              <p>
+                <input name="group1" type="radio" id="test2" [(ngModel)]="radioButtonValue" [value]="2"/>
+                <label for="test2">Yellow</label>
+              </p>
+              <p>
+                <input class="with-gap" name="group1" type="radio" id="test3" [(ngModel)]="radioButtonValue" [value]="3"/>
+                <label for="test3">Green</label>
+              </p>
+                <p>
+                  <input name="group1" type="radio" id="test4" disabled="disabled"/>
+                  <label for="test4">Brown</label>
+              </p>
+            </div>
+            <div class="col s6">Value: {{radioButtonValue}}</div>
           </div>
         </form>
         <br/><hr/><hr/><br/>
@@ -102,6 +143,11 @@ export class Forms implements OnInit {
 
   private selectOptions = [];
 
+  private isTest5Checked = false;
+  private isTest6Checked = true;
+  
+  private radioButtonValue = 3;
+
   public ngOnInit() {
       window.setTimeout(()=>{
         this.selectOptions = [
@@ -110,6 +156,10 @@ export class Forms implements OnInit {
           {value:3,name:"Option 3"}
         ]
       },100);
+
+      // window.setInterval(()=>{
+      //   console.log(this.radioButtonValue);
+      // },500);
   }
 
 }

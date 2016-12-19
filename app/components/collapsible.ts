@@ -18,6 +18,13 @@ import {Component} from "@angular/core"
             <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
           </li>
         </ul>
+        <br/><br/>
+        <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+          <li *ngFor="let value of values">
+            <div class="collapsible-header">{{value}}</div>
+            <div class="collapsible-body"><p>{{value}}</p></div>
+          </li>
+        </ul>
     `
 })
 export class Collapsible {
@@ -31,4 +38,6 @@ export class Collapsible {
         }
       }
     ];
+
+    values = ["First", "Second", "Third"];
 }

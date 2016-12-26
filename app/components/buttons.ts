@@ -1,8 +1,16 @@
 import {Component} from "@angular/core"
 import {Router} from "@angular/router"
 
+// we can do that because it's been imported globally in app.component.ts
+declare var Materialize:any;
+
 @Component({
     selector: "buttons",
+    styles: [`
+      .no-upper-case {
+        text-transform: none
+      }
+    `],
     template: `
         <a class="waves-effect waves-light btn">Stuff</a>
         <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
@@ -27,11 +35,18 @@ import {Router} from "@angular/router"
             <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
           </ul>
         </div>
+        <br/>
+        <a class="waves-effect waves-light btn no-upper-case" (click)="updateTextFields()">Call Materialize.updateTextFields()</a>
     `
 })
 export class Buttons {
   constructor(private router:Router) {}
   gotoCollapsible() {
     this.router.navigate(['/Collapsible']);
+  }
+
+  updateTextFields() {
+    Materialize.updateTextFields();
+    console.log("updateTextFields called");
   }
 }

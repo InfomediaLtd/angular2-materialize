@@ -2,6 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {
   Buttons,
+  Carousel,
   Chips,
   Collapsible,
   Dropdown,
@@ -24,6 +25,10 @@ const appRoutes: Routes = [
 	{
 		path: 'Buttons',
 		component: Buttons
+	},
+	{
+		path: 'Carousel',
+		component: Carousel
 	},
 	{
 		path: 'Chips',

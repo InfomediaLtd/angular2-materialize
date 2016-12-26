@@ -5,23 +5,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   </head>
   <body>
-      <!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
-
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal bottom-sheet">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-      </div>
+      <div class="chips"></div>
+      <div class="chips chips-initial"></div>
+      <div class="chips chips-placeholder"></div>
 
       <script>
         $(document).ready(function() {
-          $('#modal1').modal();    
+          $('.chips').material_chip();
+          $('.chips-initial').material_chip({
+            data: [{
+              tag: 'Apple',
+            }, {
+              tag: 'Microsoft',
+            }, {
+              tag: 'Google',
+            }],
+          });
+          $('.chips-placeholder').material_chip({
+            placeholder: 'Enter a tag',
+            secondaryPlaceholder: '+Tag',
+          }); 
+          $('.chips').on('chip.add', function(e, chip){
+            console.log("Added",chip);
+          });
+          $('.chips').on('chip.select', function(e, chip){
+            console.log(chip);
+          });
         });
       </script>
   </body>

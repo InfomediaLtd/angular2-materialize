@@ -56,7 +56,7 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea" materialize="characterCounter" length="120"></textarea>
               <label for="textarea1">Textarea</label>
             </div>
           </div>

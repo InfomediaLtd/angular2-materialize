@@ -28,8 +28,11 @@
           $('.chips').on('chip.add', function(e, chip){
             console.log("Added",chip);
           });
+          $('.chips').on('chip.delete', function(e, chip){
+            console.log("Delete",chip);
+          });
           $('.chips').on('chip.select', function(e, chip){
-            console.log(chip);
+            console.log("Select",chip);
           });
         });
       </script>

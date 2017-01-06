@@ -217,7 +217,7 @@ System.config({
         }
     },
     map: {
-        "materialize-css": "node-modules/materialize-css",
+        "materialize-css": "node_modules/materialize-css",
         "angular2-materialize": "node_modules/angular2-materialize"
     }
 });

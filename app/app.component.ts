@@ -19,5 +19,5 @@ import "../src/index";
         </main>
 
     `
-})
+}) 
 export class AppComponent { }

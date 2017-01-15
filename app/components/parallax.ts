@@ -5,7 +5,7 @@ declare var $:any;
 @Directive({
   selector: '[parallax]'
 })
-export class ParallaxDirective implements AfterViewInit{
+export class Parallax implements AfterViewInit{
 
   constructor(private el:ElementRef) {}
 

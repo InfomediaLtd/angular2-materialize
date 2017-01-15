@@ -2,6 +2,7 @@ import {
   Directive,
   ElementRef,
   Input,
+  Output,
   DoCheck,
   OnChanges,
   OnDestroy,
@@ -40,6 +41,9 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     private _waitFunction: any = { };
 
     private changeListenerShouldBeAdded = true;
+
+    @Output() init = new EventEmitter<void>();
+    private initialized = false;
 
     constructor(private _el: ElementRef) { }
 
@@ -203,7 +207,14 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
               throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
             }
           }
+
+          if (!this.initialized) {
+            this.initialized = true;
+            this.init.emit();
+          }
+
         }
+
       });
     }
 

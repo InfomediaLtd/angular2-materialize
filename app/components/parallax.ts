@@ -1,18 +1,16 @@
-import {Directive, ElementRef, AfterViewInit} from '@angular/core';
+import {MaterializeDirective} from "../../src/index";
+import {Component,OnInit} from "@angular/core"
 
-declare var $:any;
-
-@Directive({
-  selector: '[parallax]'
+@Component({
+  selector: "parallax",
+  template: `
+        
+  `
 })
-export class Parallax implements AfterViewInit{
+export class Parallax implements OnInit {
 
-  constructor(private el:ElementRef) {}
 
-  ngAfterViewInit(){
-
-    $(this.el.nativeElement).addClass('parallax').parallax();
-
+  public ngOnInit() {
 
   }
 

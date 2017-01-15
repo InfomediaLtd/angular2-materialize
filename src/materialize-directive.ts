@@ -51,12 +51,12 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
       this._params = params;
       this.performElementUpdates();
     }
-    @Input() set materializeActions(actions:EventEmitter<string|MaterializeAction>) {            
+    @Input() set materializeActions(actions:EventEmitter<string|MaterializeAction>) {
       actions.subscribe((action:string|MaterializeAction) => {
         if (typeof action === "string") {
           this.performLocalElementUpdates(action);
         } else {
-          this.performLocalElementUpdates(action.action,action.params);          
+          this.performLocalElementUpdates(action.action,action.params);
         }
       })
     }
@@ -127,7 +127,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
             //else {
               event.initCustomEvent("change",false,false,undefined);
             //}
-            
+
             event.internalToMaterialize = true;
             nativeElement.dispatchEvent(event);
           }
@@ -152,6 +152,12 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         const picker = datePicker.pickadate('picker');
         jQueryElement.mousedown(() =>
               picker.set('select', jQueryElement.val(), ...this._params));
+      }
+
+      if (this.isTimePicker()) {
+        const nativeElement = this._el.nativeElement;
+        const jQueryElement = $(nativeElement);
+        jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
       }
 
       if (this.isChips()) {
@@ -228,6 +234,10 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     private isDatePicker() {
       return (this._functionName && this._functionName === "pickadate");
+    }
+
+    private isTimePicker() {
+      return (this._functionName && this._functionName === "pickatime");
     }
 
     private isChips() {

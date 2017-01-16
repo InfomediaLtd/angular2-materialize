@@ -10,3 +10,4 @@ export { Carousel } from "./carousel";
 export { Chips } from "./chips";
 export { DatePicker } from "./datepicker";
 export { ModelBindings } from "./model-bindings/model-bindings";
+export { Parallax } from './parallax'

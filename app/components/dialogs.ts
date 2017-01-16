@@ -10,7 +10,7 @@ import {Component,EventEmitter} from "@angular/core"
       <button data-target="modal2" class="btn">Modal 2 (2)</button>
 
       <!-- Modal Structure -->
-      <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1">
+      <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1" (init)="this.openModal1()">
         <div class="modal-content">
           <h4>Modal Header 1</h4>
           <p>A bunch of text</p>

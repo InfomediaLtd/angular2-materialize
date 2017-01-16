@@ -19,6 +19,7 @@ import {
   Forms,
   SideNav,
   DatePicker,
+  Parallax,
   ModelBindings
 } from './components/index';
 import { routing, appRoutingProviders } from './app.routing'
@@ -38,6 +39,7 @@ import { routing, appRoutingProviders } from './app.routing'
     Forms,
     SideNav,
     DatePicker,
+    Parallax,
     ModelBindings,
     MaterialInput,
     MaterialSelect,

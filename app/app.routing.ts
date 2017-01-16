@@ -12,7 +12,8 @@ import {
   Forms,
   SideNav,
   DatePicker,
-  ModelBindings
+  ModelBindings,
+  Parallax
 } from './components/index';
 
 
@@ -62,6 +63,10 @@ const appRoutes: Routes = [
 		path: 'DatePicker',
 		component: DatePicker
 	},
+	{
+		path: 'Parallax',
+		component: Parallax
+	}
 	{
 		path: 'ModelBindings',
 		component: ModelBindings

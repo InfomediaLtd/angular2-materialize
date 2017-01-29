@@ -284,7 +284,10 @@ Add these lines to header of index.html
 <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
-#### Installing & configuring angular2-materialize in projects created with angular-cli@webpack (1.0.0-beta.11-webpack.8)
+
+The following example project, by [pragdev](https://github.com/pragdev), uses angular-cli with angualr2-materialize: https://github.com/pragdev/angular_example
+
+#### Installing & configuring angular2-materialize in projects created with angular-cli@webpack (1.0.0-beta.26)
 
 Install MaterializeCSS and angular2-materialize from npm
 ```
@@ -292,52 +295,25 @@ npm install materialize-css --save
 npm install angular2-materialize --save
 ```
 
-Jquery is required
+jQuery 2.2 and Hammer.JS are required
 ```
 npm install jquery@^2.2.4 --save
+npm install hammerjs --save
 ```
 
-add scripts in angular-cli.json
-```
-"scripts": [
-  "../node_modules/jquery/dist/jquery.js",
-  "../node_modules/materialize-css/dist/js/materialize.js"
-],
-```
+Edit the angular-cli.json :
+* Go to section apps and find styles array inside it (with only styles.css value by default), add the following line inside array before any styles:
+  * ../node_modules/materialize-css/dist/css/materialize.css
+* Go to section apps and find scripts array inside it, and add the following lines inside array
+  * ../node_modules/jquery/dist/jquery.js
+  * ../node_modules/hammerjs/hammer.js
+  * ../node_modules/materialize-css/dist/js/materialize.js
 
-Import MaterializeModule in app.module.ts
-```
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+Add ```import { MaterializeModule } from 'angular2-materialize';``` to the top of app.module.ts
 
-import { MaterializeModule } from 'angular2-materialize';
-import { AppComponent } from './app.component';
+Add MaterializeModule inside imports array of @NgModule decorator in app.module.ts
 
-@NgModule({
-  declarations: [ AppComponent ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    MaterializeModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
-Add these lines to header of index.html
+Add this line to header of index.html
 ```
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
-
-Import materialize.css in style.css
-```
-/* You can add global styles to this file, and also import other style files */
-@import "../node_modules/materialize-css/dist/css/materialize.css";
-```
-
-The following example project, by [pragdev](https://github.com/pragdev), uses angular-cli with angualr2-materialize: https://github.com/pragdev/angular_example

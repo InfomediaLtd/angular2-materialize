@@ -38,6 +38,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     private _params:[any] = null;
     private _functionName:string = null;
     private previousValue = null;
+    private previousDisabled = false;
     private _waitFunction: any = { };
 
     private changeListenerShouldBeAdded = true;
@@ -84,10 +85,20 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     public ngDoCheck() {
       const nativeElement = this._el.nativeElement;
       const jQueryElement = $(nativeElement);
-      if (this.isSelect() && !jQueryElement.attr("multiple") && nativeElement.value!=this.previousValue) {
-        // handle select changes of the model
-        this.previousValue = nativeElement.value;
-        this.performLocalElementUpdates();
+      if (this.isSelect()) {
+        let shouldUpdate = false;
+        if (nativeElement.disabled != this.previousDisabled) {
+          this.previousDisabled = nativeElement.disabled;
+          shouldUpdate = true;
+        }
+        if (!jQueryElement.attr("multiple") && nativeElement.value!=this.previousValue) {
+          // handle select changes of the model
+          this.previousValue = nativeElement.value;
+          shouldUpdate = true;
+        }
+        if (shouldUpdate) {
+          this.performLocalElementUpdates();
+        }
       } else if (this.isTextarea()) {
         if (nativeElement.value!=this.previousValue) {
           this.previousValue = nativeElement.value;

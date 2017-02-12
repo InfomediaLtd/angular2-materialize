@@ -32,14 +32,14 @@ Add the Google MD fonts to your index.html:
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
-Add the MaterializeDirective to your NgModule:
+Add the MaterializeModule to your NgModule:
 ```js
-import {MaterializeDirective} from "angular2-materialize";
+import { MaterializeModule } from "../src/index";
 
 @NgModule({
-  declarations: [
+  imports: [
     //...
-    MaterializeDirective
+    MaterializeModule,
   ],
   //...
 })

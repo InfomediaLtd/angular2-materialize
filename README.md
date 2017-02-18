@@ -206,7 +206,7 @@ System.config({
 
 ```html
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+<M rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css" media="screen,projection" />
 <!-- Import jQuery before materialize.js -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -226,7 +226,11 @@ System.config({
 });
 ```
 
-#### Installing & configuring angular2-materialize in projects created with angular-cli
+### Installing & configuring angular2-materialize in projects created with angular/cli
+
+Look this cookbook install in:
+https://github.com/kelber/Angular2-Cookbook/tree/master/angular2-materialize
+
 
 Install MaterializeCSS and angular2-materialize from npm
 ```
@@ -306,13 +310,29 @@ npm install hammerjs --save
 
 Edit the angular-cli.json :
 * Go to section apps and find styles array inside it (with only styles.css value by default), add the following line inside array before any styles:
-  * ../node_modules/materialize-css/dist/css/materialize.css
-* Go to section apps and find scripts array inside it, and add the following lines inside array
-  * ../node_modules/jquery/dist/jquery.js
-  * ../node_modules/hammerjs/hammer.js
-  * ../node_modules/materialize-css/dist/js/materialize.js
 
-Add ```import { MaterializeModule } from 'angular2-materialize';``` to the top of app.module.ts
+```
+  "../node_modules/materialize-css/dist/css/materialize.css"
+```
+
+
+
+* Go to section apps and find scripts array inside it, and add the following lines inside array
+
+```
+  "../node_modules/jquery/dist/jquery.js",
+  "../node_modules/hammerjs/hammer.js",
+  "../node_modules/materialize-css/dist/js/materialize.js"
+```
+
+
+Add to the top of app.module.ts
+
+```
+import { MaterializeModule } from 'angular2-materialize';
+
+```
+
 
 Add MaterializeModule inside imports array of @NgModule decorator in app.module.ts
 

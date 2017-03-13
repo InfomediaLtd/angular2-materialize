@@ -66,7 +66,7 @@ const appRoutes: Routes = [
 	{
 		path: 'Parallax',
 		component: Parallax
-	}
+	},
 	{
 		path: 'ModelBindings',
 		component: ModelBindings

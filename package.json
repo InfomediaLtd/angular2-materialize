@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
   "scripts": {
+    "commit": "git-cz",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -78,6 +79,7 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "materialize-css": "^0.97.8",
     "protractor": "~5.1.0",
     "run-sequence": "1.2.2",
     "semantic-release": "6.3.2",

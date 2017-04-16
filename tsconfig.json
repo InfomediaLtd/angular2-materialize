@@ -1,21 +1,20 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "ES5",
-    "module": "commonjs",
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
     "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false,
-    "outDir": "build"
-  },
-  "files": [
-    "src/materialize-module.ts",
-    "src/materialize-directive.ts",
-    "src/custom-event-polyfill.ts",
-    "src/index.ts",
-    "app/main.ts",
-    "node_modules/typescript/lib/lib.es6.d.ts"
-  ]
-
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  }
 }

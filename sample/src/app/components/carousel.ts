@@ -1,5 +1,5 @@
 import {Component, EventEmitter, ViewChild} from "@angular/core"
-import {MaterializeAction} from "../../../lib"
+import {MaterializeAction} from "angular2-materialize"
 
 @Component({
     selector: "carousel",

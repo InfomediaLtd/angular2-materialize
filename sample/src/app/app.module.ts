@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { MaterializeModule } from "../../lib/index";
+import { MaterializeModule } from "angular2-materialize";
 import {MaterialInput,
         Option,
         MaterialSelect} from "./components/model-bindings/index"
@@ -23,7 +23,6 @@ import {
   ModelBindings
 } from './components/index';
 import { routing, appRoutingProviders } from './app.routing';
-
 
 @NgModule({
   declarations: [

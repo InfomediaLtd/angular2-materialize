@@ -3,6 +3,9 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
+    "paths": {
+      "angular2-materialize": ["../lib/index"]
+    },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",

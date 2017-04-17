@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {Location} from '@angular/common';
 
-import "../../lib/index";
+import "angular2-materialize";
 
 @Component({
     selector: "app-root",

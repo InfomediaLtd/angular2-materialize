@@ -1,4 +1,4 @@
-import {MaterializeDirective} from "../../../lib/index";
+import {MaterializeDirective} from "angular2-materialize";
 import {Component} from "@angular/core"
 import {Location} from '@angular/common';
 

@@ -1,44 +1,14 @@
 {
-  "name": "angular2-materialize",
-  "description": "Angular 2 support for Materialize CSS framework",
-  "version": "0.0.0-development",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/InfomediaLtd/angular2-materialize.git"
-  },
-  "keywords": [
-    "angular",
-    "angular2",
-    "angular 2",
-    "materialize",
-    "materializecss",
-    "materialize-css",
-    "materialize css"
-  ],
-  "author": "Ruby Boyarski <rubyboy@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/InfomediaLtd/angular2-materialize/issues"
-  },
-  "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
+  "name": "angular2-materialize-sample",
+  "description": "Sample application for angular2-materialize",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "commit": "git-cz",
     "start": "ng serve",
     "build": "ng build",
-    "postbuild": "cat dist/sample/index.html | sed 's/\"\\.\\./\"\\./g' > dist/index.html",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "src-build": "gulp"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
-    "ghooks": {
-      "pre-commit": "npm run src-build"
-    }
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

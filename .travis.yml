@@ -3,6 +3,7 @@ language: node_js
 cache:
   directories:
     - node_modules
+    - sample/node_modules
 branches:
   only:
     - master
@@ -15,6 +16,9 @@ before_install:
 before_script:
   - npm prune
 script:
+  - npm run build
+  - cd sample
+  - npm run build
 after_success:
 branches:
   except:

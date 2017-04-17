@@ -23,7 +23,7 @@
   "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
   "scripts": {
     "commit": "git-cz",
-    "build": "gulp"
+    "build": "sh build.sh"
   },
   "peerDependencies": {
     "materialize-css": "^0.97.8"
@@ -53,7 +53,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.2",
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "2.0.0",
     "ghooks": "2.0.0",
@@ -61,6 +61,7 @@
     "gulp-rimraf": "0.2.1",
     "gulp-typescript": "3.1.6",
     "materialize-css": "^0.97.8",
+    "rollup": "^0.41.6",
     "run-sequence": "1.2.2",
     "semantic-release": "6.3.2",
     "typescript": "~2.2.2",

@@ -1,8 +1,7 @@
-
 import {Component} from "@angular/core";
 import {Location} from '@angular/common';
 
-import "../../src/index";
+import "../../lib/index";
 
 @Component({
     selector: "app-root",

@@ -5,32 +5,32 @@
   },
   "apps": [
     {
-      "root": ".",
+      "root": "src",
       "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico"
       ],
-      "index": "sample/index.html",
-      "main": "sample/main.ts",
-      "polyfills": "sample/polyfills.ts",
-      "test": "sample/test.ts",
-      "tsconfig": "sample/tsconfig.app.json",
-      "testTsconfig": "sample/tsconfig.spec.json",
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "sample/styles.css",
-        "./node_modules/materialize-css/dist/css/materialize.css"
+        "styles.css",
+        "../node_modules/materialize-css/dist/css/materialize.css"
       ],
       "scripts": [
-        "./node_modules/jquery/dist/jquery.js",
-        "./node_modules/hammerjs/hammer.js",
-        "./node_modules/materialize-css/dist/js/materialize.js"
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/hammerjs/hammer.js",
+        "../node_modules/materialize-css/dist/js/materialize.js"
       ],
-      "environmentSource": "sample/environments/environment.ts",
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "dev": "sample/environments/environment.ts",
-        "prod": "sample/environments/environment.prod.ts"
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
       }
     }
   ],

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { MaterializeModule } from "../../src/index";
+import { MaterializeModule } from "../../lib/index";
 import {MaterialInput,
         Option,
         MaterialSelect} from "./components/model-bindings/index"
@@ -22,7 +22,7 @@ import {
   Parallax,
   ModelBindings
 } from './components/index';
-import { routing, appRoutingProviders } from './app.routing'
+import { routing, appRoutingProviders } from './app.routing';
 
 
 @NgModule({
@@ -42,8 +42,7 @@ import { routing, appRoutingProviders } from './app.routing'
     Parallax,
     ModelBindings,
     MaterialInput,
-    MaterialSelect,
-
+    MaterialSelect
   ],
   imports: [
     MaterializeModule,

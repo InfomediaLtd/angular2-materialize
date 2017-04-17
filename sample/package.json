@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "npm run ng serve",
-    "build": "npm run ng build",
-    "test": "npm run ng test",
-    "lint": "npm run ng lint"
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

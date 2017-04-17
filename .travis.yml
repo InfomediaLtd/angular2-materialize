@@ -13,12 +13,13 @@ node_js:
   - '4'
 before_install:
   - npm i -g npm@^2.0.0
+  - npm i -g @angular/cli
 before_script:
   - npm prune
 script:
   - npm run build
   - cd sample
-  - npm run build
+  - ng build
 after_success:
 branches:
   except:

@@ -8,6 +8,7 @@ typings.json
 
 npm-debug.log
 
+*.tgz
 *.iml
 .idea/
 .idea_modules/

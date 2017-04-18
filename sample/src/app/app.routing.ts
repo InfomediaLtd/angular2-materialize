@@ -1,7 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {
-  Buttons,
   Carousel,
   Chips,
   Collapsible,
@@ -16,6 +15,7 @@ import {
   Parallax
 } from './components/index';
 
+import { ButtonsComponent } from "app/buttons/buttons.component";
 
 const appRoutes: Routes = [
 	{
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
 	},
 	{
 		path: 'Buttons',
-		component: Buttons
+		component: ButtonsComponent
 	},
 	{
 		path: 'Carousel',

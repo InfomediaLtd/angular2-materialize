@@ -5,7 +5,6 @@ export { TabsRouting } from "./tabs-routing";
 export { Dialogs } from "./dialogs";
 export { Dropdown } from "./dropdown";
 export { Collapsible } from "./collapsible";
-export { Buttons } from "./buttons";
 export { Carousel } from "./carousel";
 export { Chips } from "./chips";
 export { DatePicker } from "./datepicker";

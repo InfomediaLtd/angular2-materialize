@@ -8,7 +8,6 @@ import {MaterialInput,
         MaterialSelect} from "./components/model-bindings/index"
 import { AppComponent } from './app.component';
 import {
-  Buttons,
   Carousel,
   Chips,
   Collapsible,
@@ -23,11 +22,12 @@ import {
   ModelBindings
 } from './components/index';
 import { routing, appRoutingProviders } from './app.routing';
+import { ButtonsComponent } from './buttons/buttons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Buttons,
+    ButtonsComponent,
     Carousel,
     Chips,
     Collapsible,
@@ -41,7 +41,8 @@ import { routing, appRoutingProviders } from './app.routing';
     Parallax,
     ModelBindings,
     MaterialInput,
-    MaterialSelect
+    MaterialSelect,
+    ButtonsComponent
   ],
   imports: [
     MaterializeModule,

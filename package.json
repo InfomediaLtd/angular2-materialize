@@ -21,6 +21,8 @@
     "url": "https://github.com/InfomediaLtd/angular2-materialize/issues"
   },
   "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "commit": "git-cz",
     "build": "sh build.sh"

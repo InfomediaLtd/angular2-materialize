@@ -22,9 +22,7 @@
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
-    "skipTemplateCodegen": true,
-    "flatModuleOutFile": "angular2-materialize.js",
-    "flatModuleId": "angular2-materialize"
+    "skipTemplateCodegen": true
   },
   "files": [
     "./index.ts"

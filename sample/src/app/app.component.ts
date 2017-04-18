@@ -1,8 +1,6 @@
 import {Component} from "@angular/core";
 import {Location} from '@angular/common';
 
-import "angular2-materialize";
-
 @Component({
     selector: "app-root",
     styles: [`header, main, footer { padding-left: 260px; }`],

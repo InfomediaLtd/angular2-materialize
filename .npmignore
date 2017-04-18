@@ -1,2 +1,6 @@
-jspm_packages
 /compiled
+/build
+/sample
+/*.yml
+/*.sh
+node_modules

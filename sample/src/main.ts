@@ -11,7 +11,4 @@ if (environment.production) {
   enableProdMode();
 }
 
-console.log("MaterializeModule",MaterializeModule);
-console.log("MaterializeDirective",MaterializeDirective);
-
 platformBrowserDynamic().bootstrapModule(AppModule);

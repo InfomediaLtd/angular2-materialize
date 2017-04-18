@@ -17,8 +17,10 @@ $ROLLUP build/index.js -o dist/index.js -f umd -n angular2-materialize -u angula
 # Copy all files from build to dist, except for JavaScript files
 rsync -a --exclude=*.js build/ dist
 
-# Copy package.json to dist
-# cp src/package.json dist/package.json
+# Copy package.json and other resources to dist
+cp package.json dist
+cp README.md dist
+cp LICENSE dist
 
 # Clean up build directory
 rm -rf build

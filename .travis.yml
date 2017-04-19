@@ -17,9 +17,11 @@ before_install:
 before_script:
   - npm prune
 script:
+  - npm install
   - npm run build
   - cd sample
-  - ng build
+  - npm install
+  - npm run test
 after_success:
 branches:
   except:

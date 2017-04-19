@@ -17,7 +17,6 @@ before_install:
 before_script:
   - npm prune
 script:
-  - npm install
   - npm run build
   - cd sample
   - npm install

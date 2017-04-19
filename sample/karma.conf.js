@@ -7,6 +7,7 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular/cli'],
     plugins: [
       require('karma-jasmine'),
+      require('karma-phantomjs-launcher'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
@@ -16,6 +17,8 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     files: [
+      "./src/styles.css",
+      "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css",
       { pattern: './src/test.ts', watched: false }
     ],
     preprocessors: {
@@ -38,7 +41,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS','Chrome'],
     singleRun: false
   });
 };

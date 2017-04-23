@@ -56,7 +56,7 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea" materialize="characterCounter" length="120" [attr.disabled]="isDisabled?true:null"></textarea>
+              <textarea id="textarea1" class="materialize-textarea" materialize="characterCounter" [attr.length]="maxLength" [attr.disabled]="isDisabled?true:null"></textarea>
               <label for="textarea1">Textarea</label>
             </div>
           </div>
@@ -149,6 +149,8 @@ export class Forms implements OnInit {
   private isTest6Checked = true;
   
   private radioButtonValue = 3;
+
+  private maxLength = 20;
 
   public ngOnInit() {
       window.setTimeout(()=>{

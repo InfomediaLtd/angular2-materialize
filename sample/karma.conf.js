@@ -17,7 +17,6 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     files: [
-      "./src/styles.css",
       "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css",
       { pattern: './src/test.ts', watched: false }
     ],

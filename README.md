@@ -19,22 +19,13 @@ View demo here: [http://angular2-materialize.surge.sh](http://angular2-materiali
 
 To use the library you need to import it once per project and then use its MaterializeDirective directive for binding it to any component that needs a dynamic behavior, like collapsible panels, tooltips, etc.
 
-#### Using angular2-materialize
+## Using angular2-materialize
 
-Import both materialize-css and angular2-materialize once per project, for example in your main.ts:
-```js
-import "materialize-css";
-import "angular2-materialize";
-```
-
-Add the Google MD fonts to your index.html:
-```html
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
+Start by following the Angular CLI or webpack instructions below to add the required dependencies to your project.
 
 Add the MaterializeModule to your NgModule:
 ```js
-import { MaterializeModule } from "../src/index";
+import { MaterializeModule } from "angular2-materialize";
 
 @NgModule({
   imports: [
@@ -126,175 +117,7 @@ For dynamic select elements apply the **materializeSelectOptions** directive to 
 </select>
 ```
 
-#### Installing and configuring angular2-materialize with webpack
-
-Install MaterializeCSS and angular2-materialize from npm
-```sh
-npm install materialize-css --save
-npm install angular2-materialize --save
-```
-
-MaterializeCSS required jQuery and HammerJS. Check the exact version materialize-css is compatible with:
-```sh
-npm install jquery@^2.2.4 --save
-npm install hammerjs --save
-```
-
-Add the Google MD fonts to your index.html:
-```html
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
-
-Import materialize-css styles:
-```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-```
-
-Add the following plugin to your webpack configuration to provide jQuery:
-```js
-var webpack = require("webpack");
-module.exports = {
-  //...
-  plugins: [
-      new webpack.ProvidePlugin({
-          $: "jquery",
-          jQuery: "jquery",
-          "window.jQuery": "jquery",
-          Hammer: "hammerjs/hammer"
-      })
-  ]
-  //...
-};
-```
-
-###### Loading additional resources
-
-Another thing you would need to confirm is being able to load web fonts properly:
-```js
-{ test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' },
-```
-Notice that the url loader is required for this to work.
-
-The following example project is a fork of the angular2-webpack-starter with the addition of angular2-materialize: [InfomediaLtd/angular2-webpack-starter](https://github.com/InfomediaLtd/angular2-webpack-starter)
-
-#### Installing and configuring angular2-materialize with jspm
-
-Install MaterializeCSS and angular2-materialize:
-```sh
-jspm install npm:materialize-css
-jspm install npm:angular2-materialize
-```
-
-Add the Google MD fonts to your index.html:
-```html
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
-
-You may need to add a package configuration to specify the main entry point for MaterializeCSS:
-```js
-System.config({
-  ...
-  packages: {
-    ...
-    "materialize": {
-      "main": "dist/js/materialize"
-    }
-  },
-```
-
-#### An example setup with SystemJS (no Webpack nor JSPM)
-
-```html
-<!-- Compiled and minified CSS -->
-<M rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-<link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css" media="screen,projection" />
-<!-- Import jQuery before materialize.js -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
-System.config({
-    defaultJSExtensions: true,
-    packages: {
-        "materialize-css": {
-            "main": "dist/js/materialize"
-        }
-    },
-    map: {
-        "materialize-css": "node_modules/materialize-css",
-        "angular2-materialize": "node_modules/angular2-materialize"
-    }
-});
-```
-
-### Installing & configuring angular2-materialize in projects created with angular/cli
-
-Look this cookbook install in:
-https://github.com/kelber/Angular2-Cookbook/tree/master/angular2-materialize
-
-
-Install MaterializeCSS and angular2-materialize from npm
-```
-npm install materialize-css --save
-npm install angular2-materialize --save
-```
-
-Jquery is required
-```
-npm install jquery@^2.2.4 --save
-```
-
-add vendor in angular-cli-build.js
-```
-module.exports = function(defaults) {
-  return new Angular2App(defaults, {
-    vendorNpmFiles: [
-      //other vendors
-      'jquery/dist/*',
-      'angular2-materialize/dist/*',
-      'materialize-css/dist/**/*'
-    ]
-  });
-};
-```
-
-Add mapping and packages in system-config.ts
-```
-/** Map relative paths to URLs. */
-const map: any = {
-   "materialize-css": "vendor/materialize-css",
-   "angular2-materialize": "vendor/angular2-materialize",
-   "jquery": "vendor/jquery"
-};
-
-/** User packages configuration. */
-const packages: any = {
-  'materialize-css': {
-    "format": "global",
-    "main": "dist/js/materialize",
-    "defaultExtension": "js"
-  },
-  'angular2-materialize': {
-    "main": "dist/index",
-    "defaultExtension": "js"
-  }
-};
-```
-
-Import angular2-materialize in main.ts
-```
-import "angular2-materialize";
-```
-
-Add these lines to header of index.html
-```
-<link type="text/css" rel="stylesheet" href="vendor/materialize-css/dist/css/materialize.css"/>
-<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
-
-The following example project, by [pragdev](https://github.com/pragdev), uses angular-cli with angualr2-materialize: https://github.com/pragdev/angular_example
-
-#### Installing & configuring angular2-materialize in projects created with angular-cli@webpack (1.0.0-beta.26)
+## Installing & configuring angular2-materialize in projects created with the Angular CLI
 
 Install MaterializeCSS and angular2-materialize from npm
 ```
@@ -315,8 +138,6 @@ Edit the angular-cli.json :
   "../node_modules/materialize-css/dist/css/materialize.css"
 ```
 
-
-
 * Go to section apps and find scripts array inside it, and add the following lines inside array
 
 ```
@@ -325,14 +146,12 @@ Edit the angular-cli.json :
   "../node_modules/materialize-css/dist/js/materialize.js"
 ```
 
-
 Add to the top of app.module.ts
 
 ```
 import { MaterializeModule } from 'angular2-materialize';
 
 ```
-
 
 Add MaterializeModule inside imports array of @NgModule decorator in app.module.ts
 
@@ -341,4 +160,55 @@ Add this line to header of index.html
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
-...
+## Installing and configuring angular2-materialize with webpack
+
+Install MaterializeCSS and angular2-materialize from npm
+```sh
+npm install materialize-css --save
+npm install angular2-materialize --save
+```
+
+MaterializeCSS required jQuery and HammerJS. Check the exact version materialize-css is compatible with:
+```sh
+npm install jquery@^2.2.4 --save
+npm install hammerjs --save
+```
+
+Add the Google MD fonts to your index.html:
+```html
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Import materialize-css styles:
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+```
+
+Add the following plugin to your webpack configuration to provide jQuery:
+```js
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+module.exports = {
+  //...
+  plugins: [
+      new ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery",
+          Hammer: "hammerjs/hammer",
+          Materialize: "materialize-css"
+      })
+  ]
+  //...
+};
+```
+
+#### Loading additional resources
+
+Another thing you would need to confirm is being able to load web fonts properly:
+```js
+{ test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' },
+```
+Notice that the url-loader is required for this to work (npm install it).
+
+The following example project is a fork of the angular2-webpack-starter with the addition of angular2-materialize: [InfomediaLtd/angular2-webpack-starter](https://github.com/InfomediaLtd/angular2-webpack-starter)
+

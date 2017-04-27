@@ -25,7 +25,7 @@
   "scripts": {
     "commit": "git-cz",
     "build": "sh build.sh",
-    "semantic-release": "../node_modules/.bin/semantic-release pre && npm publish && ../node_modules/.bin/semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "peerDependencies": {
     "materialize-css": "^0.98.2"

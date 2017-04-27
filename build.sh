@@ -21,6 +21,7 @@ rsync -a --exclude=*.js build/ dist
 cp package.json dist
 cp README.md dist
 cp LICENSE dist
+cp .npmignore dist
 
 # Clean up build directory
 rm -rf build

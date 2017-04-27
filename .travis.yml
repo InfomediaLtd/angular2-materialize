@@ -23,7 +23,7 @@ script:
   - npm run test
 after_success:
   - cd ../dist
-  - echo `pwd`
+  - npm install 
   - npm run semantic-release
 branches:
   except:

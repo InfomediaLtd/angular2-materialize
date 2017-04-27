@@ -24,10 +24,11 @@
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "build": "sh build.sh"
+    "build": "sh build.sh",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "peerDependencies": {
-    "materialize-css": "^0.97.8"
+    "materialize-css": "^0.98.2"
   },
   "config": {
     "commitizen": {

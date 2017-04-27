@@ -24,7 +24,7 @@ script:
 after_success:
   - cd ../dist
   - echo `pwd`
-#  - npm run semantic-release
+  - npm run semantic-release
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"

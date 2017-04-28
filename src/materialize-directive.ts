@@ -43,16 +43,16 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     private changeListenerShouldBeAdded = true;
 
-    @Output() init = new EventEmitter<void>();
+    @Output() public init = new EventEmitter<void>();
     private initialized = false;
 
     constructor(private _el: ElementRef) { }
 
-    @Input() set materializeParams(params:any) {
+    @Input() public set materializeParams(params:any) {
       this._params = params;
       this.performElementUpdates();
     }
-    @Input() set materializeActions(actions:EventEmitter<string|MaterializeAction>) {
+    @Input() public set materializeActions(actions:EventEmitter<string|MaterializeAction>) {
       actions.subscribe((action:string|MaterializeAction) => {
         if (typeof action === "string") {
           this.performLocalElementUpdates(action);
@@ -61,12 +61,12 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         }
       })
     }
-    @Input() set materialize(functionName:string) {
+    @Input() public set materialize(functionName:string) {
       this._functionName = functionName;
     }
 
     // this is here to trigger change detection for select elements
-    @Input() set materializeSelectOptions(options:any) { }
+    @Input() public set materializeSelectOptions(options:any) { }
 
     public ngAfterViewInit() {
       this.performElementUpdates();

@@ -28,7 +28,8 @@
     "semantic-release": "semantic-release pre && npm publish dist && semantic-release post"
   },
   "peerDependencies": {
-    "materialize-css": "^0.98.2"
+    "materialize-css": "^0.98.2",
+    "@angular/common": "^4.0.0"
   },
   "config": {
     "commitizen": {
@@ -38,7 +39,7 @@
       "pre-commit": "npm run build"
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "@angular/common": "^4.0.2",
     "@angular/compiler": "^4.0.2",
     "@angular/core": "^4.0.2",
@@ -52,9 +53,7 @@
     "jquery": "^2.2.4",
     "materialize-css": "^0.98.2",
     "rxjs": "^5.1.0",
-    "zone.js": "0.8.7"
-  },
-  "devDependencies": {
+    "zone.js": "0.8.7",
     "@angular/compiler-cli": "^4.0.2",
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "2.0.0",

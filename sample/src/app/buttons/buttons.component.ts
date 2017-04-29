@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import {MaterializeAction} from "angular2-materialize"
 
 declare var Materialize:any;
 
@@ -9,6 +10,9 @@ declare var Materialize:any;
   styleUrls: ['./buttons.component.scss']
 })
 export class ButtonsComponent implements OnInit {
+
+  tapTargetActions = new EventEmitter<MaterializeAction>();
+
   constructor(private router:Router) {}
 
   ngOnInit() {
@@ -21,5 +25,12 @@ export class ButtonsComponent implements OnInit {
   updateTextFields() {
     Materialize.updateTextFields();
     console.log("updateTextFields called");
+  }
+
+  openTapTarget() {
+    this.tapTargetActions.emit({action:"tapTarget",params:["open"]});
+  }
+  closeTapTarget() {
+    this.tapTargetActions.emit({action:"tapTarget",params:["close"]});
   }
 }

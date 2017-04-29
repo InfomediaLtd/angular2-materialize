@@ -17,7 +17,7 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" name="autoComplete" materialize="autocomplete" [materializeParams]="[{'data': {'apple': null, 'google': null}}]" [attr.disabled]="isDisabled?true:null">
+              <input type="text" name="autoComplete" materialize="autocomplete" [materializeParams]="[autocompleteInit]" [attr.disabled]="isDisabled?true:null">
               <label for="autoComplete">Autocomplete (a/g)</label>
             </div>
           </div>
@@ -151,6 +151,12 @@ export class Forms implements OnInit {
   radioButtonValue = 3;
 
   maxLength = 20;
+  autocompleteInit = {
+    'data': {'apple': null, 'google': null},
+    onAutocomplete: (val) => {
+      console.log(val);
+    },
+  };
 
   public ngOnInit() {
       window.setTimeout(()=>{

@@ -18,7 +18,7 @@ import {Component,OnInit} from "@angular/core"
           <div class="row">
             <div class="input-field col s12">
               <input type="text" name="autoComplete" materialize="autocomplete" [materializeParams]="[autocompleteInit]" [attr.disabled]="isDisabled?true:null">
-              <label for="autoComplete">Autocomplete (a/g)</label>
+              <label for="autoComplete">Autocomplete (Apple/Google)</label>
             </div>
           </div>
           <div class="row">
@@ -152,7 +152,7 @@ export class Forms implements OnInit {
 
   maxLength = 20;
   autocompleteInit = {
-    'data': {'apple': null, 'google': null},
+    'data': {'Apple': null, 'Google': null},
     onAutocomplete: (val) => {
       console.log(val);
     },

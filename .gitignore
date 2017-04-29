@@ -6,9 +6,11 @@ node_modules
 typings
 typings.json
 
+package
+*.tgz
+
 npm-debug.log
 
-*.tgz
 *.iml
 .idea/
 .idea_modules/

@@ -26,7 +26,7 @@
     "commit": "git-cz",
     "build": "sh build.sh",
     "presemantic-release": "semantic-release pre",
-    "semantic-release": "npm publish dist",
+    "semantic-release": "cp package.json dist && npm publish dist",
     "postsemantic-release": "semantic-release post"
   },
   "peerDependencies": {

@@ -18,7 +18,6 @@ $ROLLUP build/index.js -o dist/index.js -f umd -n angular2-materialize -u angula
 rsync -a build/ dist
 
 # Copy package.json and other resources to dist
-cp package.json dist
 cp README.md dist
 cp LICENSE dist
 cp .npmignore dist

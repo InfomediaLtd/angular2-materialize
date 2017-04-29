@@ -3,8 +3,10 @@ import {Component} from "@angular/core"
 @Component({
     selector: "chips",
     template: `
-        <div class="chips chips-initial" materialize="material_chip" [materializeParams]="[chipsInit]" (chip.add)="add($event.detail)" (chip.delete)="delete($event.detail)" (chip.select)="select($event.detail)"></div>
-        <div class="chips chips-placeholder" materialize="material_chip" [materializeParams]="[chipsPlaceholder]"></div>
+        <div class="chips" materialize="material_chip" [materializeParams]="[chipsInit]" (chip.add)="add($event.detail)" (chip.delete)="delete($event.detail)" (chip.select)="select($event.detail)"></div>
+        <div class="chips" materialize="material_chip" [materializeParams]="[chipsPlaceholder]"></div>
+        <span>With Autocomplete: (Apple/Microsoft/Google)</span>
+        <div class="chips" materialize="material_chip" [materializeParams]="[autocompleteInit]"></div>
     `
 })
 export class Chips {
@@ -17,6 +19,17 @@ export class Chips {
     }, {
       tag: 'Google',
     }],
+  };
+  autocompleteInit = {
+    autocompleteOptions: {
+      data: {
+        'Apple': null,
+        'Microsoft': null,
+        'Google': null
+      },
+      limit: Infinity,
+      minLength: 1
+    }
   };
   
   chipsPlaceholder = {

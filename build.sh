@@ -12,10 +12,10 @@ ROLLUP="node node_modules/.bin/rollup"
 $NGC -p src/tsconfig.json
 
 # Run rollup to generate dist directory
-$ROLLUP build/index.js -o dist/index.js -f umd -n angular2-materialize -u angular2-materialize
+$ROLLUP build/index.js -o dist/index.js -f umd -n materialize-module -u angular2-materialize
 
 # Copy all files from build to dist, except for JavaScript files
-rsync -a --exclude=*.js build/ dist
+rsync -a build/ dist
 
 # Copy package.json and other resources to dist
 cp package.json dist

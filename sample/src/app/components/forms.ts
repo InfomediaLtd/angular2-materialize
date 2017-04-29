@@ -140,17 +140,17 @@ import {Component,OnInit} from "@angular/core"
     `
 })
 export class Forms implements OnInit {
-  private firstName = "";
-  private selectedOption = "";
+  firstName = "";
+  selectedOption = "";
 
-  private selectOptions = [];
+  selectOptions = [];
 
-  private isTest5Checked = false;
-  private isTest6Checked = true;
+  isTest5Checked = false;
+  isTest6Checked = true;
   
-  private radioButtonValue = 3;
+  radioButtonValue = 3;
 
-  private maxLength = 20;
+  maxLength = 20;
 
   public ngOnInit() {
       window.setTimeout(()=>{

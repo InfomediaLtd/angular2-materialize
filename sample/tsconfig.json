@@ -4,7 +4,7 @@
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
     "paths": {
-      //  "angular2-materialize": ["../lib/index"]
+        "angular2-materialize": ["../lib/index"]
     },
     "sourceMap": true,
     "declaration": false,

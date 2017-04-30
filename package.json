@@ -21,12 +21,12 @@
     "url": "https://github.com/InfomediaLtd/angular2-materialize/issues"
   },
   "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "commit": "git-cz",
     "build": "sh build.sh",
     "presemantic-release": "semantic-release pre",
-    "semantic-release": "cp package.json dist && npm publish dist",
+    "semantic-release": "npm publish",
     "postsemantic-release": "semantic-release post"
   },
   "peerDependencies": {

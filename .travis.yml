@@ -23,7 +23,7 @@ script:
   - npm run test
 after_success:
   - cd ..
-  # - npm run semantic-release
+  - npm run semantic-release
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"

@@ -18,11 +18,11 @@ before_script:
   - npm prune
 script:
   - npm run build
-   - cd sample
-   - npm install
-   - npm run test
+  - cd sample
+  - npm install
+  - npm run test
 after_success:
-   - cd ..
+  - cd ..
   - npm run semantic-release
 branches:
   except:

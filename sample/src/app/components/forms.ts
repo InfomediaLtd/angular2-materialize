@@ -51,6 +51,15 @@ import {Component,OnInit} from "@angular/core"
               <label for="icon_telephone">Telephone</label>
             </div>
           </div>
+          <div class="row file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" (change)="onFileSelection($event)">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
           <div class="row">
             <input materialize="pickadate" type="date" class="datepicker" [attr.disabled]="isDisabled?true:null">
           </div>
@@ -158,6 +167,8 @@ export class Forms implements OnInit {
     },
   };
 
+  isDisabled = false;
+
   public ngOnInit() {
       window.setTimeout(()=>{
         this.selectOptions = [
@@ -172,6 +183,8 @@ export class Forms implements OnInit {
       // },500);
   }
 
-  isDisabled = false;
+  onFileSelection(e) {
+    console.log(e.target.files[0].name)
+  }
 
 }

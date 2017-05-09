@@ -30,6 +30,16 @@ import {Observable} from "rxjs/Observable";
           <materialSelect [options]="selectOptions" [initialValue]="selectedVal" (modelChange)="onSelectValChange($event)"></materialSelect>
           <p>{{ 'Initial value: ' + selectedVal }}</p>
         </div>
+        <br/>
+        <div class="row">
+          <div class="input-field">
+            <select [(ngModel)]="selectedCountries" name="countries" (ngModelChange)="onCountryChange($event)" materialize="material_select" [materializeSelectOptions]="countryOptions">
+              <option value="" disabled>Select option ..</option>
+              <option *ngFor="let country of countryOptions" [value]="country.value">{{country.name}}</option>
+            </select>
+            <label>Country selection ({{selectedCountries}})</label>
+          </div>
+        </div>
         <div class="row">
              <h4>Datepicker model binding</h4>
                 <div class="row">
@@ -47,6 +57,10 @@ export class ModelBindings {
     selectedVal: string;
     inputVal : string;
     datepicker: string;
+
+    countryOptions = [new Option("US", "United States"),new Option("GB", "Great Britain"),new Option("AU", "Australia")];
+    selectedCountries;
+
     constructor() {
 
         this.datepicker = '01/02/2016';
@@ -65,6 +79,10 @@ export class ModelBindings {
           this.selectOptions = options;
         });
 
+        window.setTimeout(()=> {
+          this.selectedCountries = "AU";
+        },1000);
+
     }
 
     onInputValChange(val){
@@ -73,5 +91,9 @@ export class ModelBindings {
 
     onSelectValChange(val){
         Materialize.toast(`parent select: ${val}`, 2000)
+    }
+
+    onCountryChange(e) {
+      console.log(e);
     }
 }

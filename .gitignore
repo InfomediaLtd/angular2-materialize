@@ -28,3 +28,4 @@ test/**/*.js.map
 *.metadata.json
 
 .DS_Store
+.vscode

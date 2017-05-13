@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
+    /*COMMENT THIS and add a package.json import to angular2-materialize@latest to run sample against the published library (also required to build docs)*/
     "paths": {
         "angular2-materialize": ["../lib/index"]
     },

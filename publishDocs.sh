@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-#PRECONDITION: switch the sample to use the published angular2-materialize (see tsconfig.json)
 cd ./sample/
-ng build --prod
+ng build --prod --aot false
 rm -rf ../docs/*
 cp -R ./dist/* ../docs/
 cd ..

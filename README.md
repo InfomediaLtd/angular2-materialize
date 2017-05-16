@@ -191,15 +191,18 @@ module.exports = {
   //...
   plugins: [
       new ProvidePlugin({
-          $: "jquery",
-          jQuery: "jquery",
           "window.jQuery": "jquery",
-          Hammer: "hammerjs/hammer",
-          Materialize: "materialize-css"
+          Hammer: "hammerjs/hammer"
       })
   ]
   //...
 };
+```
+
+Import MaterializeCSS programatically, in the same place where you import angular2-materialize module (usually in your main module, or shared module):
+```js
+import 'materialize-css';
+import { MaterializeModule } from 'angular2-materialize';
 ```
 
 #### Loading additional resources

@@ -68,6 +68,9 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     // this is here to trigger change detection for select elements
     @Input() public set materializeSelectOptions(options:any) { }
 
+    //used for the datepicker at the moment
+    @Input() ngModel;
+
     public ngAfterViewInit() {
       this.performElementUpdates();
     }
@@ -153,22 +156,17 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
         jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
       }
 
-      if (this.isDatePicker()) {
-        const nativeElement = this._el.nativeElement;
-        const jQueryElement = $(nativeElement);
-        const enablebtns = this.enableDPButtons;
+        if (this.isDatePicker()) {
+            const nativeElement = this._el.nativeElement;
+            const jqueryPickerElement = $(nativeElement);
 
-        jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
-        const datePicker = jQueryElement[this._functionName](...this._params);
-        const picker = datePicker.pickadate('picker');
-        jQueryElement.mousedown(() => {
-          if (!jQueryElement.val()) {
-            return;
-          }
-
-          return picker.set('select', jQueryElement.val(), ...this._params)
-        });
-      }
+            const datePicker = jqueryPickerElement[this._functionName](...this._params);
+            const picker = datePicker.pickadate('picker');
+            setTimeout(() => {
+                picker.set('select', this.ngModel);
+                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent(new Event('input')));
+            });
+        }
 
       if (this.isTimePicker()) {
         const nativeElement = this._el.nativeElement;

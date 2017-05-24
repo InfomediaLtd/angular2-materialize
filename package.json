@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
   "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "commit": "git-cz",
     "build": "sh build.sh",

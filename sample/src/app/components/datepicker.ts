@@ -1,5 +1,5 @@
-import {MaterializeDirective} from "angular2-materialize";
-import {Component} from "@angular/core"
+import {Component} from '@angular/core';
+declare var Materialize: any;
 
 @Component({
     selector: "datePicker",
@@ -7,14 +7,24 @@ import {Component} from "@angular/core"
       <form materialize class="col s12">
         <div class="row">
           <div class="col s6">
-            <label for="birthdate">Birthdate</label>
-            <input id="birthdate"
+            <label for="birthdate">Birthdate {{birthdate}}</label>
+            <input id="birthdate" [(ngModel)]="birthdate" name="birthdate" (ngModelChange)="modelChanged($event)"
                    materialize="pickadate"
-                   [materializeParams]="[{selectMonths: true, selectYears: 15}]"
+                   [materializeParams]="[{format: 'dd/mm/yyyy'}]"
                    type="text" />
           </div>
         </div>
       </form>
     `
 })
-export class DatePicker {}
+export class DatePicker {
+    birthdate;
+
+    constructor() {
+        this.birthdate = new Date('03/12/2017');
+    }
+
+    modelChanged($event) {
+        console.log($event);
+    }
+}

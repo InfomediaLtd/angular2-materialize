@@ -10,7 +10,7 @@ import {Component,EventEmitter} from "@angular/core"
       <button data-target="modal2" class="btn">Modal 2 (2)</button>
 
       <!-- Modal Structure -->
-      <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1">
+      <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="model1Params" [materializeActions]="modalActions1">
         <div class="modal-content">
           <h4>Modal Header 1</h4>
           <p>A bunch of text</p>
@@ -51,6 +51,14 @@ export class Dialogs {
   modalActions2 = new EventEmitter<string|MaterializeAction>();
   globalActions = new EventEmitter<string|MaterializeAction>();
   params = []
+
+  model1Params = [
+    {
+      dismissible: false,
+      complete: function() { console.log('Closed'); }
+    }
+  ]
+
   printSomething() {
     console.log("tooltip button clicked!");
   }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { MaterializeModule } from "angular2-materialize";
 import {MaterialInput,
@@ -48,6 +48,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
     MaterializeModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     routing
   ],
   providers: [

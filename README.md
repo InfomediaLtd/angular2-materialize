@@ -121,7 +121,7 @@ For dynamic select elements apply the **materializeSelectOptions** directive to 
 
 Install MaterializeCSS and angular2-materialize from npm
 ```
-npm install materialize-css --save
+npm install materialize-css@0.98.2 --save
 npm install angular2-materialize --save
 ```
 

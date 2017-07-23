@@ -15,6 +15,12 @@ declare var Materialize: any;
                    [materializeParams]="[{format: 'dd/mm/yyyy'}]"
                    type="text" />
           </div>
+          <div class="col s4">
+             <label for="birthtime">Birthtime No Form</label>
+             <input id="birthtime"
+                    materialize="pickatime" [materializeParams]="[{default: '00:00', twelvehour: false}]"
+                    placeholder="00:00" class="validate" type="text">
+          </div>
     </div>
     <form [formGroup]="form" materialize class="col s12">
         <div class="row">

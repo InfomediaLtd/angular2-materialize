@@ -27,3 +27,7 @@ after_success:
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"
+deploy:
+  api_key:
+    secure: IxQxlIKuuv8Yq10YDJKyWuP7vt1AfCY1Uvov/GRhBcGLHKHXMCp/sxFJgO1KSX3DOshEcFaAHTQYHI/aqFyXYNfD/lcvd9LMoCiDUu01g/Ukvl0fSuXPwP2dCFRLeU1DeO5T+tmKrN4T9kLwR1OZkWdWr60gDuGnnT5QzR0kMszravYgMYlew1VL9jthUU/6yB4TG/3aB8/oz2NW6/KXGQ93RbyXr/NA6TBG5oF+ah7rnDfTDaSfk/gkcH/Tp7n+se6om3DB7lgL7x9cRhz6qmCW2on7NivEchCpTsX6A02yXmo8khJi9Ax2wM9fXecj9YZxCmXsN0leP6uRYtAM8c8RW/1NHlUhciZTJVYAmW5AbyXPC94MbV0DRuJGKPGMt8gPz+YUjgt31hebjtfwXN26ROcA/QzzZROMJMDbnhSdt2mKU0kx9VFP0sbp6UPaukyKqCIxdJMudRVK81CCEUiaJ7/YEjoR4VqBkCzXR7nbUiNqQTIcu5ANneyW5Ld6k6RM4/gQy4m/tFodDgpYSbIgC4lpCgYLo4isIfMAZX/QzfhWAJgUoaqjbFDykeVyBuCcEMrwCPFaHb7pZkvL6lzVl8MHECAO9NKHEklKevd64oGnbQ0EDyy4cqt87TspDVLVMzhUBXB5Do96Sk2SoXbK02X4385PJy0Q2tEBzxE=
+

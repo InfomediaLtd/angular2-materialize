@@ -1,8 +1,9 @@
-$roboto-font-path: "../node_modules/materialize-css/fonts/roboto/";
-@import '../node_modules/materialize-css/sass/components/color';
+@import '~materialize-css/sass/components/_color.scss';
+$roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 
 $primary-color: color("green", "lighten-2");
 $secondary-color: color("indigo", "lighten-1") !default;
 
-@import '../node_modules/materialize-css/sass/materialize';
+@import "~materialize-css/sass/materialize.scss";
+
 

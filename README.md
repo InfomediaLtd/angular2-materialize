@@ -15,7 +15,7 @@ Angular 2 support for Materialize CSS framework [http://materializecss.com/](htt
 
 This library adds support for the Materialize CSS framework in Angular 2. It is needed to add the dynamic behavior of Materialize CSS that is using JavaScript rather than plain CSS.
 
-View demo here: [http://angular2-materialize.surge.sh](http://angular2-materialize.surge.sh/)
+View demo here: [https://infomedialtd.github.io/angular2-materialize/](https://infomedialtd.github.io/angular2-materialize/)
 
 To use the library you need to import it once per project and then use its MaterializeDirective directive for binding it to any component that needs a dynamic behavior, like collapsible panels, tooltips, etc.
 

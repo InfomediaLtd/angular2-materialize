@@ -182,8 +182,18 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
         if (this.isTimePicker()) {
             const nativeElement = this._el.nativeElement;
-            const jQueryElement = $(nativeElement);
-            jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
+            const jqueryPickerElement = $(nativeElement);
+
+            const timePicker = jqueryPickerElement[this._functionName](...this._params);
+            const picker = timePicker.pickatime('picker');
+            setTimeout(() => {
+                if (this.ngModel) {
+                    picker.set('select', this.ngModel);
+                } else {
+                    picker.set('select', jqueryPickerElement.val());
+                }
+                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent(new Event('input')));
+           });
         }
 
         if (this.isChips()) {

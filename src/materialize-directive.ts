@@ -60,11 +60,13 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     @Input()
     public set materializeActions(actions: EventEmitter<string|MaterializeAction>) {
         actions.subscribe((action: string|MaterializeAction) => {
-            if (typeof action === "string") {
-                this.performLocalElementUpdates(action);
-            } else {
-                this.performLocalElementUpdates(action.action, action.params);
-            }
+            window.setTimeout(()=> {
+                if (typeof action === "string") {
+                    this.performLocalElementUpdates(action);
+                } else {
+                    this.performLocalElementUpdates(action.action, action.params);
+                }
+            },1);
         })
     }
 
@@ -190,9 +192,9 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
             const picker = timePicker.pickatime('picker');
             setTimeout(() => {
                 if (this.ngModel) {
-                    picker.set('select', this.ngModel);
+                    picker.val(this.ngModel);
                 } else {
-                    picker.set('select', jqueryPickerElement.val());
+                    picker.val(jqueryPickerElement.val());
                 }
                 jqueryPickerElement.on('change', e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
            });

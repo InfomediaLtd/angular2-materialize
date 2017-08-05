@@ -12,9 +12,9 @@ notifications:
 node_js:
   - '6'
 before_install:
-#  - npm i -g npm
+  - npm i -g npm
   - npm i -g @angular/cli
-#  - printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n" >> .npmrc
+  - printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n" >> .npmrc
 before_script:
   - npm prune
 script:

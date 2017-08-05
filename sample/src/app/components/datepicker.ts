@@ -34,7 +34,7 @@ declare var Materialize: any;
           <div class="col s3">
            <a class="waves-effect waves-light btn" (click)="setTime('01:15')">Set Time to 01:15</a>
           </div>
-          <div class="col s2">
+          <div class="col s3">
            <a class="waves-effect waves-light btn" (click)="openTimePicker()">Open Time Picker</a>
           </div>
     </div>

@@ -178,7 +178,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                 } else {
                     picker.set('select', jqueryPickerElement.val());
                 }
-                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent(new CustomEvent('input')));
+                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
             });
         }
 
@@ -194,7 +194,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                 } else {
                     picker.set('select', jqueryPickerElement.val());
                 }
-                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent(new CustomEvent('input')));
+                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
            });
         }
 

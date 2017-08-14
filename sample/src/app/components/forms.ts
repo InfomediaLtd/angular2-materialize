@@ -7,17 +7,17 @@ import {Component,OnInit} from "@angular/core"
         <form materialize class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input [(ngModel)]="firstName" name="firstName" placeholder="Placeholder" id="first_name" type="text" class="validate" [attr.disabled]="isDisabled?true:null">
+              <input [(ngModel)]="firstName" name="firstName" placeholder="Placeholder" id="first_name" type="text" class="validate" [disabled]="isDisabled?true:null">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate" [attr.disabled]="isDisabled?true:null">
+              <input id="last_name" type="text" class="validate" [disabled]="isDisabled?true:null">
               <label for="last_name">Last Name</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" name="autoComplete" materialize="autocomplete" [materializeParams]="[autocompleteInit]" [attr.disabled]="isDisabled?true:null">
+              <input type="text" name="autoComplete" materialize="autocomplete" [materializeParams]="[autocompleteInit]" [disabled]="isDisabled?true:null">
               <label for="autoComplete">Autocomplete (Apple/Google)</label>
             </div>
           </div>
@@ -29,25 +29,25 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" placeholder="" class="validate" [attr.disabled]="isDisabled?true:null">
+              <input id="password" type="password" placeholder="" class="validate" [disabled]="isDisabled?true:null">
               <label for="password">Password</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="email" type="email" class="validate" [attr.disabled]="isDisabled?true:null">
+              <input id="email" type="email" class="validate" [disabled]="isDisabled?true:null">
               <label for="email">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix">account_circle</i>
-              <input id="icon_prefix" type="text" class="validate" [attr.disabled]="isDisabled?true:null">
+              <input id="icon_prefix" type="text" class="validate" [disabled]="isDisabled?true:null">
               <label for="icon_prefix">First Name</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix">phone</i>
-              <input id="icon_telephone" type="tel" class="validate" [attr.disabled]="isDisabled?true:null">
+              <input id="icon_telephone" type="tel" class="validate" [disabled]="isDisabled?true:null">
               <label for="icon_telephone">Telephone</label>
             </div>
           </div>
@@ -61,24 +61,24 @@ import {Component,OnInit} from "@angular/core"
             </div>
           </div>
           <div class="row">
-            <input materialize="pickadate" type="date" class="datepicker" [attr.disabled]="isDisabled?true:null">
+            <input materialize="pickadate" type="date" class="datepicker" [disabled]="isDisabled?true:null">
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea" materialize="characterCounter" [attr.length]="maxLength" [attr.disabled]="isDisabled?true:null"></textarea>
+              <textarea id="textarea1" class="materialize-textarea" materialize="characterCounter" [attr.length]="maxLength" [disabled]="isDisabled?true:null"></textarea>
               <label for="textarea1">Textarea</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <select [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [attr.disabled]="isDisabled?true:null">
+              <select [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>
               <label>Materialize Select</label>
             </div>
             <div class="input-field col s6">
-              <select multiple materialize="material_select" [materializeSelectOptions]="selectOptions" [attr.disabled]="isDisabled?true:null">
+              <select multiple materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>
@@ -90,26 +90,26 @@ import {Component,OnInit} from "@angular/core"
               <div class="switch">
                 <label>
                   Off
-                  <input type="checkbox" [attr.disabled]="isDisabled?true:null">
+                  <input type="checkbox" [disabled]="isDisabled?true:null">
                   <span class="lever"></span>
                   On
                 </label>
               </div>
               <br/>
               <p>
-                <input type="checkbox" id="test5" [checked]="isTest5Checked" [attr.disabled]="isDisabled?true:null"/>
+                <input type="checkbox" id="test5" [checked]="isTest5Checked" [disabled]="isDisabled?true:null"/>
                 <label for="test5">Red</label>
               </p>
               <p>
-                <input type="checkbox" id="test6" name="test6" [(ngModel)]="isTest6Checked" [attr.disabled]="isDisabled?true:null"/>
+                <input type="checkbox" id="test6" name="test6" [(ngModel)]="isTest6Checked" [disabled]="isDisabled?true:null"/>
                 <label for="test6">Yellow</label>
               </p>
               <p>
-                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" [attr.disabled]="isDisabled?true:null"/>
+                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" [disabled]="isDisabled?true:null"/>
                 <label for="filled-in-box">Filled in</label>
               </p>
               <p>
-                <input type="checkbox" id="indeterminate-checkbox" [attr.disabled]="isDisabled?true:null"/>
+                <input type="checkbox" id="indeterminate-checkbox" [disabled]="isDisabled?true:null"/>
                 <label for="indeterminate-checkbox">Indeterminate Style</label>
               </p>
             </div>
@@ -118,15 +118,15 @@ import {Component,OnInit} from "@angular/core"
           <div class="row">
             <div class="col s6">
               <p>
-                <input name="group1" type="radio" id="test1" [(ngModel)]="radioButtonValue" [value]="1" [attr.disabled]="isDisabled?true:null"/>
+                <input name="group1" type="radio" id="test1" [(ngModel)]="radioButtonValue" [value]="1" [disabled]="isDisabled?true:null"/>
                 <label for="test1">Red</label>
               </p>
               <p>
-                <input name="group1" type="radio" id="test2" [(ngModel)]="radioButtonValue" [value]="2" [attr.disabled]="isDisabled?true:null"/>
+                <input name="group1" type="radio" id="test2" [(ngModel)]="radioButtonValue" [value]="2" [disabled]="isDisabled?true:null"/>
                 <label for="test2">Yellow</label>
               </p>
               <p>
-                <input class="with-gap" name="group1" type="radio" id="test3" [(ngModel)]="radioButtonValue" [value]="3" [attr.disabled]="isDisabled?true:null"/>
+                <input class="with-gap" name="group1" type="radio" id="test3" [(ngModel)]="radioButtonValue" [value]="3" [disabled]="isDisabled?true:null"/>
                 <label for="test3">Green</label>
               </p>
                 <p>

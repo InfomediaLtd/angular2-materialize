@@ -7,7 +7,7 @@ import {Component,EventEmitter} from "@angular/core"
       <!-- Modal Trigger -->
       <a class="waves-effect waves-light btn modal-trigger" (click)="openModal1()">Modal 1</a>
       <a class="waves-effect waves-light btn modal-trigger" (click)="openModal2()">Modal 2</a>
-      <button data-target="modal2" class="btn">Modal 2 (2)</button>
+      <button class="btn modal-trigger" data-target="modal2">Modal 2 (2)</button>
 
       <!-- Modal Structure -->
       <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="model1Params" [materializeActions]="modalActions1">

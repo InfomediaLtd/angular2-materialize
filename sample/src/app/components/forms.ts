@@ -71,14 +71,14 @@ import {Component,OnInit} from "@angular/core"
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <select [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null">
+              <select name="singleSelect" [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>
               <label>Materialize Select</label>
             </div>
             <div class="input-field col s6">
-              <select multiple materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null">
+              <select name="multiSelect" [(ngModel)]="selectedOptions" multiple materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null">
                 <option value="" disabled selected>Choose your option</option>
                 <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
               </select>
@@ -146,11 +146,15 @@ import {Component,OnInit} from "@angular/core"
         <div class="row">
           <div class="col s6">Selected Option: {{selectedOption}}</div>
         </div>
+        <div class="row">
+          <div class="col s6">Selected Options: {{selectedOptions}}</div>
+        </div>
     `
 })
 export class Forms implements OnInit {
   firstName = "";
   selectedOption = "";
+  selectedOptions = "";
 
   selectOptions = [];
 

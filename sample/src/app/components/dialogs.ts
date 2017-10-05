@@ -5,8 +5,8 @@ import {Component,EventEmitter} from "@angular/core"
     selector: "dialogs",
     template: `
       <!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" (click)="openModal1()">Modal 1</a>
-      <a class="waves-effect waves-light btn modal-trigger" (click)="openModal2()">Modal 2</a>
+      <a class="waves-effect waves-light btn" (click)="openModal1()">Modal 1</a>
+      <a class="waves-effect waves-light btn" (click)="openModal2()">Modal 2</a>
       <button class="btn modal-trigger" data-target="modal2">Modal 2 (2)</button>
 
       <!-- Modal Structure -->

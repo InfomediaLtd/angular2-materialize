@@ -16,3 +16,12 @@ declare var Materialize:any;
 export function toast(...args) {
   Materialize.toast(...args);
 }
+
+// polyfill remove any elem in DOM - https://github.com/InfomediaLtd/angular2-materialize/issues/377 (IE)
+if (!Element.prototype.remove) {
+  Element.prototype.remove = function remove() {
+    if (this.parentNode) {
+      this.parentNode.removeChild(this);
+    }
+  };
+}

@@ -29,7 +29,7 @@ declare var Materialize: any;
 
 export interface MaterializeAction {
     action: string;
-    params: [any];
+    params: any[];
 }
 
 @Directive({

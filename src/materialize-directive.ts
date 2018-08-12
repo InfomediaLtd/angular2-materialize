@@ -7,9 +7,12 @@ import {
     OnChanges,
     OnDestroy,
     AfterViewInit,
-    EventEmitter
+    EventEmitter,
+    PLATFORM_ID,
+    Inject
 } from '@angular/core';
-import {CustomEvent} from './custom-event-polyfill';
+import { CustomEvent } from './custom-event-polyfill';
+import { isPlatformBrowser } from '@angular/common';
 
 declare var $: any;
 declare var Materialize: any;
@@ -35,39 +38,44 @@ export interface MaterializeAction {
 @Directive({
     selector: '[materialize]'
 })
-export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnDestroy {
+export class MaterializeDirective implements AfterViewInit, DoCheck, OnChanges, OnDestroy {
 
     private _params: [any] = null;
     private _functionName: string = null;
     private previousValue = null;
     private previousDisabled = false;
     private _waitFunction: any = {};
+    private isBrowser: boolean = isPlatformBrowser(this.platformId);
 
     private changeListenerShouldBeAdded = true;
 
     @Output() public init = new EventEmitter<void>();
     private initialized = false;
 
-    constructor(private _el: ElementRef) {
+    constructor(@Inject(PLATFORM_ID) private platformId: Object, private _el: ElementRef) {
     }
 
     @Input()
     public set materializeParams(params: any) {
-        this._params = params;
-        this.performElementUpdates();
+        if (this.isBrowser) {
+            this._params = params;
+            this.performElementUpdates();
+        }
     }
 
     @Input()
-    public set materializeActions(actions: EventEmitter<string|MaterializeAction>) {
-        actions.subscribe((action: string|MaterializeAction) => {
-            window.setTimeout(()=> {
-                if (typeof action === "string") {
-                    this.performLocalElementUpdates(action);
-                } else {
-                    this.performLocalElementUpdates(action.action, action.params);
-                }
-            },1);
-        })
+    public set materializeActions(actions: EventEmitter<string | MaterializeAction>) {
+        if (this.isBrowser) {
+            actions.subscribe((action: string | MaterializeAction) => {
+                window.setTimeout(() => {
+                    if (typeof action === "string") {
+                        this.performLocalElementUpdates(action);
+                    } else {
+                        this.performLocalElementUpdates(action.action, action.params);
+                    }
+                }, 1);
+            })
+        }
     }
 
     @Input()
@@ -84,40 +92,48 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     @Input() ngModel;
 
     public ngAfterViewInit() {
-        this.performElementUpdates();
+        if (this.isBrowser) {
+            this.performElementUpdates();
+        }
     }
 
     public ngOnChanges(_unused?) {
-        if (this.isSelect()) {
-            setTimeout(() => this.performLocalElementUpdates(), 10);
+        if (this.isBrowser) {
+            if (this.isSelect()) {
+                setTimeout(() => this.performLocalElementUpdates(), 10);
+            }
         }
     }
 
     public ngOnDestroy() {
-        this.performElementRemotion();
+        if (this.isBrowser) {
+            this.performElementRemotion();
+        }
     }
 
     public ngDoCheck() {
-        const nativeElement = this._el.nativeElement;
-        const jQueryElement = $(nativeElement);
-        if (this.isSelect()) {
-            let shouldUpdate = false;
-            if (nativeElement.disabled != this.previousDisabled) {
-                this.previousDisabled = nativeElement.disabled;
-                shouldUpdate = true;
-            }
-            if (!jQueryElement.attr("multiple") && nativeElement.value != this.previousValue) {
-                // handle select changes of the model
-                this.previousValue = nativeElement.value;
-                shouldUpdate = true;
-            }
-            if (shouldUpdate) {
-                this.performLocalElementUpdates();
-            }
-        } else if (this.isTextarea()) {
-            if (nativeElement.value != this.previousValue) {
-                this.previousValue = nativeElement.value;
-                this.performElementUpdates();
+        if (this.isBrowser) {
+            const nativeElement = this._el.nativeElement;
+            const jQueryElement = $(nativeElement);
+            if (this.isSelect()) {
+                let shouldUpdate = false;
+                if (nativeElement.disabled != this.previousDisabled) {
+                    this.previousDisabled = nativeElement.disabled;
+                    shouldUpdate = true;
+                }
+                if (!jQueryElement.attr("multiple") && nativeElement.value != this.previousValue) {
+                    // handle select changes of the model
+                    this.previousValue = nativeElement.value;
+                    shouldUpdate = true;
+                }
+                if (shouldUpdate) {
+                    this.performLocalElementUpdates();
+                }
+            } else if (this.isTextarea()) {
+                if (nativeElement.value != this.previousValue) {
+                    this.previousValue = nativeElement.value;
+                    this.performElementUpdates();
+                }
             }
         }
         return false;
@@ -179,7 +195,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                     picker.set('select', this.ngModel);
                 } else {
                     const value = jqueryPickerElement.val();
-                    if (value && value.length>0) {
+                    if (value && value.length > 0) {
                         picker.set('select', value);
                     }
                 }
@@ -200,7 +216,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                     picker.val(jqueryPickerElement.val());
                 }
                 jqueryPickerElement.on('change', e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
-           });
+            });
         }
 
         if (this.isChips()) {

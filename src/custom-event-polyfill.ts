@@ -3,7 +3,7 @@ export function CustomEvent ( type, detail = undefined, params = { bubbles: fals
     event.initCustomEvent( type, params.bubbles, params.cancelable, detail );
     return event;
 }
-if ("Event" in window) {
+if ("undefined"!=typeof window && "Event" in window) {
     CustomEvent.prototype = (window as any).Event.prototype;
 }
 

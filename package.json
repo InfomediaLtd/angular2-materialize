@@ -32,7 +32,7 @@
     "postsemantic-release": "semantic-release post"
   },
   "peerDependencies": {
-    "materialize-css": "^0.100.1",
+    "materialize-css": "^1.0.0",
     "@angular/common": "^5.0.0"
   },
   "config": {

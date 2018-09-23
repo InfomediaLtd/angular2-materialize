@@ -11,7 +11,7 @@ branches:
 notifications:
   email: false
 node_js:
-  - '6'
+  - '10'
 before_install:
   # - npm i -g npm
   - npm i -g @angular/cli
